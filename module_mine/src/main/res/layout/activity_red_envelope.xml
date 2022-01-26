@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mSrlRefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ResourceName">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:background="@color/white"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/mCtlWebTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:titleEnabled="false">
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/transparent"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:title="@string/app_name">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dp_30">
+                        <ImageView
+                            android:id="@+id/mIvBack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:padding="@dimen/dp_20"
+                            android:src="@mipmap/ic_back"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:padding="@dimen/dp_10"
+                            android:textSize="@dimen/dp_36"
+                            android:textColor="@color/color_333333"
+                            android:text="红包"/>
+                        <TextView
+                            android:id="@+id/mTvReceivingInstructions"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:padding="@dimen/dp_10"
+                            android:textSize="@dimen/dp_32"
+                            android:textColor="@color/color_333333"
+                            android:text="领取说明"/>
+                    </RelativeLayout>
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mClContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <TextView
+                android:id="@+id/mTvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:paddingTop="@dimen/dp_29"
+                android:paddingBottom="@dimen/dp_27"
+                android:paddingStart="@dimen/dp_42"
+                android:paddingEnd="@dimen/dp_42"
+                android:background="@color/white"
+                android:textSize="@dimen/dp_28"
+                android:textColor="@color/color_333333"
+                tools:text="恭喜您！获得新人奖励红包300元！"/>
+
+            <TextView
+                android:id="@+id/mTvTotalReceiveCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/mTvTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                android:paddingStart="@dimen/dp_42"
+                android:paddingEnd="@dimen/dp_20"
+                android:background="@color/white"
+                android:textSize="@dimen/dp_28"
+                android:textColor="@color/color_333333"
+                tools:text="已领取24个"/>
+
+            <View
+                android:id="@+id/line_count"
+                android:layout_width="@dimen/dp_1"
+                android:layout_height="@dimen/dp_27"
+                android:background="@color/color_666666"
+                app:layout_constraintTop_toTopOf="@+id/mTvTotalReceiveCount"
+                app:layout_constraintBottom_toBottomOf="@+id/mTvTotalReceiveCount"
+                app:layout_constraintStart_toEndOf="@+id/mTvTotalReceiveCount"/>
+
+            <TextView
+                android:id="@+id/mTvTotalReceiveAmount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/mTvTotalReceiveCount"
+                app:layout_constraintStart_toEndOf="@+id/line_count"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:paddingStart="@dimen/dp_20"
+                android:paddingEnd="@dimen/dp_42"
+                android:background="@color/white"
+                android:textSize="@dimen/dp_28"
+                android:textColor="@color/color_333333"
+                tools:text="合计80元"/>
+
+            <View
+                android:id="@+id/line_red_count"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_27"
+                app:layout_constraintTop_toBottomOf="@+id/mTvTotalReceiveAmount"
+                android:background="@color/white"/>
+
+            <TextView
+                android:id="@+id/mTvValidDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/line_red_count"
+                app:layout_constraintStart_toStartOf="parent"
+                android:paddingBottom="@dimen/dp_27"
+                android:paddingStart="@dimen/dp_42"
+                android:paddingEnd="@dimen/dp_42"
+                android:background="@color/white"
+                android:textSize="@dimen/dp_24"
+                android:textColor="@color/color_666666"
+                tools:text="活动有效期：2021.06.06至2021.07.31"/>
+
+            <View
+                android:id="@+id/line_header"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_13"
+                android:background="@color/color_F9F9F9"
+                app:layout_constraintTop_toBottomOf="@+id/mTvValidDate"/>
+
+            <com.flash.worker.lib.common.view.widget.LMRecyclerView
+                android:id="@+id/mRvRedEnvelope"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/line_header"
+                android:paddingBottom="@dimen/dp_29"
+                android:clipToPadding="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/mTvNoData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableTop="@mipmap/img_no_red_envelope"
+            android:drawablePadding="@dimen/dp_65"
+            android:gravity="center"
+            android:textSize="@dimen/dp_32"
+            android:textColor="@color/color_666666"
+            android:text="当前暂无活动\t\t敬请期待~"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+

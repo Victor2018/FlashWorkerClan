@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:fitsSystemWindows="true"
+    tools:ignore="MissingDefaultResource,ResourceName">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/mCtlWebTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="false">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/transparent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/app_name">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_30">
+                    <ImageView
+                        android:id="@+id/mIvBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp_20"
+                        android:src="@mipmap/ic_back"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dp_10"
+                        android:textSize="@dimen/dp_36"
+                        android:textColor="@color/color_333333"
+                        android:text="申请成立公会"/>
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_13"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/mCvGuidanceNotes"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_134"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/dp_21"
+            android:layout_marginEnd="@dimen/dp_21"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/dp_13"
+            app:cardElevation="@dimen/dp_5">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="@dimen/dp_21"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:drawableLeft="@mipmap/ic_guidance_notes"
+                android:drawablePadding="@dimen/dp_22"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/dp_28"
+                android:text="成立公会须知"/>
+
+            <TextView
+                android:id="@+id/mine_textview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:drawableLeft="@mipmap/ic_guidance_notes"
+                android:drawablePadding="@dimen/dp_22"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/dp_21"
+                android:text="成立公会须知"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/dp_28" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/mCvSignApplyForm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_134"
+            app:layout_constraintTop_toBottomOf="@+id/mCvGuidanceNotes"
+            android:layout_marginStart="@dimen/dp_21"
+            android:layout_marginEnd="@dimen/dp_21"
+            android:layout_marginTop="@dimen/dp_13"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/dp_13"
+            app:cardElevation="@dimen/dp_5">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_apply_form"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_21"
+                    android:src="@mipmap/ic_application_form"
+                    android:layout_centerVertical="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/iv_apply_form"
+                    android:layout_marginStart="@dimen/dp_22"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/dp_28"
+                    android:text="填写申请表"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/iv_apply_form"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="@dimen/dp_22"
+                    android:layout_marginBottom="@dimen/dp_30"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_999999"
+                    android:textSize="@dimen/dp_24"
+                    android:text="填写申请表前请务必先认真阅读成立公会须知"/>
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/mCvApplyRecord"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_134"
+            app:layout_constraintTop_toBottomOf="@+id/mCvSignApplyForm"
+            android:layout_marginTop="@dimen/dp_13"
+            android:layout_marginStart="@dimen/dp_21"
+            android:layout_marginEnd="@dimen/dp_21"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/dp_13"
+            app:cardElevation="@dimen/dp_5">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/line_customer_service"
+                android:paddingStart="@dimen/dp_21"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:drawableLeft="@mipmap/ic_application_record"
+                android:drawablePadding="@dimen/dp_22"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/dp_28"
+                android:text="申请记录"/>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+

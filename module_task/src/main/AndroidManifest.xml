@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.flash.worker.module.task">
+
+    <application android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".view.activity.TaskActivity"
+            android:label="@string/task_module_task"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.TaskNewReleaseActivity"
+            android:label="@string/task_module_task"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.TaskUpdateReleaseActivity"
+            android:label="@string/task_module_task"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.TaskSearchActivity"
+            android:label="@string/task_module_task"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.TaskDetailActivity"
+            android:label="@string/task_module_task"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.LeadTaskSuccessActivity"
+            android:label="@string/task_module_task"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.SubmitTaskActivity"
+            android:label="@string/task_module_task"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.TaskSubmitDetailActivity"
+            android:label="@string/task_module_task"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.TaskOrderDetailActivity"
+            android:label="@string/task_module_task"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.TaskSettlementSalaryActivity"
+            android:label="@string/task_module_task"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.TaskSettlementSalarySuccessActivity"
+            android:label="@string/task_module_task"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

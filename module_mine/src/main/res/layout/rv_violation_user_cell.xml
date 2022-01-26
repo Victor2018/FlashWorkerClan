@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/dp_27"
+    android:paddingBottom="@dimen/dp_27"
+    android:paddingStart="@dimen/dp_42"
+    android:paddingEnd="@dimen/dp_42"
+    tools:ignore="MissingDefaultResource,ResourceName">
+
+    <TextView
+        android:id="@+id/mTvViolationUserId"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/mTvActualViolationDesc"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_666666"
+        android:text="尾号3585"/>
+
+    <TextView
+        android:id="@+id/mTvActualViolationDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mTvViolationUserId"
+        app:layout_constraintEnd_toStartOf="@+id/mTvReportResult"
+        android:gravity="center"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_666666"
+        android:text="违法/敏感言论"/>
+
+    <TextView
+        android:id="@+id/mTvReportResult"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mTvActualViolationDesc"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center|right"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_E26853"
+        android:text="期限冻结"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

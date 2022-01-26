@@ -1,0 +1,25 @@
+<resources>
+    <string name="login_module_login">module_login</string>
+
+    <string name="login_fragment">LoginFragment</string>
+    <string name="login_switch_msg">切换到短信登录页面</string>
+    <string name="login_custom_toast">同意服务条款才可以登录</string>
+    <string name="login_welcome_login">欢迎登录<font color='#F4CC28'>闪工族</font></string>
+    <string name="login_sgz">闪工族</string>
+    <string name="login_bind_phone">绑定手机</string>
+    <string name="login_bind_phone_tip">为了您的账户安全首次登陆请验证手机号</string>
+    <string name="login_enter_phone_tip">请输入手机号码</string>
+    <string name="login_enter_verification_code">请输入验证码</string>
+    <string name="login_get_verification_code">获取验证码</string>
+    <string name="login_get_ver_code_successful">获取验证码成功</string>
+    <string name="login_login">登录</string>
+    <string name="login_login_successful">登录成功</string>
+    <string name="login_after_get">后重新获取</string>
+    <string name="login_verification_code_login">验证码登录</string>
+    <string name="login_other_login_way">其他登录方式</string>
+    <string name="login_one_key_login">手机一键登录</string>
+    <string name="login_wechat_login">微信登录</string>
+
+    <string name="login_agreement">登录即表示同意<a href="shangongzu://openurl?title=《闪工族服务协议》&#38;url=https://www.shangongzu.com/static/userServiceAgreement.html">《闪工族服务协议》</a> 、<a href="shangongzu://openurl?title=《闪工族隐私政策》&#38;url=https://www.shangongzu.com/static/userPrivacyPolicy.html">《闪工族隐私政策》</a></string>
+
+</resources>

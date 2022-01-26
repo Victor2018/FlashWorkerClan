@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:fitsSystemWindows="true"
+    tools:ignore="MissingDefaultResource,ResourceName">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="false">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/transparent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/app_name">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_30">
+                    <ImageView
+                        android:id="@+id/mIvBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp_20"
+                        android:src="@mipmap/ic_back"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dp_10"
+                        android:text="领取任务"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/dp_36" />
+
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <View
+            android:id="@+id/line_center"
+            android:layout_width="@dimen/dp_1"
+            android:layout_height="@dimen/dp_1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_task_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/line_center"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/dp_66"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:textStyle="bold"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:text="任务名称:"/>
+
+        <TextView
+            android:id="@+id/mTvTaskName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/line_center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_task_name"
+            android:layout_marginStart="@dimen/dp_30"
+            android:layout_marginEnd="@dimen/dp_42"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_666666"
+            tools:text="问卷调查"/>
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/line_center"
+            app:layout_constraintTop_toBottomOf="@+id/mTvTaskName"
+            android:layout_marginTop="@dimen/dp_40"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:textStyle="bold"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:text="报酬单价:"/>
+
+        <TextView
+            android:id="@+id/mTvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/line_center"
+            app:layout_constraintTop_toTopOf="@+id/tv_price"
+            android:layout_marginStart="@dimen/dp_30"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_666666"
+            tools:text="5.00元"/>
+
+        <TextView
+            android:id="@+id/tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/line_center"
+            app:layout_constraintTop_toBottomOf="@+id/tv_price"
+            android:layout_marginTop="@dimen/dp_40"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:textStyle="bold"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:text="任务数量:"/>
+
+        <TextView
+            android:id="@+id/mTvCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/line_center"
+            app:layout_constraintTop_toTopOf="@+id/tv_count"
+            android:layout_marginStart="@dimen/dp_30"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_666666"
+            tools:text="10件"/>
+
+        <TextView
+            android:id="@+id/tv_subtotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/line_center"
+            app:layout_constraintTop_toBottomOf="@+id/tv_count"
+            android:layout_marginTop="@dimen/dp_40"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:textStyle="bold"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:text="报酬小计:"/>
+
+        <TextView
+            android:id="@+id/mTvSubtotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/line_center"
+            app:layout_constraintTop_toTopOf="@+id/tv_subtotal"
+            android:layout_marginStart="@dimen/dp_30"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_666666"
+            tools:text="50.00元"/>
+
+        <TextView
+            android:id="@+id/tv_credit_freeze_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/line_center"
+            app:layout_constraintTop_toBottomOf="@+id/tv_subtotal"
+            android:layout_marginTop="@dimen/dp_40"
+            android:layout_marginEnd="@dimen/dp_20"
+            android:textStyle="bold"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            tools:text="信用冻结(10%):"/>
+
+        <TextView
+            android:id="@+id/mTvCreditFreezeAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/line_center"
+            app:layout_constraintTop_toTopOf="@+id/tv_credit_freeze_amount"
+            android:layout_marginStart="@dimen/dp_30"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_666666"
+            tools:text="5.00元"/>
+
+        <TextView
+            android:id="@+id/tv_credit_freeze_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_credit_freeze_amount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/dp_65"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_666666"
+            android:text="冻结的信用金将在完成任务后解冻！"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/mTvAccountBalance"
+            app:layout_constraintBaseline_toBaselineOf="@+id/mTvAccountBalance"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:textSize="@dimen/dp_24"
+            android:textColor="@color/color_333333"
+            android:text="可用余额："/>
+
+        <TextView
+            android:id="@+id/mTvAccountBalance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/tv_yuan"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_yuan"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:textStyle="bold"
+            android:textSize="@dimen/dp_36"
+            android:textColor="@color/color_E26853"
+            tools:text="100.00"/>
+
+        <TextView
+            android:id="@+id/tv_yuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_credit_freeze_tip"
+            android:layout_marginTop="@dimen/dp_112"
+            android:layout_marginEnd="@dimen/dp_42"
+            android:textSize="@dimen/dp_24"
+            android:textColor="@color/color_E26853"
+            android:text="元"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_tip_content"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/dp_24"
+            android:text="温馨提醒："/>
+
+        <TextView
+            android:id="@+id/tv_tip_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="@dimen/dp_198"
+            android:paddingLeft="@dimen/dp_168"
+            android:paddingRight="@dimen/dp_168"
+            android:textSize="@dimen/dp_24"
+            android:gravity="center"
+            android:textColor="@color/color_999999"
+            android:lineSpacingMultiplier="1.2"
+            android:text="若您领取任务后未如约完成，平台将自动扣划该笔信用金赔付给雇主！"/>
+
+        <TextView
+            android:id="@+id/mTvConfirmLead"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_90"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/color_F7E047"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:textSize="@dimen/dp_36"
+            android:textColor="@color/color_333333"
+            android:textAllCaps="false"
+            android:text="确认领取"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

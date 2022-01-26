@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.flash.worker.module.job">
+
+    <application android:theme="@style/AppTheme.NoActionBar">
+
+        <activity
+            android:name=".view.activity.JobActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/job_module_job"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".view.activity.JobDetailActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/job_module_job"/>
+
+        <activity
+            android:name=".view.activity.SignUpActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/job_module_job"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".view.activity.SignUpSuccessActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/job_module_job"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".view.activity.HirerDetailActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/job_module_job"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".view.activity.EmployerAllEvaluationActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/job_module_job"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".view.activity.EmployerDetailActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/job_module_job" />
+
+        <activity
+            android:name=".view.activity.JobSearchActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/job_module_job"
+            android:launchMode="singleTask" />
+
+    </application>
+
+</manifest>

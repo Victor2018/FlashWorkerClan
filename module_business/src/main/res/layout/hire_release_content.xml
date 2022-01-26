@@ -1,0 +1,1143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/dp_200"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource,ResourceName">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mClEmployer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_13"
+        android:paddingLeft="@dimen/dp_25"
+        android:paddingRight="@dimen/dp_42"
+        android:paddingTop="@dimen/dp_13"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground">
+
+        <com.flash.worker.lib.common.view.widget.RequiredTextView
+            android:id="@+id/rtv_employer"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            app:prefix_color="@color/color_E26853"
+            app:android_text=" 雇主"/>
+
+        <TextView
+            android:id="@+id/mTvEmployer"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_80"
+            android:drawableRight="@mipmap/ic_right"
+            android:drawablePadding="@dimen/dp_22"
+            android:gravity="center|right"
+            android:hint="请选择雇主信息"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dp_28"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rtv_employer"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            style="@style/base_line_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="@dimen/dp_17"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mClTalentType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_25"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_13"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground">
+
+        <com.flash.worker.lib.common.view.widget.RequiredTextView
+            android:id="@+id/rtv_talent_type"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            app:prefix_color="@color/color_E26853"
+            app:android_text=" 雇用人才类型"/>
+
+        <TextView
+            android:id="@+id/mTvTalentType"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_80"
+            android:drawableRight="@mipmap/ic_right"
+            android:drawablePadding="@dimen/dp_22"
+            android:gravity="center|right"
+            android:hint="请选择人才类型"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dp_28"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rtv_talent_type"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            style="@style/base_line_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="@dimen/dp_17"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_25"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_13">
+
+        <com.flash.worker.lib.common.view.widget.RequiredTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            app:prefix_color="@color/color_E26853"
+            app:android_text=" 岗位名称"/>
+
+        <TextView
+            android:id="@+id/tv_title_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintLeft_toRightOf="@+id/tv_title"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_title"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_24"
+            android:text="(标题展示)"/>
+
+        <EditText
+            android:id="@+id/mEtTitle"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_title_lable"
+            android:background="@null"
+            android:hint="例：餐饮服务员"
+            android:maxLength="12"
+            android:maxLines="1"
+            android:inputType="text"
+            android:gravity="center|right"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"/>
+
+        <View
+            style="@style/base_line_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="@dimen/dp_17"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_25"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_13">
+
+        <com.flash.worker.lib.common.view.widget.RequiredTextView
+            android:id="@+id/tv_employment_count"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            app:prefix_color="@color/color_E26853"
+            app:android_text=" 雇用人数"/>
+
+        <EditText
+            android:id="@+id/mEtEmploymentCount"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_employment_count"
+            android:background="@null"
+            android:hint="请输入需要雇用的人数"
+            android:inputType="number"
+            android:maxLength="3"
+            android:gravity="center|right"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"/>
+
+        <View
+            style="@style/base_line_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="@dimen/dp_17"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_48">
+
+        <TextView
+            android:id="@+id/tv_do_at_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/mToggleDoAtHome"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginRight="@dimen/dp_20"
+            android:gravity="center|right"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_666666"
+            android:text="远程可做"/>
+
+        <Switch
+            android:id="@+id/mToggleDoAtHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:thumb="@drawable/switch_thumb_selector"
+            android:track="@drawable/switch_track_selector"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mClWorkAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_13"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground">
+
+        <com.flash.worker.lib.common.view.widget.RequiredTextView
+            android:id="@+id/mRtvWorkAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            android:paddingLeft="@dimen/dp_25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            app:prefix_color="@color/color_E26853"
+            app:android_text=" 工作地区"/>
+
+        <TextView
+            android:id="@+id/mTvWorkArea"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_80"
+            android:drawableRight="@mipmap/ic_right"
+            android:drawablePadding="@dimen/dp_22"
+            android:gravity="center|right"
+            android:hint="请选择工作地区"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dp_28"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/mRtvWorkAddress"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            style="@style/base_line_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="@dimen/dp_42"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_13">
+
+        <EditText
+            android:id="@+id/mEtAddress"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_80"
+            android:background="@drawable/bg_et_line"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:hint="详细地址(必填)"
+            android:inputType="text"
+            android:maxLines="1"
+            android:maxLength="25"
+            android:gravity="center|right"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_48">
+
+        <TextView
+            android:id="@+id/tv_emergency_release"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/mToggleEmergencyRelease"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginRight="@dimen/dp_20"
+            android:gravity="center|right"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_666666"
+            android:text="紧急发布"/>
+
+        <Switch
+            android:id="@+id/mToggleEmergencyRelease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:thumb="@drawable/switch_thumb_selector"
+            android:track="@drawable/switch_track_selector"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_45"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingRight="@dimen/dp_42"
+        android:textSize="@dimen/dp_24"
+        android:textColor="@color/color_999999"
+        android:text="温馨提示：紧急发布将于开工时间前2小时截止录取人才，时间截止发布将同时下架。"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_13"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground">
+
+        <com.flash.worker.lib.common.view.widget.RequiredTextView
+            android:id="@+id/rtv_work_date"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            android:paddingLeft="@dimen/dp_25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            app:prefix_color="@color/color_E26853"
+            app:android_text=" 工作日期"/>
+
+        <TextView
+            android:id="@+id/mTvStartDate"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintStart_toEndOf="@+id/rtv_work_date"
+            app:layout_constraintEnd_toStartOf="@+id/tv_to"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_666666"
+            android:hint="开始日期"/>
+
+        <TextView
+            android:id="@+id/tv_to"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rtv_work_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            android:textSize="@dimen/dp_24"
+            android:textColor="@color/color_333333"
+            android:text="至"/>
+
+        <TextView
+            android:id="@+id/mTvEndDate"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintStart_toEndOf="@+id/tv_to"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_666666"
+            android:hint="结束日期"/>
+
+        <View
+            style="@style/base_line_horizontal"
+            android:layout_width="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/mTvStartDate"
+            app:layout_constraintEnd_toEndOf="@+id/mTvEndDate"
+            android:layout_marginLeft="@dimen/dp_29"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_26">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@+id/mTvDayCount"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_day"
+            android:gravity="center"
+            android:textSize="@dimen/dp_24"
+            android:textColor="@color/color_E26853"
+            android:text="合计："/>
+
+        <TextView
+            android:id="@+id/mTvDayCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@+id/tv_day"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_day"
+            android:textSize="@dimen/dp_32"
+            android:textColor="@color/color_E26853"
+            android:text="0"/>
+
+        <TextView
+            android:id="@+id/tv_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="@dimen/dp_24"
+            android:textColor="@color/color_E26853"
+            android:text="天"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/dp_32"
+        android:layout_marginTop="@dimen/dp_13"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground">
+
+        <com.flash.worker.lib.common.view.widget.RequiredTextView
+            android:id="@+id/rtv_work_time"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            android:paddingLeft="@dimen/dp_25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            app:prefix_color="@color/color_E26853"
+            app:android_text=" 到岗"/>
+
+        <TextView
+            android:id="@+id/mTvStartTime"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintStart_toEndOf="@+id/rtv_work_time"
+            app:layout_constraintEnd_toStartOf="@+id/tv_time_to"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_666666"
+            android:hint="开工时间"/>
+
+        <com.flash.worker.lib.common.view.widget.RequiredTextView
+            android:id="@+id/tv_time_to"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rtv_work_time"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            app:prefix_color="@color/color_E26853"
+            app:android_text=" 离岗"/>
+
+        <TextView
+            android:id="@+id/mTvEndTime"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintStart_toEndOf="@+id/tv_time_to"
+            app:layout_constraintEnd_toStartOf="@+id/mIvWorkTimeNotice"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_666666"
+            android:hint="完工时间"/>
+
+        <ImageView
+            android:id="@+id/mIvWorkTimeNotice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="@dimen/dp_10"
+            android:src="@mipmap/ic_work_time_notice"/>
+
+        <View
+            style="@style/base_line_horizontal"
+            android:layout_width="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/mTvStartTime"
+            app:layout_constraintEnd_toEndOf="@+id/mTvEndTime"
+            android:layout_marginLeft="@dimen/dp_29"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mClPaidHour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_25"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_13"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground">
+
+        <com.flash.worker.lib.common.view.widget.RequiredTextView
+            android:id="@+id/tv_paid_hour"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            app:prefix_color="@color/color_E26853"
+            app:android_text=" 工作时长"/>
+
+        <TextView
+            android:id="@+id/tv_paid_hour_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintLeft_toRightOf="@+id/tv_paid_hour"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_paid_hour"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_24"
+            android:text="(日薪计算依据)"/>
+
+        <TextView
+            android:id="@+id/mTvPaidHour"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_80"
+            android:drawableRight="@mipmap/ic_right"
+            android:drawablePadding="@dimen/dp_22"
+            android:gravity="center|right"
+            android:hint="请选择工作时长"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/dp_28"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_paid_hour_lable"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_25"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingRight="@dimen/dp_42"
+        android:paddingBottom="@dimen/dp_20"
+        android:textSize="@dimen/dp_24"
+        android:textColor="@color/color_999999"
+        android:text="温馨提示 ：人才按时到岗后，请在开工时间1小时内预付报酬；人才按要求完工后，请在完工时间24小时内结薪。"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_25"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_13">
+
+        <com.flash.worker.lib.common.view.widget.RequiredTextView
+            android:id="@+id/tv_unit_price"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            app:prefix_color="@color/color_E26853"
+            app:android_text=" 报酬单价"/>
+
+        <EditText
+            android:id="@+id/mEtUnitPrice"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintStart_toEndOf="@+id/tv_unit_price"
+            app:layout_constraintEnd_toStartOf="@+id/tv_unit_price_lable"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_5"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/bg_et_line"
+            android:maxLength="9"
+            android:gravity="center_vertical"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:hint="请输入您的报酬单价"/>
+
+        <TextView
+            android:id="@+id/tv_unit_price_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintEnd_toStartOf="@+id/mRgSalary"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginRight="@dimen/dp_30"
+            android:gravity="center"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:text="元"/>
+
+        <RadioGroup
+            android:id="@+id/mRgSalary"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <RadioButton
+                android:id="@+id/mRbHourlySalary"
+                android:layout_width="@dimen/dp_103"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dp_13"
+                android:paddingBottom="@dimen/dp_13"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:textColor="@color/rb_student_title_color"
+                android:background="@drawable/rb_student_selector"
+                android:drawablePadding="@dimen/dp_24"
+                android:textSize="@dimen/dp_24"
+                android:text="时薪"/>
+            <RadioButton
+                android:id="@+id/mRbPieceSalary"
+                android:layout_width="@dimen/dp_103"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_25"
+                android:paddingTop="@dimen/dp_13"
+                android:paddingBottom="@dimen/dp_13"
+                android:button="@null"
+                android:gravity="center"
+                android:textColor="@color/rb_student_title_color"
+                android:background="@drawable/rb_student_selector"
+                android:drawablePadding="@dimen/dp_24"
+                android:textSize="@dimen/dp_24"
+                android:text="整单"/>
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mClHourlySalary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_26">
+
+        <TextView
+            android:id="@+id/tv_day_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@+id/mTvDailySalary"
+            app:layout_constraintBottom_toBottomOf="@+id/mTvDailySalary"
+            android:layout_marginRight="@dimen/dp_10"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/color_E26853"
+            android:textSize="@dimen/dp_24"
+            android:text="日薪："/>
+
+        <TextView
+            android:id="@+id/mTvDailySalary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@+id/tv_day_price_lable"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_day_price_lable"
+            android:layout_marginRight="@dimen/dp_10"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/color_E26853"
+            android:textSize="@dimen/dp_28"
+            android:text="0.00"/>
+
+        <TextView
+            android:id="@+id/tv_day_price_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/tv_day_total"
+            android:layout_marginRight="@dimen/dp_40"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/color_E26853"
+            android:textSize="@dimen/dp_24"
+            android:text="元"/>
+
+        <TextView
+            android:id="@+id/tv_day_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@+id/mTvDayTotalPrice"
+            app:layout_constraintBottom_toBottomOf="@+id/mTvDayTotalPrice"
+            android:layout_marginRight="@dimen/dp_10"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/color_E26853"
+            android:textSize="@dimen/dp_24"
+            android:text="报酬总价："/>
+
+        <TextView
+            android:id="@+id/mTvDayTotalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@+id/tv_day_total_price_lable"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_day_total_price_lable"
+            android:layout_marginRight="@dimen/dp_10"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/color_E26853"
+            android:textSize="@dimen/dp_28"
+            android:text="0.00"/>
+
+        <TextView
+            android:id="@+id/tv_day_total_price_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/color_E26853"
+            android:textSize="@dimen/dp_24"
+            android:text="元"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mClPieceSalary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_26"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@+id/mTvPieceTotalSalary"
+            app:layout_constraintBottom_toBottomOf="@+id/mTvPieceTotalSalary"
+            android:layout_marginRight="@dimen/dp_10"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/color_E26853"
+            android:textSize="@dimen/dp_24"
+            android:text="报酬总价："/>
+
+        <TextView
+            android:id="@+id/mTvPieceTotalSalary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@+id/tv_piece_total_salary_lable"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_piece_total_salary_lable"
+            android:layout_marginRight="@dimen/dp_10"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/color_E26853"
+            android:textSize="@dimen/dp_28"
+            android:text="0.00"/>
+
+        <TextView
+            android:id="@+id/tv_piece_total_salary_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/color_E26853"
+            android:textSize="@dimen/dp_24"
+            android:text="元"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mClSettlementMethod"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_25"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_13"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground">
+
+        <com.flash.worker.lib.common.view.widget.RequiredTextView
+            android:id="@+id/rtv_settlement_method"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            app:prefix_color="@color/color_E26853"
+            app:android_text=" 结算方式"/>
+
+        <TextView
+            android:id="@+id/mTvSettlementMethod"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_80"
+            android:drawableRight="@mipmap/ic_right"
+            android:drawablePadding="@dimen/dp_22"
+            android:gravity="center|right"
+            android:hint="请选择结算方式"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dp_28"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rtv_settlement_method"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            style="@style/base_line_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="@dimen/dp_17"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_26">
+
+        <TextView
+            android:id="@+id/tv_settlement_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@+id/mTvSettlementAmount"
+            app:layout_constraintBottom_toBottomOf="@+id/mTvSettlementAmount"
+            android:layout_marginRight="@dimen/dp_10"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/color_E26853"
+            android:textSize="@dimen/dp_24"
+            android:text="结算金额："/>
+
+        <TextView
+            android:id="@+id/mTvSettlementAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toLeftOf="@+id/tv_settlement_amt_lable"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_settlement_amt_lable"
+            android:layout_marginRight="@dimen/dp_10"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/color_E26853"
+            android:textSize="@dimen/dp_28"
+            android:text="0.00"/>
+        <TextView
+            android:id="@+id/tv_settlement_amt_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/color_E26853"
+            android:textSize="@dimen/dp_24"
+            android:text="元"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mClRequireIdentity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_13"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground">
+
+        <TextView
+            android:id="@+id/tv_require_identity"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            android:text="身份要求"/>
+
+        <TextView
+            android:id="@+id/mTvRequireIdentity"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_80"
+            android:drawableRight="@mipmap/ic_right"
+            android:drawablePadding="@dimen/dp_22"
+            android:gravity="center|right"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/dp_28"
+            android:text="不限"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_require_identity"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            style="@style/base_line_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="@dimen/dp_17"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mClSexRequirement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_13"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground">
+
+        <TextView
+            android:id="@+id/tv_sex_requirement"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            android:text="性别要求"/>
+
+        <TextView
+            android:id="@+id/mTvSexRequirement"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_80"
+            android:drawableRight="@mipmap/ic_right"
+            android:drawablePadding="@dimen/dp_22"
+            android:gravity="center|right"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/dp_28"
+            android:text="不限"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_sex_requirement"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            style="@style/base_line_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="@dimen/dp_17"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mClAgeRequirement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_13"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground">
+
+        <TextView
+            android:id="@+id/tv_age_requirement"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            android:text="年龄要求"/>
+
+        <TextView
+            android:id="@+id/mTvAgeRequirement"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_80"
+            android:drawableRight="@mipmap/ic_right"
+            android:drawablePadding="@dimen/dp_22"
+            android:gravity="center|right"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/dp_28"
+            android:text="不限"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_age_requirement"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            style="@style/base_line_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="@dimen/dp_17"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mClEduRequirement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_13"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground">
+
+        <TextView
+            android:id="@+id/tv_edu_requirement"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_80"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            android:text="学历要求"/>
+
+        <TextView
+            android:id="@+id/mTvEduRequirement"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_80"
+            android:drawableRight="@mipmap/ic_right"
+            android:drawablePadding="@dimen/dp_22"
+            android:gravity="center|right"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/dp_28"
+            android:text="不限"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_edu_requirement"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            style="@style/base_line_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="@dimen/dp_17"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_25"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingRight="@dimen/dp_42"
+        android:paddingBottom="@dimen/dp_20"
+        android:textSize="@dimen/dp_24"
+        android:textColor="@color/color_999999"
+        android:text="温馨提醒：平台将根据您设定的要求拦截人才的报名，请慎重选择。"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingTop="@dimen/dp_30"
+        android:textSize="@dimen/dp_24"
+        android:textColor="@color/color_666666"
+        android:text="工作环境"/>
+
+    <com.flash.worker.lib.common.view.widget.LMRecyclerView
+        android:id="@+id/mRvWorksPic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_22"
+        android:paddingRight="@dimen/dp_22"
+        android:paddingBottom="@dimen/dp_20"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="false"
+        app:spanCount="4"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingTop="@dimen/dp_30"
+        android:textSize="@dimen/dp_24"
+        android:textColor="@color/color_666666"
+        android:text="工作描述"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingRight="@dimen/dp_42"
+        android:layout_marginTop="@dimen/dp_27">
+
+        <EditText
+            android:id="@+id/mEtDescription"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:minHeight="@dimen/dp_200"
+            android:maxLength="200"
+            android:textSize="@dimen/dp_24"
+            android:textColor="@color/color_333333"
+            android:padding="@dimen/dp_10"
+            android:gravity="left|top"
+            android:background="@drawable/border_cccccc_radius_7"
+            android:text="【工作内容】：\n\n【工作要求】：\n\n【工作时间】："/>
+
+        <TextView
+            android:id="@+id/mTvDescriptionCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginRight="@dimen/dp_16"
+            android:paddingBottom="@dimen/dp_13"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/dp_24"
+            android:text="0/200"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

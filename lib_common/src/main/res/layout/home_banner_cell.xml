@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flash.worker.lib.common.view.widget.ShapedImageView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mIvBannerImage"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scaleType="fitXY"
+    app:shape_mode="round_rect"
+    app:round_radius="@dimen/dp_7"
+    tools:ignore="ResourceName"/>

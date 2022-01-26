@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ShapedImageView">
+        <attr name="shape_mode" format="enum">
+            <enum name="round_rect" value="1" />
+            <enum name="circle" value="2" />
+        </attr>
+        <attr name="round_radius" format="dimension" />
+
+        <attr name="stroke_width" format="dimension" />
+        <attr name="stroke_color" format="color|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="RequiredTextView">
+        <attr name="prefix" format="string" />
+        <attr name="android_text" format="string" />
+        <attr name="prefix_color" format="color|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="MaterialRatingBar">
+        <attr name="mrb_progressTint" format="color|reference" />
+        <attr name="mrb_progressTintMode" format="enum">
+            <enum name="src_over" value="3" />
+            <enum name="src_in" value="5" />
+            <enum name="src_atop" value="9" />
+            <enum name="multiply" value="14" />
+            <enum name="screen" value="15" />
+            <enum name="add" value="16" />
+        </attr>
+        <attr name="mrb_secondaryProgressTint" format="color|reference" />
+        <attr name="mrb_secondaryProgressTintMode" format="enum">
+            <enum name="src_over" value="3" />
+            <enum name="src_in" value="5" />
+            <enum name="src_atop" value="9" />
+            <enum name="multiply" value="14" />
+            <enum name="screen" value="15" />
+            <enum name="add" value="16" />
+        </attr>
+        <attr name="mrb_progressBackgroundTint" format="color|reference" />
+        <attr name="mrb_progressBackgroundTintMode" format="enum">
+            <enum name="src_over" value="3" />
+            <enum name="src_in" value="5" />
+            <enum name="src_atop" value="9" />
+            <enum name="multiply" value="14" />
+            <enum name="screen" value="15" />
+            <enum name="add" value="16" />
+        </attr>
+        <attr name="mrb_indeterminateTint" format="color|reference" />
+        <attr name="mrb_indeterminateTintMode" format="enum">
+            <enum name="src_over" value="3" />
+            <enum name="src_in" value="5" />
+            <enum name="src_atop" value="9" />
+            <enum name="multiply" value="14" />
+            <enum name="screen" value="15" />
+            <enum name="add" value="16" />
+        </attr>
+        <attr name="mrb_fillBackgroundStars" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="FlowLayout">
+        <attr name="flFlow" format="boolean"/>
+        <attr name="flChildSpacing" format="enum|dimension">
+            <enum name="auto" value="-65536"/>
+        </attr>
+        <attr name="flMinChildSpacing" format="dimension"/>
+        <attr name="flChildSpacingForLastRow" format="enum|dimension">
+            <enum name="auto" value="-65536"/>
+            <enum name="align" value="-65537"/>
+        </attr>
+        <attr name="flRowSpacing" format="enum|dimension">
+            <enum name="auto" value="-65536"/>
+        </attr>
+        <attr name="flRtl" format="boolean"/>
+        <attr name="flMaxRows" format="integer"/>
+        <attr name="flRowVerticalGravity" format="enum">
+            <enum name="auto" value="-65536"/>
+            <enum name="top" value="0x30"/>
+            <enum name="center" value="0x10"/>
+            <enum name="bottom" value="0x50"/>
+        </attr>
+        <attr name="android:gravity"/>
+    </declare-styleable>
+
+    <declare-styleable name="DropDownMenu">
+        <attr name="ddunderlineColor" format="color"/>
+        <attr name="dddividerColor" format="color"/>
+        <attr name="ddtextSelectedColor" format="color"/>
+        <attr name="ddtextUnselectedColor" format="color"/>
+        <attr name="ddmenuBackgroundColor" format="color"/>
+        <attr name="ddmaskColor" format="color"/>
+        <attr name="ddIsFakeBoldText" format="boolean"/>
+        <attr name="ddmenuTextSize" format="dimension"/>
+        <attr name="ddmenuTabLeft" format="dimension"/>
+        <attr name="ddmenuTabRight" format="dimension"/>
+        <attr name="ddmenuSelectedIcon" format="reference"/>
+        <attr name="ddmenuUnselectedIcon" format="reference"/>
+        <attr name="ddmenuMenuHeightPercent" format="float"/>
+    </declare-styleable>
+
+    <declare-styleable name="MNPasswordEditText">
+        <!--密码框的颜色-->
+        <attr name="mnPsw_border_color" format="color" />
+        <!--密码框选中的颜色-->
+        <attr name="mnPsw_border_selected_color" format="color" />
+        <!--密码文字的颜色,圆形密码颜色-->
+        <attr name="mnPsw_text_color" format="color" />
+        <!--密码框的圆角-->
+        <attr name="mnPsw_border_radius" format="dimension" />
+        <!--密码框的线的大小-->
+        <attr name="mnPsw_border_width" format="dimension" />
+        <!--密码框的每个间隔,只有样式2才起作用-->
+        <attr name="mnPsw_item_margin" format="dimension" />
+        <!--密码框背景色-->
+        <attr name="mnPsw_background_color" format="color" />
+        <!--密码框输入的模式:4.明文,3.文字,2.图片,1.圆形-->
+        <attr name="mnPsw_mode" format="enum">
+            <!--圆形默认-->
+            <enum name="Circle" value="1" />
+            <!--图片-->
+            <enum name="Bitmap" value="2" />
+            <!--文本-->
+            <enum name="Text" value="3" />
+            <!--原始-->
+            <enum name="OriginalText" value="4" />
+        </attr>
+        <!--密码框样式: 1.连在一起 2.分开单独显示  3.下划线形式-->
+        <attr name="mnPsw_style" format="enum">
+            <!--连在一起-->
+            <enum name="StyleDefault" value="1" />
+            <!--单独-->
+            <enum name="StyleOneself" value="2" />
+            <!--下划线形式-->
+            <enum name="StyleUnderLine" value="3" />
+        </attr>
+        <!--密码文字遮盖-->
+        <attr name="mnPsw_cover_text" format="string" />
+        <!--密码图片遮盖-->
+        <attr name="mnPsw_cover_bitmap_id" format="reference" />
+        <!--密码圆形遮盖颜色-->
+        <attr name="mnPsw_cover_circle_color" format="color" />
+        <!--密码圆形遮盖半径-->
+        <attr name="mnPsw_cover_circle_radius" format="dimension" />
+        <!--密码图片遮盖长宽-->
+        <attr name="mnPsw_cover_bitmap_width" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="WheelView">
+        <!--文字大小-->
+        <attr name="wv_textSize" format="dimension"/>
+        <!--是否自适应文字大小以完全显示过长的文字-->
+        <attr name="wv_autoFitTextSize" format="boolean"/>
+        <!--文字对齐方式-->
+        <attr name="wv_textAlign" format="enum">
+            <enum name="left" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="right" value="2"/>
+        </attr>
+        <!--文字距离边界的外边距-->
+        <attr name="wv_textBoundaryMargin" format="dimension"/>
+        <!--未选中文字颜色-->
+        <attr name="wv_normalItemTextColor" format="color"/>
+        <!--被选中的文字颜色-->
+        <attr name="wv_selectedItemTextColor" format="color"/>
+        <!--行间距-->
+        <attr name="wv_lineSpacing" format="dimension"/>
+        <!--数据为Integer类型时是否需要转换-->
+        <attr name="wv_integerNeedFormat" format="boolean"/>
+        <!--Integer类型转换格式-->
+        <attr name="wv_integerFormat" format="string"/>
+
+        <!--可见item数-->
+        <attr name="wv_visibleItems" format="integer"/>
+        <!--当前选中下标-->
+        <attr name="wv_selectedItemPosition" format="integer"/>
+        <!--是否循环滚动-->
+        <attr name="wv_cyclic" format="boolean"/>
+
+        <!--是否显示分割线-->
+        <attr name="wv_showDivider" format="boolean"/>
+        <!--分割线类型-->
+        <attr name="wv_dividerType" format="enum">
+            <enum name="fill" value="0"/>
+            <enum name="wrap" value="1"/>
+        </attr>
+        <!--分割线颜色-->
+        <attr name="wv_dividerColor" format="color"/>
+        <!--分割线高度-->
+        <attr name="wv_dividerHeight" format="dimension"/>
+        <!--wrap类型下分割线内边距-->
+        <attr name="wv_dividerPaddingForWrap" format="dimension"/>
+
+
+        <!--是否是弯曲（3D）效果-->
+        <attr name="wv_curved" format="boolean"/>
+        <!--弯曲（3D）效果左右圆弧偏移效果方向 可向指定方向偏移-->
+        <attr name="wv_curvedArcDirection" format="enum">
+            <enum name="left" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="right" value="2"/>
+        </attr>
+        <!--弯曲（3D）效果左右圆弧偏移效果方向系数 偏移系数-->
+        <attr name="wv_curvedArcDirectionFactor" format="float"/>
+        <!--选中后折射的偏移(弯曲（3D）效果和普通效果都适用) 与字体大小的比值，1为不偏移 越小偏移越明显-->
+        <attr name="wv_refractRatio" format="float"/>
+        <!-- Deprecated 已过时 请使用 wv_refractRatio -->
+        <attr name="wv_curvedRefractRatio" format="float"/>
+
+        <!--是否绘制选中区域-->
+        <attr name="wv_drawSelectedRect" format="boolean"/>
+        <!--选中区域颜色-->
+        <attr name="wv_selectedRectColor" format="color"/>
+        <!--选中区域/分割线上下偏移，通过移动分割线上下限制的位置来实现扩大/缩小显示区域-->
+        <attr name="wv_dividerOffset" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="MaxHeightNestedScrollView">
+        <attr name="maxHeight" format="dimension" />
+    </declare-styleable>
+
+    <!-- 垂直方向的虚线 -->
+    <declare-styleable name="DotLineView">
+        <!-- 虚线颜色 -->
+        <attr name="divider_line_color" format="color"/>
+        <!-- 虚线宽度 -->
+        <attr name="dashThickness" format="dimension"/>
+        <!-- 虚线dash宽度 -->
+        <attr name="dashLength" format="dimension"/>
+        <!-- 虚线dash间隔 -->
+        <attr name="dashGap" format="dimension"/>
+        <!-- 虚线朝向 -->
+        <attr name="divider_orientation" format="enum">
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr>
+    </declare-styleable>
+
+</resources>

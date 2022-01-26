@@ -1,0 +1,7 @@
+<resources>
+    <string name="camera_module_camera">module_camera</string>
+    <string name="camera_touch_to_focus">触摸屏幕对焦</string>
+    <string name="camera_crop_fail">裁剪失败</string>
+    <string name="camera_no_flash">该设备不支持闪光灯</string>
+
+</resources>

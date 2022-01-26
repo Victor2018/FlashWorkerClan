@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_white_radius_13"
+    android:paddingTop="@dimen/dp_27"
+    android:paddingBottom="@dimen/dp_27"
+    tools:ignore="MissingDefaultResource,ResourceName">
+
+    <LinearLayout
+        android:id="@+id/ll_talent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingLeft="@dimen/dp_21"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <View
+            android:id="@+id/line_talent"
+            android:layout_width="@dimen/dp_5"
+            android:layout_height="@dimen/dp_27"
+            android:background="@color/color_FFD424"/>
+
+        <TextView
+            android:id="@+id/tv_talent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_21"
+            android:textStyle="bold"
+            android:textSize="@dimen/dp_32"
+            android:textColor="@color/color_333333"
+            android:text="详细信息"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_finish_time_limit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_talent"
+        android:layout_marginTop="@dimen/dp_39"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        android:text="任务时限："/>
+
+    <TextView
+        android:id="@+id/mTvFinishTimeLimit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/tv_finish_time_limit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_finish_time_limit"
+        android:paddingRight="@dimen/dp_21"
+        android:gravity="center_vertical"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_28"
+        tools:text="限1小时完成"/>
+
+    <TextView
+        android:id="@+id/tv_settlement_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_finish_time_limit"
+        android:layout_marginTop="@dimen/dp_39"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        android:text="结算时间："/>
+
+    <TextView
+        android:id="@+id/mTvSettlementTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/tv_settlement_time"
+        app:layout_constraintTop_toTopOf="@+id/tv_settlement_time"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_settlement_time"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_28"
+        tools:text="48小时内"/>
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_settlement_time"
+        android:layout_marginTop="@dimen/dp_39"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        android:text="报酬单价："/>
+
+    <TextView
+        android:id="@+id/mTvPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/tv_price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_price"
+        android:paddingRight="@dimen/dp_21"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
+        android:textColor="@color/color_E26853"
+        android:textSize="@dimen/dp_28"
+        tools:text="5.00元/件"/>
+
+    <View
+        android:id="@+id/line_work_addr"
+        style="@style/base_line_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTvPrice"
+        android:layout_marginTop="@dimen/dp_65"
+        android:layout_marginLeft="@dimen/dp_21"
+        android:layout_marginRight="@dimen/dp_21"/>
+
+
+    <TextView
+        android:id="@+id/tv_work_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line_work_addr"
+        android:layout_marginTop="@dimen/dp_65"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        android:text="任务描述："/>
+
+    <TextView
+        android:id="@+id/mTvWorkDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_work_description"
+        android:layout_marginTop="@dimen/dp_39"
+        android:paddingBottom="@dimen/dp_30"
+        android:paddingLeft="@dimen/dp_21"
+        android:paddingRight="@dimen/dp_21"
+        android:lineSpacingMultiplier="1.2"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_28"
+        android:text="【步骤一】：步骤一描述\n【步骤一】：步骤一描述"/>
+
+    <TextView
+        android:id="@+id/tv_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTvWorkDescription"
+        android:layout_marginTop="@dimen/dp_65"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        android:text="任务提交："/>
+
+    <com.flash.worker.lib.common.view.widget.FlowLayout
+        android:id="@+id/mFlSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_submit"
+        android:layout_marginTop="@dimen/dp_28"
+        android:layout_marginStart="@dimen/dp_21"
+        android:layout_marginEnd="@dimen/dp_21"
+        app:flChildSpacing="@dimen/dp_13"
+        app:flChildSpacingForLastRow="align"
+        app:flRowSpacing="@dimen/dp_13"/>
+
+    <View
+        android:id="@+id/line_submit"
+        style="@style/base_line_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mFlSubmit"
+        android:layout_marginTop="@dimen/dp_65"
+        android:layout_marginLeft="@dimen/dp_21"
+        android:layout_marginRight="@dimen/dp_21"/>
+
+    <TextView
+        android:id="@+id/tv_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line_submit"
+        android:layout_marginTop="@dimen/dp_65"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        android:text="示例图片："/>
+
+
+    <com.flash.worker.lib.common.view.widget.LMRecyclerView
+        android:id="@+id/mRvWorksPic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pic"
+        android:layout_marginTop="@dimen/dp_40"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="false"
+        app:spanCount="4"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

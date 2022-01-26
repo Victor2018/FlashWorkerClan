@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mTvLabel"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/dp_15"
+    android:paddingBottom="@dimen/dp_15"
+    android:paddingLeft="@dimen/dp_30"
+    android:paddingRight="@dimen/dp_30"
+    android:gravity="center"
+    android:textSize="@dimen/dp_28"
+    android:textColor="@color/color_333333"
+    android:background="@drawable/border_cccccc_radius_7"
+    tools:text="身份证号后六位"
+    tools:ignore="MissingDefaultResource,ResourceName">
+
+</TextView>

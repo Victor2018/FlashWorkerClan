@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">闪工族</string>
+
+    <string name="title_talent">人才</string>
+    <string name="title_job">工单</string>
+    <string name="title_business">操作台</string>
+    <string name="title_messages">消息</string>
+    <string name="title_mine">我的</string>
+
+</resources>

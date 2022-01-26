@@ -1,0 +1,25 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="mine_module_mine">module_mine</string>
+
+    <string name="mine_fragment">MineFragment</string>
+    <string name="mine_talent_credit">人才信用</string>
+    <string name="mine_employer_credit">雇主信用</string>
+    <string name="mine_my_wallet">我的钱包</string>
+    <string name="mine_talent">人才</string>
+    <string name="mine_red_envelope">红包</string>
+    <string name="mine_member_exclusive">会员尊享</string>
+    <string name="mine_my_guild">我的公会</string>
+    <string name="mine_employer">雇主</string>
+    <string name="mine_employment_reward">雇用奖励</string>
+    <string name="mine_coupon">卡券包</string>
+    <string name="mine_customer_service">客服咨询</string>
+    <string name="mine_setting">设置</string>
+    <string name="mine_about">关于闪工族</string>
+    <string name="mine_log_out">退出登录</string>
+    <string name="mine_employment_reward_receive_nots">1. 雇主奖励为平台奖励雇主通过平台完成雇用，随机发放的现金奖励，领取金额进入我的钱包可用余额。\n\n2. 雇主每完成一次雇用（按整单）可领取一次对应的奖励。\n\n3. 奖励须在订单完成后30天内进行领取，超过时间不能再领取。</string>
+    <string name="mine_guidance_notes">1.公会申请人须认同闪工族平台的运营模式和理念，遵守国家有关政策法规，遵守闪工族平台的各项规定。\n\n2. 申请人须至少有5个300人以上的微信群。（请上传手机截图）\n\n3. 平台将根据公会成员的收入总数按月给公会进行0.8%的经费拨付。（例：公会所有成员为1000人，平均收入为2000元，则1000*2000=2000000，按0.8%拨付经费。公会可获得16000元活动经费）\n\n4.公会经费将于每月5号前拨付到帐。 \n\n5.公会成立初期，平台将根据各区域情况给予补贴，详情请咨询客服。</string>
+    <string name="mine_management_notice">1.公会管理人须认同闪工族平台的运营模式和理念，并接受闪工族平台的管理。\n\n2. 公会运营须遵守国家有关政策法规，遵守闪工族平台的各项规定。\n\n3. 公会会长须尽力发展公会人才数，并帮助本公会人才获得工作机会。\n\n4. 平台将根据公会成员的收入总数按月给公会进行0.8-1.2%的经费拨付。(例：公会所有成员为1000人，平均收入为2000元，则1000*2000=2000000，按1%拨付经费。公会可获得20000元活动经费)。\n\n5.公会连续三个月月收入总额低于1000000元，平台将另外推选会长或解散公会。</string>
+    <string name="mine_reward_receive_des">1. 公会新人红包为通用可提现红包，领取后自动进入我的钱包可用余额。\n\n2. 首次加入公会的新人可以领取一个红包，每个用户只能领取一次。\n\n3. 本次公会新人红包派发数量为10000个，先领先得，领完为止。</string>
+    <string name="mine_customer_service_tip">尊敬的用户：\n\t\t\t\t我们的咨询服务时间为周一至周五\t\t10:00 - 18:00（法定节假日除外），若您的问题没有及时回复，敬请见谅，闪工族客服感谢您对我们工作的理解和支持，么么哒！</string>
+
+</resources>

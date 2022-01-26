@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="nav_title">
+		<item>@string/title_talent</item>
+		<item>@string/title_job</item>
+		<item>@string/title_business</item>
+		<item>@string/title_messages</item>
+		<item>@string/title_mine</item>
+    </string-array>
+
+</resources>

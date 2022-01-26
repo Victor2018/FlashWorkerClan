@@ -1,0 +1,296 @@
+/**
+ * 关于整个项目(app/module)的通用gradle配置
+ */
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+/**
+ * 读取版本配置
+ */
+def Properties mVersionProps = getProperty()
+
+/**
+ * 构建编号
+ */
+def String mBuildNumber = String.valueOf(mVersionProps['BUILD_NUMBER'])
+
+/**
+ * 读取版本名
+ */
+def String mVersionName = mVersionProps['VERSION_NAME']
+
+/**
+ * 腾讯buglyId
+ */
+def mBuglyAppID = String.valueOf(mVersionProps['BUGLY_APPID'])
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
+
+    //这个是ARouter需要配置的kapt
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
+    }
+
+    signingConfigs {
+        release {
+            def Properties buildProps = getSign()
+            storeFile file(buildProps['STORE_FILE'])
+            keyAlias buildProps['KEY_ALIAS']
+            keyPassword buildProps['KEY_PASSWORD']
+            storePassword buildProps['STORE_PASSWORD']
+        }
+    }
+
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "int", "BUILD_NUMBER", mBuildNumber
+
+        multiDexEnabled true
+
+    }
+
+    buildTypes {
+        release {
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            signingConfig signingConfigs.release
+            buildConfigField 'boolean', 'MODEL_DEBUG', 'false'
+        }
+        debug {
+            signingConfig signingConfigs.release
+            buildConfigField 'boolean', 'MODEL_DEBUG', 'true'
+        }
+    }
+
+    dexOptions {
+        javaMaxHeapSize "8g"
+    }
+
+    //移除lint检测的error
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/java'
+    }
+
+    //支持java8
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    //生成libs目录
+    sourceSets {
+        main.jniLibs.srcDirs = ['libs']
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
+    }
+
+    //支持@Parcelize来实现Parcelable序列化
+    androidExtensions {
+        experimental = true
+    }
+
+    flavorDimensions "sgz"
+    productFlavors {
+        uat {
+            dimension "sgz"
+            buildConfigField 'boolean', 'MODEL_ONLINE', 'false'
+            buildConfigField 'boolean', 'MODEL_UAT', 'true'
+            buildConfigField 'boolean', 'MODEL_DEV', 'false'
+            buildConfigField 'String', 'UMENG_CHANNEL', '"uat"'
+
+            // 动态修改 常量 字段
+            manifestPlaceholders = [BUGLY_APPID: "${mBuglyAppID}", BUGLY_APP_VERSION: "${mVersionName}",
+                                    BUGLY_APP_CHANNEL: "uat", BUGLY_ENABLE_DEBUG: "false"]
+        }
+        dev {
+            dimension "sgz"
+            buildConfigField 'boolean', 'MODEL_ONLINE', 'false'
+            buildConfigField 'boolean', 'MODEL_UAT', 'false'
+            buildConfigField 'boolean', 'MODEL_DEV', 'true'
+            buildConfigField 'String', 'UMENG_CHANNEL', '"dev"'
+
+            // 动态修改 常量 字段
+            manifestPlaceholders = [BUGLY_APPID: "${mBuglyAppID}", BUGLY_APP_VERSION: "${mVersionName}",
+                                    BUGLY_APP_CHANNEL: "dev", BUGLY_ENABLE_DEBUG: "true"]
+        }
+        online {
+            dimension "sgz"
+            buildConfigField 'boolean', 'MODEL_ONLINE', 'true'
+            buildConfigField 'boolean', 'MODEL_UAT', 'false'
+            buildConfigField 'boolean', 'MODEL_DEV', 'false'
+            buildConfigField 'String', 'UMENG_CHANNEL', '"online"'
+
+            // 动态修改 常量 字段
+            manifestPlaceholders = [BUGLY_APPID: "${mBuglyAppID}", BUGLY_APP_VERSION: "${mVersionName}",
+                                    BUGLY_APP_CHANNEL: "online", BUGLY_ENABLE_DEBUG: "false"]
+        }
+        huawei {
+            dimension "sgz"
+            buildConfigField 'boolean', 'MODEL_ONLINE', 'true'
+            buildConfigField 'boolean', 'MODEL_UAT', 'false'
+            buildConfigField 'boolean', 'MODEL_DEV', 'false'
+            buildConfigField 'String', 'UMENG_CHANNEL', '"huawei"'
+
+            // 动态修改 常量 字段
+            manifestPlaceholders = [BUGLY_APPID: "${mBuglyAppID}", BUGLY_APP_VERSION: "${mVersionName}",
+                                    BUGLY_APP_CHANNEL: "huawei", BUGLY_ENABLE_DEBUG: "false"]
+        }
+        xiaomi {
+            dimension "sgz"
+            buildConfigField 'boolean', 'MODEL_ONLINE', 'true'
+            buildConfigField 'boolean', 'MODEL_UAT', 'false'
+            buildConfigField 'boolean', 'MODEL_DEV', 'false'
+            buildConfigField 'String', 'UMENG_CHANNEL', '"xiaomi"'
+
+            // 动态修改 常量 字段
+            manifestPlaceholders = [BUGLY_APPID: "${mBuglyAppID}", BUGLY_APP_VERSION: "${mVersionName}",
+                                    BUGLY_APP_CHANNEL: "xiaomi", BUGLY_ENABLE_DEBUG: "false"]
+        }
+        oppo {
+            dimension "sgz"
+            buildConfigField 'boolean', 'MODEL_ONLINE', 'true'
+            buildConfigField 'boolean', 'MODEL_UAT', 'false'
+            buildConfigField 'boolean', 'MODEL_DEV', 'false'
+            buildConfigField 'String', 'UMENG_CHANNEL', '"oppo"'
+
+            // 动态修改 常量 字段
+            manifestPlaceholders = [BUGLY_APPID: "${mBuglyAppID}", BUGLY_APP_VERSION: "${mVersionName}",
+                                    BUGLY_APP_CHANNEL: "oppo", BUGLY_ENABLE_DEBUG: "false"]
+        }
+        vivo {
+            dimension "sgz"
+            buildConfigField 'boolean', 'MODEL_ONLINE', 'true'
+            buildConfigField 'boolean', 'MODEL_UAT', 'false'
+            buildConfigField 'boolean', 'MODEL_DEV', 'false'
+            buildConfigField 'String', 'UMENG_CHANNEL', '"vivo"'
+
+            // 动态修改 常量 字段
+            manifestPlaceholders = [BUGLY_APPID: "${mBuglyAppID}", BUGLY_APP_VERSION: "${mVersionName}",
+                                    BUGLY_APP_CHANNEL: "vivo", BUGLY_ENABLE_DEBUG: "false"]
+        }
+        meizu {
+            dimension "sgz"
+            buildConfigField 'boolean', 'MODEL_ONLINE', 'true'
+            buildConfigField 'boolean', 'MODEL_UAT', 'false'
+            buildConfigField 'boolean', 'MODEL_DEV', 'false'
+            buildConfigField 'String', 'UMENG_CHANNEL', '"meizu"'
+
+            // 动态修改 常量 字段
+            manifestPlaceholders = [BUGLY_APPID: "${mBuglyAppID}", BUGLY_APP_VERSION: "${mVersionName}",
+                                    BUGLY_APP_CHANNEL: "meizu", BUGLY_ENABLE_DEBUG: "false"]
+        }
+        samsung {
+            dimension "sgz"
+            buildConfigField 'boolean', 'MODEL_ONLINE', 'true'
+            buildConfigField 'boolean', 'MODEL_UAT', 'false'
+            buildConfigField 'boolean', 'MODEL_DEV', 'false'
+            buildConfigField 'String', 'UMENG_CHANNEL', '"samsung"'
+
+            // 动态修改 常量 字段
+            manifestPlaceholders = [BUGLY_APPID: "${mBuglyAppID}", BUGLY_APP_VERSION: "${mVersionName}",
+                                    BUGLY_APP_CHANNEL: "samsung", BUGLY_ENABLE_DEBUG: "false"]
+        }
+        baidu {
+            dimension "sgz"
+            buildConfigField 'boolean', 'MODEL_ONLINE', 'true'
+            buildConfigField 'boolean', 'MODEL_UAT', 'false'
+            buildConfigField 'boolean', 'MODEL_DEV', 'false'
+            buildConfigField 'String', 'UMENG_CHANNEL', '"baidu"'
+
+            // 动态修改 常量 字段
+            manifestPlaceholders = [BUGLY_APPID: "${mBuglyAppID}", BUGLY_APP_VERSION: "${mVersionName}",
+                                    BUGLY_APP_CHANNEL: "baidu", BUGLY_ENABLE_DEBUG: "false"]
+        }
+        tencent {
+            dimension "sgz"
+            buildConfigField 'boolean', 'MODEL_ONLINE', 'true'
+            buildConfigField 'boolean', 'MODEL_UAT', 'false'
+            buildConfigField 'boolean', 'MODEL_DEV', 'false'
+            buildConfigField 'String', 'UMENG_CHANNEL', '"tencent"'
+
+            // 动态修改 常量 字段
+            manifestPlaceholders = [BUGLY_APPID: "${mBuglyAppID}", BUGLY_APP_VERSION: "${mVersionName}",
+                                    BUGLY_APP_CHANNEL: "tencent", BUGLY_ENABLE_DEBUG: "false"]
+        }
+        _360 {
+            dimension "sgz"
+            buildConfigField 'boolean', 'MODEL_ONLINE', 'true'
+            buildConfigField 'boolean', 'MODEL_UAT', 'false'
+            buildConfigField 'boolean', 'MODEL_DEV', 'false'
+            buildConfigField 'String', 'UMENG_CHANNEL', '"_360"'
+
+            // 动态修改 常量 字段
+            manifestPlaceholders = [BUGLY_APPID: "${mBuglyAppID}", BUGLY_APP_VERSION: "${mVersionName}",
+                                    BUGLY_APP_CHANNEL: "_360", BUGLY_ENABLE_DEBUG: "false"]
+        }
+        ali {
+            dimension "sgz"
+            buildConfigField 'boolean', 'MODEL_ONLINE', 'true'
+            buildConfigField 'boolean', 'MODEL_UAT', 'false'
+            buildConfigField 'boolean', 'MODEL_DEV', 'false'
+            buildConfigField 'String', 'UMENG_CHANNEL', '"ali"'
+
+            // 动态修改 常量 字段
+            manifestPlaceholders = [BUGLY_APPID: "${mBuglyAppID}", BUGLY_APP_VERSION: "${mVersionName}",
+                                    BUGLY_APP_CHANNEL: "ali", BUGLY_ENABLE_DEBUG: "false"]
+        }
+    }
+}
+
+/**
+ * 获取构建版本
+ * @return
+ */
+def getProperty() {
+    def Properties buildProps = new Properties()
+    buildProps.load(new FileInputStream(file('../docs/build.properties')))
+    return buildProps
+}
+
+/**
+ * 读取配置签名
+ * @return
+ */
+def getSign() {
+    def Properties buildProperties = new Properties()
+    buildProperties.load(new FileInputStream(file('../docs/sign.properties')))
+    return buildProperties
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    //Arouter
+    implementation deps.arouter.runtime
+    kapt deps.arouter.compiler
+
+    //room
+    kapt deps.room.compiler
+    implementation deps.room.runtime
+    implementation deps.room.ktx
+
+}

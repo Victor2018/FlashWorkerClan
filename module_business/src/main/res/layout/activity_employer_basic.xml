@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:fitsSystemWindows="true"
+    tools:ignore="MissingDefaultResource,ResourceName">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="false">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/transparent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/app_name">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_30">
+                    <ImageView
+                        android:id="@+id/mIvBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp_20"
+                        android:src="@mipmap/ic_back"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dp_10"
+                        android:textSize="@dimen/dp_36"
+                        android:textColor="@color/color_333333"
+                        android:text="新增雇主"/>
+
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_12"
+        android:paddingBottom="@dimen/dp_200"
+        android:background="@color/white"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_81"
+                android:paddingLeft="@dimen/dp_42"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/dp_28"
+                android:text="基本信息"/>
+
+            <View style="@style/base_line_horizontal"
+                android:layout_marginLeft="@dimen/dp_21"
+                android:layout_marginRight="@dimen/dp_21"/>
+
+            <com.flash.worker.lib.common.view.widget.ShapedImageView
+                android:id="@+id/mCivEmployerAvatar"
+                android:layout_width="@dimen/dp_133"
+                android:layout_height="@dimen/dp_133"
+                android:layout_marginLeft="@dimen/dp_43"
+                android:layout_marginTop="@dimen/dp_40"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@mipmap/ic_avatar"
+                android:scaleType="centerCrop"
+                app:shape_mode="circle"
+                app:stroke_color="@color/white"
+                app:stroke_width="@dimen/dp_0"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_40"
+                android:paddingLeft="@dimen/dp_25">
+
+                <com.flash.worker.lib.common.view.widget.RequiredTextView
+                    android:id="@+id/rtv_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/mEtUserName"
+                    app:layout_constraintBottom_toBottomOf="@+id/mEtUserName"
+                    android:textColor="@color/color_666666"
+                    android:textSize="@dimen/dp_28"
+                    app:prefix_color="@color/color_E26853"
+                    app:android_text=" 闪工名（对外展示用）"/>
+
+                <EditText
+                    android:id="@+id/mEtUserName"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_70"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/rtv_user_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:paddingRight="@dimen/dp_76"
+                    android:background="@null"
+                    android:gravity="center|right"
+                    android:maxLines="1"
+                    android:maxLength="6"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:hint="请输入2-6个中文字符"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <View style="@style/base_line_horizontal"
+                android:layout_marginLeft="@dimen/dp_42"
+                android:layout_marginRight="@dimen/dp_42"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_66"
+                android:paddingLeft="@dimen/dp_25"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground">
+
+                <com.flash.worker.lib.common.view.widget.RequiredTextView
+                    android:id="@+id/rtv_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/mTvResumeCurrentCity"
+                    app:layout_constraintBottom_toBottomOf="@+id/mTvResumeCurrentCity"
+                    android:textColor="@color/color_666666"
+                    android:textSize="@dimen/dp_28"
+                    app:prefix_color="@color/color_E26853"
+                    app:android_text=" 现居城市"/>
+
+                <TextView
+                    android:id="@+id/mTvResumeCurrentCity"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_90"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/rtv_city"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:paddingRight="@dimen/dp_42"
+                    android:drawableRight="@mipmap/ic_right"
+                    android:drawablePadding="@dimen/dp_21"
+                    android:gravity="center|right"
+                    android:hint="请选择现居城市"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <View style="@style/base_line_horizontal"
+                android:layout_marginLeft="@dimen/dp_42"
+                android:layout_marginRight="@dimen/dp_42"/>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/mTvNext"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_99"
+        android:layout_gravity="bottom"
+        android:background="@color/color_F7E047"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_32"
+        android:text="下一步"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

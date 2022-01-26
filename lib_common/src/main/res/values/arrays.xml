@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="business_working_years">
+		<item>1~3 年</item>
+		<item>3~5 年</item>
+		<item>5~10 年</item>
+		<item>10年以上</item>
+    </string-array>
+
+    <string-array name="business_educations">
+		<item>小学/初中</item>
+		<item>中专/高中</item>
+		<item>大专</item>
+		<item>本科</item>
+		<item>研究生</item>
+		<item>博士</item>
+    </string-array>
+    <string-array name="business_requirement_educations">
+		<item>不限</item>
+		<item>中专/高中</item>
+		<item>大专</item>
+		<item>本科</item>
+		<item>研究生</item>
+		<item>博士</item>
+    </string-array>
+
+	<string-array name="hire_job_menu_titles">
+		<item>人才类型</item>
+		<item>综合</item>
+		<item>筛选</item>
+	</string-array>
+
+	<string-array name="hire_settlement_method">
+		<item>日结</item>
+		<item>周结</item>
+		<item>整单结</item>
+	</string-array>
+
+	<string-array name="hire_gender_requirement">
+		<item>不限</item>
+		<item>男</item>
+		<item>女</item>
+	</string-array>
+
+	<string-array name="hire_identity_requirement">
+		<item>不限</item>
+		<item>学生</item>
+	</string-array>
+
+	<integer-array name="splash_imgs">
+		<item>@mipmap/img_splash1</item>
+		<item>@mipmap/img_splash2</item>
+		<item>@mipmap/img_splash3</item>
+	</integer-array>
+
+
+</resources>

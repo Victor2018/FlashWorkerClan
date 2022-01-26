@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flash.worker.lib.common.view.widget.PullBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mPblBack"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.ViewMessageImageActivity"
+    tools:ignore="ResourceName">
+
+    <com.flash.worker.lib.common.view.widget.PinchImageView
+        android:id="@+id/mIvImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:transitionName="@string/message_image_transition_name"/>
+
+    <ImageView
+        android:id="@+id/mIvDownload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:padding="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_18"
+        android:layout_marginBottom="@dimen/dp_100"
+        android:src="@mipmap/ic_save_image_message"/>
+
+</com.flash.worker.lib.common.view.widget.PullBackLayout>

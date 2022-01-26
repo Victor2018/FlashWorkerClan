@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dp_6"
+    android:background="@drawable/shape_d9000000_radius_13"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:ignore="ResourceName">
+
+    <TextView
+        android:id="@+id/mTvCancel"
+        android:layout_width="@dimen/dp_202"
+        android:layout_height="@dimen/dp_60"
+        android:paddingLeft="@dimen/dp_27"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:drawableLeft="@mipmap/ic_refuse_employ"
+        android:drawablePadding="@dimen/dp_19"
+        android:textSize="@dimen/dp_24"
+        android:textColor="@color/white"
+        android:text="违约解雇"/>
+
+    <View
+        android:id="@+id/line_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/color_666666"
+        android:layout_marginStart="@dimen/dp_13"
+        android:layout_marginEnd="@dimen/dp_13"/>
+
+    <TextView
+        android:id="@+id/mTvComplaint"
+        android:layout_width="@dimen/dp_202"
+        android:layout_height="@dimen/dp_60"
+        android:paddingLeft="@dimen/dp_27"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:drawableLeft="@mipmap/ic_employment_report"
+        android:drawablePadding="@dimen/dp_19"
+        android:textSize="@dimen/dp_24"
+        android:textColor="@color/white"
+        android:text="投诉"/>
+
+</LinearLayout>
+
+

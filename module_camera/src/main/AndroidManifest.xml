@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.flash.worker.module.camera">
+
+    <application android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".view.activity.CameraActivity"
+            android:label="@string/camera_module_camera"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.FullScreen" />
+    </application>
+
+</manifest>

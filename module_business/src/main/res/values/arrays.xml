@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="business_tab_titles">
+		<item>人才</item>
+		<item>雇主</item>
+    </string-array>
+
+    <string-array name="business_talent_tab_titles">
+		<item>发布中</item>
+		<item>已下架</item>
+		<item>编辑中</item>
+		<item>审核中</item>
+		<item>已驳回</item>
+    </string-array>
+
+    <string-array name="business_my_work_tab_titles">
+		<item>待雇用</item>
+		<item>进行中</item>
+		<item>待评价</item>
+		<item>已结束</item>
+    </string-array>
+
+    <string-array name="business_my_employ_tab_titles">
+		<item>雇用中</item>
+		<item>进行中</item>
+		<item>待评价</item>
+		<item>已结束</item>
+    </string-array>
+
+    <string-array name="business_talent_employing_tab_titles">
+		<item>待预付</item>
+		<item>待结算</item>
+		<item>已结算</item>
+    </string-array>
+
+    <string-array name="business_talent_task_employing_tab_titles">
+		<item>任务中</item>
+		<item>待结算</item>
+    </string-array>
+
+    <string-array name="business_employer_employing_tab_titles">
+		<item>待预付</item>
+		<item>待结算</item>
+		<item>已结算</item>
+		<item>已解约</item>
+    </string-array>
+
+    <string-array name="business_employer_task_employing_tab_titles">
+		<item>已领取(0)</item>
+		<item>已提交(0)</item>
+		<item>已结算(0)</item>
+		<item>已解约(0)</item>
+    </string-array>
+
+    <string-array name="business_talent_wait_employ_tab_titles">
+		<item>已报名(0)</item>
+		<item>已雇用(0)</item>
+		<item>已取消</item>
+    </string-array>
+
+	<string-array name="business_talent_job_finish_menu">
+		<item>全部</item>
+	</string-array>
+
+    <string-array name="business_talent_job_finish_titles">
+		<item>全部</item>
+		<item>完成工作</item>
+		<item>解约工作</item>
+		<item>取消报名</item>
+    </string-array>
+
+</resources>

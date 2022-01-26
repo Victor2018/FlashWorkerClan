@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mTvBreachContractFired"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dp_27"
+    android:background="@drawable/shape_d9000000_radius_13"
+    android:drawableLeft="@mipmap/ic_refuse_employ"
+    android:drawablePadding="@dimen/dp_19"
+    android:gravity="center_vertical"
+    android:textColor="@color/white"
+    android:textSize="@dimen/dp_24"
+    android:text="违约解雇"
+    tools:ignore="ResourceName"/>
+
+

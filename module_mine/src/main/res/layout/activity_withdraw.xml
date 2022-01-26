@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:fitsSystemWindows="true"
+    tools:ignore="MissingDefaultResource,ResourceName">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/mCtlWebTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="false">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/transparent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/app_name">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_30">
+                    <ImageView
+                        android:id="@+id/mIvBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp_20"
+                        android:src="@mipmap/ic_back"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dp_10"
+                        android:text="提现"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/dp_36" />
+
+                    <TextView
+                        android:id="@+id/mTvWithdrawHistory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:padding="@dimen/dp_10"
+                        android:visibility="gone"
+                        android:text="提现历史"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/dp_32" />
+
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_12"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/dp_21"
+            android:paddingRight="@dimen/dp_21"
+            android:paddingTop="@dimen/dp_47"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_173"
+                android:layout_marginLeft="@dimen/dp_21"
+                android:layout_marginRight="@dimen/dp_21"
+                android:layout_marginTop="@dimen/dp_27"
+                android:layout_marginBottom="@dimen/dp_21"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/dp_7"
+                app:cardElevation="@dimen/dp_5">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_withdraw_to"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginLeft="@dimen/dp_25"
+                        android:layout_marginTop="@dimen/dp_35"
+                        android:textColor="@color/color_999999"
+                        android:textSize="@dimen/dp_28"
+                        android:text="提现到"/>
+
+                    <ImageView
+                        android:id="@+id/mIvPayWay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toRightOf="@+id/tv_withdraw_to"
+                        app:layout_constraintTop_toTopOf="@+id/tv_withdraw_to"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_withdraw_to"
+                        android:layout_marginLeft="@dimen/dp_40"
+                        android:src="@mipmap/ic_ali_pay"/>
+
+                    <TextView
+                        android:id="@+id/mTvPayWay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toRightOf="@+id/mIvPayWay"
+                        app:layout_constraintTop_toTopOf="@+id/tv_withdraw_to"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_withdraw_to"
+                        android:layout_marginLeft="@dimen/dp_25"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/dp_28"
+                        android:text="支付宝（推荐)"/>
+
+                    <TextView
+                        android:layout_width="@dimen/dp_360"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="@+id/mTvPayWay"
+                        app:layout_constraintTop_toBottomOf="@+id/mTvPayWay"
+                        android:layout_marginTop="@dimen/dp_9"
+                        android:textSize="@dimen/dp_24"
+                        android:textColor="@color/color_999999"
+                        android:text="预计2小时内到账（大额提现因管控可能会延迟）"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:layout_marginLeft="@dimen/dp_21"
+                android:textSize="@dimen/dp_28"
+                android:textColor="@color/color_333333"
+                android:text="提现金额"/>
+
+            <EditText
+                android:id="@+id/mEtWithdrawAmount"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_110"
+                android:layout_marginLeft="@dimen/dp_21"
+                android:background="@drawable/bg_et_line"
+                android:gravity="center_vertical"
+                android:inputType="numberDecimal"
+                android:maxLines="1"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/dp_52"
+                android:hint="￥0.00"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp_11"
+                android:paddingRight="@dimen/dp_21"
+                android:layout_marginTop="@dimen/dp_27">
+
+                <TextView
+                    android:id="@+id/mTvAvailableCashAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:padding="@dimen/dp_10"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="可提现金额0.00"/>
+                <TextView
+                    android:id="@+id/mTvExtractAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@+id/mTvAvailableCashAmount"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:padding="@dimen/dp_10"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_E26853"
+                    android:text="全部提取"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/mTvWithdraw"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_98"
+                android:layout_marginTop="@dimen/dp_133"
+                android:background="@drawable/shape_ffd424_radius_13"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
+                android:gravity="center"
+                android:textSize="@dimen/dp_36"
+                android:textColor="@color/color_333333"
+                android:text="提现"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

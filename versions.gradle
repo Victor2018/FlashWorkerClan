@@ -1,0 +1,305 @@
+/**
+ * Shared file between builds so that they can all use the same dependencies and
+ * maven repositories.
+ **/
+ext.deps = [:]
+def versions = [:]
+versions.activity = '1.1.0'
+versions.fragment = '1.2.4'
+versions.android_gradle_plugin = '4.0.0'
+versions.appcompat = "1.2.0"
+versions.arch_core = "2.1.0"
+versions.atsl_core = "1.2.0"
+versions.atsl_junit = "1.1.1"
+versions.atsl_rules = "1.2.0"
+versions.atsl_runner = "1.2.0"
+versions.cardview = "1.0.0"
+versions.core_ktx = "1.3.0"
+versions.coroutines = "1.3.7"
+versions.espresso = "3.2.0"
+versions.fragment = "1.2.1"
+versions.glide = "4.11.0"
+versions.junit = "4.12"
+versions.kotlin = "1.3.72"
+versions.lifecycle = "2.2.0"
+versions.material = "1.2.1"
+versions.navigation = "2.3.0-alpha01"
+versions.okhttp_logging_interceptor = "3.9.0"
+versions.recyclerview = "1.0.0"
+versions.retrofit = "2.9.0"
+versions.work = "2.2.0"
+
+versions.arouter = "1.4.0"
+versions.arouter_processor = "1.2.1"
+versions.constraint_layout = "2.0.4"
+versions.okhttp = "4.2.0"
+versions.fastjson = "1.2.76"
+versions.room = "2.3.0"
+versions.paging = "3.0.0-alpha02"
+versions.match = "v1.1"
+versions.crash_spider = "v1.3"
+versions.multidex = "1.0.3"
+versions.permissions = "v2.0"
+versions.player = "v1.7"
+versions.CoroutinesDL = "v1.5"
+versions.SearchFilter = "v1.0.4"
+versions.workVersion = '2.1.0'
+versions.preference = '1.1.0'
+versions.picture_selector = 'v2.5.9'
+versions.aliyun_oss = '2.9.3'
+versions.number_picker = '1.2.0'
+versions.nim = '8.7.0'
+versions.convenientbanner = '2.1.5'
+versions.marquee_view = '1.4.0'
+versions.flow_layout_manager = 'v1.8'
+versions.wechat_sdk = '6.7.9'
+versions.countdownview = '2.1.6'
+versions.expandablelayout = '1.0.6'
+versions.hw_agcp = '1.3.1.300'
+versions.hw_push = '5.1.1.301'
+versions.flyme_push = '4.0.4'
+versions.um_common = '9.4.0'
+versions.um_asms = '1.2.3'
+versions.jpush_jcore = '2.9.0'
+versions.jpush_jpush = '4.3.0'
+
+versions.amap_3dmap = 'latest.integration'
+versions.amap_search = 'latest.integration'
+versions.amap_location = 'latest.integration'
+
+versions.scale_image_view = '3.10.0'
+
+ext.versions = versions
+
+def build_versions = [:]
+build_versions.min_sdk = 21
+build_versions.compile_sdk = 29
+build_versions.target_sdk = 29
+build_versions.build_tools = "29.0.3"
+ext.build_versions = build_versions
+
+def deps = [:]
+
+def gradle = [:]
+gradle.plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+deps.gradle = gradle
+
+def basic = [:]
+basic.app_compat = "androidx.appcompat:appcompat:$versions.appcompat"
+basic.junit = "junit:junit:$versions.junit"
+basic.material = "com.google.android.material:material:$versions.material"
+basic.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
+basic.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"
+basic.cardview = "androidx.cardview:cardview:$versions.cardview"
+
+deps.basic = basic
+
+def paging = [:]
+paging.runtime = "androidx.paging:paging-runtime:$versions.paging"
+deps.paging = paging
+
+def ktx = [:]
+ktx.core = "androidx.core:core-ktx:$versions.core_ktx"
+ktx.activity = "androidx.activity:activity-ktx:$versions.activity"
+ktx.fragment = "androidx.fragment:fragment-ktx:$versions.fragment"
+deps.ktx = ktx
+
+def arch_core = [:]
+arch_core.runtime = "androidx.arch.core:core-runtime:$versions.arch_core"
+arch_core.testing = "androidx.arch.core:core-testing:$versions.arch_core"
+deps.arch_core = arch_core
+
+def atsl = [:]
+atsl.core = "androidx.test:core:$versions.atsl_core"
+atsl.ext_junit = "androidx.test.ext:junit:$versions.atsl_junit"
+atsl.runner = "androidx.test:runner:$versions.atsl_runner"
+atsl.rules = "androidx.test:rules:$versions.atsl_rules"
+deps.atsl = atsl
+
+def espresso = [:]
+espresso.core = "androidx.test.espresso:espresso-core:$versions.espresso"
+espresso.contrib = "androidx.test.espresso:espresso-contrib:$versions.espresso"
+espresso.intents = "androidx.test.espresso:espresso-intents:$versions.espresso"
+deps.espresso = espresso
+
+def kotlin = [:]
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
+kotlin.test = "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin"
+kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+kotlin.allopen = "org.jetbrains.kotlin:kotlin-allopen:$versions.kotlin"
+deps.kotlin = kotlin
+
+def arouter = [:]
+arouter.runtime = "com.alibaba:arouter-api:$versions.arouter"
+arouter.compiler = "com.alibaba:arouter-compiler:$versions.arouter_processor"
+deps.arouter = arouter
+
+def coroutines = [:]
+coroutines.core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
+coroutines.android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
+coroutines.test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutines"
+deps.coroutines = coroutines
+
+def lifecycle = [:]
+lifecycle.runtime = "androidx.lifecycle:lifecycle-runtime:$versions.lifecycle"
+lifecycle.java8 = "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycle"
+lifecycle.compiler = "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle"
+lifecycle.viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
+lifecycle.livedata_ktx = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle"
+deps.lifecycle = lifecycle
+
+def room = [:]
+room.runtime = "androidx.room:room-runtime:$versions.room"
+room.compiler = "androidx.room:room-compiler:$versions.room"
+room.ktx = "androidx.room:room-ktx:$versions.room"
+room.testing = "androidx.room:room-testing:$versions.room"
+deps.room = room
+
+def work = [:]
+// Kotlin + coroutines
+work.runtime = "androidx.work:work-runtime-ktx:$versions.workVersion"
+deps.work = work
+
+def navigation = [:]
+navigation.runtime = "androidx.navigation:navigation-runtime:$versions.navigation"
+navigation.runtime_ktx = "androidx.navigation:navigation-runtime-ktx:$versions.navigation"
+navigation.fragment = "androidx.navigation:navigation-fragment:$versions.navigation"
+navigation.fragment_ktx = "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
+navigation.testing = "androidx.navigation:navigation-testing:$versions.navigation"
+navigation.ui = "androidx.navigation:navigation-ui:$versions.navigation"
+navigation.ui_ktx = "androidx.navigation:navigation-ui-ktx:$versions.navigation"
+navigation.safe_args_plugin = "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
+deps.navigation = navigation
+
+def retrofit = [:]
+retrofit.core = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit.retrofit_converter_gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+deps.retrofit = retrofit
+
+def okhttp3 = [:]
+okhttp3.core = "com.squareup.okhttp3:okhttp:$versions.okhttp"
+okhttp3.logging = "com.squareup.okhttp3:logging-interceptor:$versions.okhttp"
+deps.okhttp3 = okhttp3
+
+def fastjson = [:]
+fastjson.core = "com.alibaba:fastjson:$versions.fastjson"
+deps.fastjson = fastjson
+
+def glide = [:]
+glide.runtime = "com.github.bumptech.glide:glide:$versions.glide"
+glide.compiler = "com.github.bumptech.glide:compiler:$versions.glide"
+deps.glide = glide
+
+def victor = [:]
+victor.player = "com.github.Victor2018:SeagullPlayer:$versions.player"
+victor.permissions = "com.github.Victor2018:PermissionHelper:$versions.permissions"
+victor.match = "com.github.Victor2018:ScreenMatchLib:$versions.match"
+victor.crash_spider = "com.github.Victor2018:CrashSpiderLib:$versions.crash_spider"
+victor.CoroutinesDL = "com.github.Victor2018:CoroutinesDL:$versions.CoroutinesDL"
+deps.victor = victor
+
+def multidex = [:]
+multidex.core = "com.android.support:multidex:$versions.multidex"
+deps.multidex = multidex
+
+def bugly = [:]
+bugly.core = "com.tencent.bugly:crashreport:latest.release"
+deps.bugly = bugly
+
+def preference = [:]
+preference.core = "androidx.preference:preference:$versions.preference"
+deps.preference = preference
+
+def picture_selector = [:]
+picture_selector.core = "com.github.LuckSiege.PictureSelector:picture_library:$versions.picture_selector"
+deps.picture_selector = picture_selector
+
+def aliyun_oss = [:]
+aliyun_oss.core = "com.aliyun.dpa:oss-android-sdk:$versions.aliyun_oss"
+deps.aliyun_oss = aliyun_oss
+
+def number_picker = [:]
+number_picker.core = "cn.carbswang.android:NumberPickerView:$versions.number_picker"
+deps.number_picker = number_picker
+
+def nim = [:]
+nim.basesdk = "com.netease.nimlib:basesdk:$versions.nim"
+nim.push = "com.netease.nimlib:push:$versions.nim"
+deps.nim = nim
+
+def convenientbanner = [:]
+convenientbanner.core = "com.bigkoo:convenientbanner:$versions.convenientbanner"
+deps.convenientbanner = convenientbanner
+
+def marquee_view = [:]
+marquee_view.core = "com.sunfusheng:MarqueeView:$versions.marquee_view"
+deps.marquee_view = marquee_view
+
+def flow_layout_manager = [:]
+flow_layout_manager.core = "com.github.1002326270xc:LayoutManager-FlowLayout:$versions.flow_layout_manager"
+deps.flow_layout_manager = flow_layout_manager
+
+def wechat_sdk = [:]
+wechat_sdk.core = "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:$versions.wechat_sdk"
+deps.wechat_sdk = wechat_sdk
+
+def countdownview = [:]
+countdownview.core = "com.github.iwgang:countdownview:$versions.countdownview"
+deps.countdownview = countdownview
+
+def expandablelayout = [:]
+expandablelayout.core = "com.github.skydoves:expandablelayout:$versions.expandablelayout"
+deps.expandablelayout = expandablelayout
+
+def hw_push = [:]
+hw_push.agcp = "com.huawei.agconnect:agcp:$versions.hw_agcp"
+hw_push.kit = "com.huawei.hms:push:$versions.hw_push"
+deps.hw_push = hw_push
+
+def flyme_push = [:]
+flyme_push.core = "com.meizu.flyme.internet:push-internal:$versions.flyme_push"
+deps.flyme_push = flyme_push
+
+def scale_image_view = [:]
+scale_image_view.core = "com.davemorrissey.labs:subsampling-scale-image-view:$versions.scale_image_view"
+deps.scale_image_view = scale_image_view
+
+def umeng = [:]
+umeng.common = "com.umeng.umsdk:common:$versions.um_common"
+umeng.asms = "com.umeng.umsdk:asms:$versions.um_asms"
+deps.umeng = umeng
+
+def jpush = [:]
+jpush.jpush_jcore = "cn.jiguang.sdk:jcore:$versions.jpush_jcore"
+jpush.jpush_jpush = "cn.jiguang.sdk:jpush:$versions.jpush_jpush"
+jpush.jpush_hw = "cn.jiguang.sdk.plugin:huawei:$versions.jpush_jpush"
+jpush.jpush_xiaomi = "cn.jiguang.sdk.plugin:xiaomi:$versions.jpush_jpush"
+jpush.jpush_oppo = "cn.jiguang.sdk.plugin:oppo:$versions.jpush_jpush"
+jpush.jpush_vivo = "cn.jiguang.sdk.plugin:vivo:$versions.jpush_jpush"
+jpush.jpush_meizu = "cn.jiguang.sdk.plugin:meizu:$versions.jpush_jpush"
+deps.jpush = jpush
+
+def amap = [:]
+amap.amap_3dmap = "com.amap.api:3dmap:$versions.amap_3dmap"
+amap.amap_search = "com.amap.api:search:$versions.amap_search"
+amap.amap_location = "com.amap.api:location:$versions.amap_location"
+deps.amap = amap
+
+ext.deps = deps
+
+def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+    handler.maven {
+        url 'https://oss.sonatype.org/content/repositories/snapshots'
+
+        //使用私服必须打卡vpn
+        /*url 'https://nexus.shangongzu.com/repository/maven-public/'
+        credentials {
+            username = 'admin'
+            password = 'kI%uGAOJ10gZKZi7x7KDU^'
+        }*/
+    }
+    handler.maven { url 'https://jitpack.io' }
+}
+ext.addRepos = this.&addRepos

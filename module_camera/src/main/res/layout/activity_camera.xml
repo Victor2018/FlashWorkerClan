@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:ignore="ResourceName">
+
+    <!--相机预览-->
+    <com.flash.worker.module.camera.view.widget.CameraPreview
+        android:id="@+id/mCameraPreview"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!--左侧相机预览布局-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <!--相机裁剪区域左边-->
+            <View
+                android:id="@+id/mViewCameraCropLeft"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/color_9A000000" />
+
+            <LinearLayout
+                android:id="@+id/mLlCameraCropContainer"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical">
+
+                <!--相机裁剪区域顶部-->
+                <View
+                    android:id="@+id/view_camera_crop_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/color_9A000000" />
+
+                <!--相机裁剪区域-->
+                <ImageView
+                    android:id="@+id/mIvCameraCrop"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:scaleType="fitXY" />
+
+                <!--手动裁剪区域-->
+                <com.flash.worker.module.camera.view.widget.CropImageView
+                    android:visibility="gone"
+                    android:id="@+id/mCropImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <!--相机裁剪区域底部-->
+                <TextView
+                    android:id="@+id/mViewCameraCropBottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/color_9A000000"
+                    android:gravity="center"
+                    android:text="@string/camera_touch_to_focus"
+                    android:textColor="@color/color_DDDDDD"
+                    android:textSize="@dimen/dp_28" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--右侧操作布局-->
+        <FrameLayout
+            android:id="@+id/mFlCameraOption"
+            android:layout_width="@dimen/dp_200"
+            android:layout_height="match_parent"
+            android:background="@color/color_9A000000">
+
+            <!--拍照前操作布局-->
+            <LinearLayout
+                android:id="@+id/mLlCameraOption"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/mIvCameraFlash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:padding="@dimen/dp_10"
+                    android:src="@mipmap/camera_flash_off" />
+
+                <ImageView
+                    android:id="@+id/mIvCameraTake"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:padding="@dimen/dp_10"
+                    android:src="@mipmap/camera_take" />
+
+                <ImageView
+                    android:id="@+id/mIvCameraClose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:padding="@dimen/dp_10"
+                    android:src="@mipmap/camera_close" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/mTvAlbum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_50"
+                android:gravity="center"
+                android:padding="@dimen/dp_10"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dp_32"
+                android:text="相册"/>
+
+            <!--拍照后操作布局-->
+            <LinearLayout
+                android:id="@+id/mLlCameraResult"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/mIvCameraResultOk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_10"
+                    android:src="@mipmap/camera_result_ok" />
+
+                <ImageView
+                    android:id="@+id/mIvCameraResultCancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_80"
+                    android:src="@mipmap/camera_result_cancel" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+</RelativeLayout>

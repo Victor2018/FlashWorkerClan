@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:fitsSystemWindows="true"
+    tools:ignore="ResourceName">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/mCtlWebTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="false">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/transparent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/app_name">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_30">
+                    <ImageView
+                        android:id="@+id/mIvBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp_20"
+                        android:src="@mipmap/ic_back"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dp_10"
+                        android:textSize="@dimen/dp_36"
+                        android:textColor="@color/color_333333"
+                        android:text="预付报酬"/>
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingRight="@dimen/dp_42"
+        android:paddingTop="@dimen/dp_32"
+        android:paddingBottom="@dimen/dp_100"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/dp_6"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:id="@+id/tv_prepaid_salary_success"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/dp_233"
+            android:drawableTop="@mipmap/ic_prepaid_salary_success"
+            android:drawablePadding="@dimen/dp_26"
+            android:text="您已成功预付人才报酬"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_prepaid_salary_success"
+            android:layout_marginTop="@dimen/dp_67"
+            android:orientation="horizontal"
+            android:gravity="center|bottom">
+
+            <TextView
+                android:id="@+id/mTvPrepaidAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dp_5"
+                android:textStyle="bold"
+                android:textColor="@color/color_E26853"
+                android:textSize="@dimen/dp_46"
+                android:text="10000.00"/>
+
+            <TextView
+                android:id="@+id/tv_prepaid_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/color_E26853"
+                android:textSize="@dimen/dp_24"
+                android:text="元"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_tip_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="@dimen/dp_129"
+            android:paddingLeft="@dimen/dp_80"
+            android:paddingRight="@dimen/dp_80"
+            android:gravity="center"
+            android:textSize="@dimen/dp_24"
+            android:textColor="@color/color_999999"
+            android:lineSpacingMultiplier="1.2"
+            android:text="温馨提醒：\n若人才未按您发布的要求履行工作，您可在“进行中”发起投诉，拒绝支付部分或全部报酬！"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/mTvConfim"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_90"
+        android:background="@color/color_F7E047"
+        android:layout_gravity="bottom"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:textSize="@dimen/dp_32"
+        android:textColor="@color/color_333333"
+        android:textAllCaps="false"
+        android:text="确认"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

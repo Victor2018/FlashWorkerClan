@@ -1,0 +1,1259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:fitsSystemWindows="true"
+    tools:ignore="ResourceName">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/mCtlWebTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="false">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/transparent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/app_name">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_30">
+                    <ImageView
+                        android:id="@+id/mIvBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp_20"
+                        android:src="@mipmap/ic_back"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dp_10"
+                        android:textSize="@dimen/dp_36"
+                        android:textColor="@color/color_333333"
+                        android:text="代金券详情"/>
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/mNsvResumeContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_13"
+                android:layout_marginStart="@dimen/dp_21"
+                android:layout_marginEnd="@dimen/dp_21"
+                android:paddingTop="@dimen/dp_40"
+                android:paddingBottom="@dimen/dp_40"
+                android:paddingStart="@dimen/dp_21"
+                android:paddingEnd="@dimen/dp_21"
+                android:background="@drawable/shape_white_radius_16">
+
+                <ImageView
+                    android:id="@+id/iv_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:src="@mipmap/img_coupon_detail"/>
+
+                <TextView
+                    android:id="@+id/mTvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@+id/iv_amount"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginStart="@dimen/dp_27"
+                    android:textColor="@color/color_333333"
+                    android:textSize="@dimen/dp_36"
+                    android:text="艾米体育场馆代金券"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@+id/mTvName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mTvName"
+                    android:layout_marginTop="@dimen/dp_26"
+                    android:textColor="@color/color_E26853"
+                    android:textSize="@dimen/dp_28"
+                    android:text="（注册即可领取1张，加入公会还可领取2张哦！）"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_13"
+                android:layout_marginStart="@dimen/dp_21"
+                android:layout_marginEnd="@dimen/dp_21"
+                android:paddingTop="@dimen/dp_40"
+                android:paddingBottom="@dimen/dp_40"
+                android:paddingStart="@dimen/dp_21"
+                android:paddingEnd="@dimen/dp_21"
+                android:background="@drawable/shape_white_radius_16">
+
+                <View
+                    android:id="@+id/line_use_note"
+                    android:layout_width="@dimen/dp_5"
+                    android:layout_height="@dimen/dp_29"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_use_note"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_use_note"
+                    android:background="@color/color_F4CC28"/>
+
+                <TextView
+                    android:id="@+id/tv_use_note"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/line_use_note"
+                    android:layout_marginStart="@dimen/dp_19"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="使用须知"/>
+
+                <TextView
+                    android:id="@+id/mTvExpireTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_use_note"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_note"
+                    android:layout_marginTop="@dimen/dp_25"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="有 效 期：2021.9.28  到期"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_13"
+                android:layout_marginStart="@dimen/dp_21"
+                android:layout_marginEnd="@dimen/dp_21"
+                android:paddingTop="@dimen/dp_40"
+                android:paddingBottom="@dimen/dp_40"
+                android:paddingStart="@dimen/dp_21"
+                android:paddingEnd="@dimen/dp_21"
+                android:background="@drawable/shape_white_radius_16">
+
+                <View
+                    android:id="@+id/line_use_project"
+                    android:layout_width="@dimen/dp_5"
+                    android:layout_height="@dimen/dp_29"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_use_project"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_use_project"
+                    android:background="@color/color_F4CC28"/>
+
+                <TextView
+                    android:id="@+id/tv_use_project"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/line_use_project"
+                    android:layout_marginStart="@dimen/dp_19"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="使用项目"/>
+
+                <TextView
+                    android:id="@+id/mTvUserProject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_use_project"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_25"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="篮球、羽毛球、真人CS、乒乓球、射箭、VR等。"/>
+
+
+                <com.flash.worker.lib.common.view.widget.DotLineView
+                    android:id="@+id/dot_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_1"
+                    app:layout_constraintTop_toBottomOf="@+id/mTvUserProject"
+                    android:layout_marginTop="@dimen/dp_40"
+                    android:layerType="software"
+                    app:dashGap="@dimen/dp_5"
+                    app:dashLength="@dimen/dp_5"
+                    app:dashThickness="@dimen/dp_1"
+                    app:divider_line_color="@color/color_999999"
+                    app:divider_orientation="horizontal"/>
+
+                <TextView
+                    android:id="@+id/mTvUserTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/dot_line"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_40"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="使用场馆和时间："/>
+
+                <TextView
+                    android:id="@+id/tv_area1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/mTvUserTime"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_65"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="【金羽羽毛球馆】"/>
+
+                <TextView
+                    android:id="@+id/tv_addr1_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_area1"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_27"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="地址："/>
+
+                <TextView
+                    android:id="@+id/tv_addr1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_addr1_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_addr1_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="深圳市南山区北环大道10020号神彩彩联物流中心2期仓库"/>
+
+                <TextView
+                    android:id="@+id/tv_tel1_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_addr1"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="联系方式："/>
+
+                <TextView
+                    android:id="@+id/tv_tel1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_tel1_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_tel1_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="0755-83368966"/>
+
+                <TextView
+                    android:id="@+id/tv_project1_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_tel1"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="项目："/>
+
+                <TextView
+                    android:id="@+id/tv_project1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_project1_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_project1_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="羽毛球馆抵用券"/>
+
+                <TextView
+                    android:id="@+id/tv_time1_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_project1"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="使用时间："/>
+
+                <TextView
+                    android:id="@+id/tv_time1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_time1_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_time1_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="8:00-18:00（工作日）"/>
+
+                <TextView
+                    android:id="@+id/tv_area2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_time1_label"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_65"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="【蟋蟀篮球馆】"/>
+
+                <TextView
+                    android:id="@+id/tv_addr2_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_area2"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_27"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="地址："/>
+
+                <TextView
+                    android:id="@+id/tv_addr2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_addr2_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_addr2_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="广东省深圳市南山区北环大道10020号"/>
+
+                <TextView
+                    android:id="@+id/tv_tel2_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_addr2"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="联系方式："/>
+
+                <TextView
+                    android:id="@+id/tv_tel2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_tel2_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_tel2_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="0755-83368366"/>
+
+                <TextView
+                    android:id="@+id/tv_project2_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_tel2"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="项目："/>
+
+                <TextView
+                    android:id="@+id/tv_project2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_project2_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_project2_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="篮球散场抵用券"/>
+
+                <TextView
+                    android:id="@+id/tv_time2_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_project2"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="使用时间："/>
+
+                <TextView
+                    android:id="@+id/tv_time2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_time2_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_time2_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="8:30-18:00（工作日）"/>
+
+
+                <TextView
+                    android:id="@+id/tv_area3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_time2_label"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_65"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="【南羽海润A馆】"/>
+
+                <TextView
+                    android:id="@+id/tv_addr3_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_area3"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_27"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="地址："/>
+
+                <TextView
+                    android:id="@+id/tv_addr3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_addr3_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_addr3_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="深圳市南山区南山大道1105号"/>
+
+                <TextView
+                    android:id="@+id/tv_tel3_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_addr3"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="联系方式："/>
+
+                <TextView
+                    android:id="@+id/tv_tel3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_tel3_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_tel3_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="0755-86955004"/>
+
+                <TextView
+                    android:id="@+id/tv_project3_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_tel3"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="项目："/>
+
+                <TextView
+                    android:id="@+id/tv_project3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_project3_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_project3_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="羽毛球馆抵用券"/>
+
+                <TextView
+                    android:id="@+id/tv_time3_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_project3"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="使用时间："/>
+
+                <TextView
+                    android:id="@+id/tv_time3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_time3_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_time3_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="8:00-12:00   14:00-18:00（工作日）"/>
+
+                <TextView
+                    android:id="@+id/tv_area4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_time3_label"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_65"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="【南羽海润C馆（龙兴翔羽毛球馆）】"/>
+
+                <TextView
+                    android:id="@+id/tv_addr4_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_area4"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_27"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="地址："/>
+
+                <TextView
+                    android:id="@+id/tv_addr4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_addr4_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_addr4_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="深圳市南山区南山大道海润实业有限公司西区3楼"/>
+
+                <TextView
+                    android:id="@+id/tv_tel4_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_addr4"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="联系方式："/>
+
+                <TextView
+                    android:id="@+id/tv_tel4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_tel4_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_tel4_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="0755-29193338"/>
+
+                <TextView
+                    android:id="@+id/tv_project4_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_tel4"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_40"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="项目："/>
+
+                <TextView
+                    android:id="@+id/tv_project4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_project4_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_project4_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="羽毛球馆抵用券"/>
+
+                <TextView
+                    android:id="@+id/tv_time4_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_project4"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="使用时间："/>
+
+                <TextView
+                    android:id="@+id/tv_time4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_time4_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_time4_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="8:00-12:00    14:00-18:00（工作日）"/>
+
+                <TextView
+                    android:id="@+id/tv_project41_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_time4"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_40"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="项目："/>
+
+                <TextView
+                    android:id="@+id/tv_project41"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_project41_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_project41_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="乒乓球馆抵用券"/>
+
+                <TextView
+                    android:id="@+id/tv_time41_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_project41"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="使用时间："/>
+
+                <TextView
+                    android:id="@+id/tv_time41"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_time41_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_time41_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="8:00-22:00（周末、法定节假日通用）"/>
+
+                <TextView
+                    android:id="@+id/tv_project42_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_time41"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_40"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="项目："/>
+
+                <TextView
+                    android:id="@+id/tv_project42"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_project42_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_project42_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="射箭馆抵用券"/>
+
+                <TextView
+                    android:id="@+id/tv_time42_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_project42"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="使用时间："/>
+
+                <TextView
+                    android:id="@+id/tv_time42"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_time42_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_time42_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="8:00-22:00（周末、法定节假日通用）"/>
+
+                <TextView
+                    android:id="@+id/tv_project43_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_time42"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_40"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="项目："/>
+
+                <TextView
+                    android:id="@+id/tv_project43"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_project43_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_project43_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="篮球散场抵用券"/>
+
+                <TextView
+                    android:id="@+id/tv_time43_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_project43"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="使用时间："/>
+
+                <TextView
+                    android:id="@+id/tv_time43"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_time43_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_time43_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="8:00-22:00（周末、法定节假日通用）"/>
+
+                <TextView
+                    android:id="@+id/tv_area5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_time43"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_65"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="【南羽海润D馆】"/>
+
+                <TextView
+                    android:id="@+id/tv_addr5_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_area5"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_27"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="地址："/>
+
+                <TextView
+                    android:id="@+id/tv_addr5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_addr5_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_addr5_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="深圳市南山区南山大道1105号"/>
+
+                <TextView
+                    android:id="@+id/tv_tel5_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_addr5"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="联系方式："/>
+
+                <TextView
+                    android:id="@+id/tv_tel5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_tel5_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_tel5_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="0755-86955004"/>
+
+                <TextView
+                    android:id="@+id/tv_project5_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_tel5"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="项目："/>
+
+                <TextView
+                    android:id="@+id/tv_project5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_project5_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_project5_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="乒乓球抵用券"/>
+
+                <TextView
+                    android:id="@+id/tv_time5_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_project5"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="使用时间："/>
+
+                <TextView
+                    android:id="@+id/tv_time5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_time5_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_time5_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="8:00-22:00（工作日）"/>
+
+                <TextView
+                    android:id="@+id/tv_area6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_time5"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_65"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="【壆岗羽之王羽毛球馆】"/>
+
+                <TextView
+                    android:id="@+id/tv_addr6_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_area6"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_27"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="地址："/>
+
+                <TextView
+                    android:id="@+id/tv_addr6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_addr6_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_addr6_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="深圳市宝安区壆岗大道与锦岗街交叉路口往东北约100米(沙井坣岗社区北侧)"/>
+
+                <TextView
+                    android:id="@+id/tv_tel6_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_addr6"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="联系方式："/>
+
+                <TextView
+                    android:id="@+id/tv_tel6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_tel6_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_tel6_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="0755-27260688"/>
+
+                <TextView
+                    android:id="@+id/tv_project6_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_tel6"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="项目："/>
+
+                <TextView
+                    android:id="@+id/tv_project6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_project6_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_project6_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="羽毛球馆抵用券"/>
+
+                <TextView
+                    android:id="@+id/tv_time6_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_project6"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="使用时间："/>
+
+                <TextView
+                    android:id="@+id/tv_time6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_time6_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_time6_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="8:00-18:00 （周末、法定节假日通用）"/>
+
+                <TextView
+                    android:id="@+id/tv_area7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_time6"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_65"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="【盐田蓝郡篮球馆】"/>
+
+                <TextView
+                    android:id="@+id/tv_addr7_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_area7"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_27"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="地址："/>
+
+                <TextView
+                    android:id="@+id/tv_addr7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_addr7_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_addr7_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="深圳市盐田区沙头角街道田心社区沙深路79号蓝郡公馆会所二楼"/>
+
+                <TextView
+                    android:id="@+id/tv_tel7_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_addr7"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="联系方式："/>
+
+                <TextView
+                    android:id="@+id/tv_tel7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_tel7_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_tel7_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="0755-22745780"/>
+
+                <TextView
+                    android:id="@+id/tv_project7_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_tel7"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="项目："/>
+
+                <TextView
+                    android:id="@+id/tv_project7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_project7_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_project7_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="篮球散打抵用券"/>
+
+                <TextView
+                    android:id="@+id/tv_time7_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_project7"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="使用时间："/>
+
+                <TextView
+                    android:id="@+id/tv_time7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_time7_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_time7_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="8:00-22:00（周末、法定节假日通用）"/>
+
+                <TextView
+                    android:id="@+id/tv_area8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_time7"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_65"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="【谦云会射箭射击俱乐部】"/>
+
+                <TextView
+                    android:id="@+id/tv_addr8_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_area8"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_27"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="地址："/>
+
+                <TextView
+                    android:id="@+id/tv_addr8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_addr8_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_addr8_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="深圳市南山区南头街道同乐社区北环大道10020号南海立交北彩联物流中心办公楼3楼"/>
+
+                <TextView
+                    android:id="@+id/tv_tel8_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_addr8"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="联系方式："/>
+
+                <TextView
+                    android:id="@+id/tv_tel8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_tel8_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_tel8_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="13760376466"/>
+
+                <TextView
+                    android:id="@+id/tv_project8_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_tel8"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="项目："/>
+
+                <TextView
+                    android:id="@+id/tv_project8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_project8_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_project8_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="射箭、VR、真人CS抵用券"/>
+
+                <TextView
+                    android:id="@+id/tv_time8_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_project8"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_project"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="使用时间："/>
+
+                <TextView
+                    android:id="@+id/tv_time8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/tv_time8_label"
+                    app:layout_constraintStart_toEndOf="@+id/tv_time8_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="8:00-22:00 （周末、法定节假日通用）"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_13"
+                android:layout_marginStart="@dimen/dp_21"
+                android:layout_marginEnd="@dimen/dp_21"
+                android:paddingTop="@dimen/dp_40"
+                android:paddingBottom="@dimen/dp_40"
+                android:paddingStart="@dimen/dp_21"
+                android:paddingEnd="@dimen/dp_21"
+                android:background="@drawable/shape_white_radius_16">
+
+                <View
+                    android:id="@+id/line_reserve_info"
+                    android:layout_width="@dimen/dp_5"
+                    android:layout_height="@dimen/dp_29"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_reserve_info"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_reserve_info"
+                    android:background="@color/color_F4CC28"/>
+
+                <TextView
+                    android:id="@+id/tv_reserve_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/line_reserve_info"
+                    android:layout_marginStart="@dimen/dp_19"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="预约信息"/>
+
+                <TextView
+                    android:id="@+id/mTvReserveInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_reserve_info"
+                    app:layout_constraintStart_toStartOf="@+id/tv_reserve_info"
+                    android:layout_marginTop="@dimen/dp_25"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="请您提前电话预约。"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_13"
+                android:layout_marginStart="@dimen/dp_21"
+                android:layout_marginEnd="@dimen/dp_21"
+                android:paddingTop="@dimen/dp_40"
+                android:paddingBottom="@dimen/dp_40"
+                android:paddingStart="@dimen/dp_21"
+                android:paddingEnd="@dimen/dp_21"
+                android:background="@drawable/shape_white_radius_16">
+
+                <View
+                    android:id="@+id/line_use_rules"
+                    android:layout_width="@dimen/dp_5"
+                    android:layout_height="@dimen/dp_29"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_use_rules"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_use_rules"
+                    android:background="@color/color_F4CC28"/>
+
+                <TextView
+                    android:id="@+id/tv_use_rules"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/line_use_rules"
+                    android:layout_marginStart="@dimen/dp_19"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="使用规则"/>
+
+                <TextView
+                    android:id="@+id/mTvUseRules"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_use_rules"
+                    app:layout_constraintStart_toStartOf="@+id/tv_use_rules"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="@dimen/dp_25"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="1.不再与其他优惠同享。\n2.平台温馨提醒：您在到店使用本抵扣券服务期间，请关注商家的安全提示内容，了解相关注意事项，做好安全防护措施，保护您的安全。"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ResourceName">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_68"
+        android:layout_marginLeft="@dimen/dp_46"
+        android:layout_gravity="center_vertical"
+        android:src="@mipmap/ic_one_key_login_back"/>
+
+    <ImageView
+        android:id="@+id/iv_login_logo"
+        android:layout_width="@dimen/dp_192"
+        android:layout_height="@dimen/dp_192"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/iv_back"
+        android:layout_marginTop="@dimen/dp_27"
+        android:src="@mipmap/ic_login_logo" />
+
+    <TextView
+        android:id="@+id/mTvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/iv_login_logo"
+        android:layout_marginTop="@dimen/dp_21"
+        android:textStyle="bold"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_27"
+        android:text="@string/login_welcome_login"/>
+
+    <TextView
+        android:id="@+id/tv_introduction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/mTvWelcome"
+        android:layout_marginTop="@dimen/dp_13"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_27"
+        android:text="短期人才共享平台"/>
+
+    <TextView
+        android:id="@+id/tv_other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/mTvSmsLogin"
+        android:layout_marginBottom="@dimen/dp_58"
+        android:textColor="@color/color_999999"
+        android:textSize="@dimen/dp_27"
+        android:text="其他登录方式"/>
+
+    <View
+        style="@style/base_line_horizontal"
+        android:layout_toLeftOf="@+id/tv_other"
+        android:layout_alignTop="@+id/tv_other"
+        android:layout_marginLeft="@dimen/dp_75"
+        android:layout_marginRight="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_20"/>
+
+    <View
+        style="@style/base_line_horizontal"
+        android:id="@+id/line_right"
+        android:layout_toRightOf="@+id/tv_other"
+        android:layout_alignTop="@+id/tv_other"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginLeft="@dimen/dp_40"
+        android:layout_marginRight="@dimen/dp_75"/>
+
+    <TextView
+        android:id="@+id/mTvSmsLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dp_268"
+        android:layout_marginStart="@dimen/dp_228"
+        android:drawableTop="@mipmap/ic_sms_login_focus"
+        android:drawablePadding="@dimen/dp_15"
+        android:textSize="@dimen/dp_24"
+        android:textColor="@color/color_999999"
+        android:text="验证码登录"/>
+
+    <TextView
+        android:id="@+id/mTvWechat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="@dimen/dp_228"
+        android:layout_marginBottom="@dimen/dp_268"
+        android:drawableTop="@mipmap/ic_wx_login_focus"
+        android:drawablePadding="@dimen/dp_15"
+        android:textSize="@dimen/dp_24"
+        android:textColor="@color/color_999999"
+        android:text="微信登录"/>
+
+</RelativeLayout>

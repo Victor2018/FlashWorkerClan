@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingStart="@dimen/dp_50"
+    android:paddingEnd="@dimen/dp_50"
+    tools:ignore="ResourceName">
+
+    <TextView
+        android:id="@+id/mTvTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="@dimen/dp_27"
+        android:background="@drawable/shape_d9000000_radius_13"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dp_24"
+        android:text="尊敬的人才：\n\t\t\t\t平台介入后，若核实雇主投诉属实，您除了需要向雇主进行赔付外，您的信用积分还将被扣掉10分。(同意诉求不扣分。)" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+

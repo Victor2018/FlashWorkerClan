@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.SubmitTaskActivity"
+    tools:ignore="ResourceName">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="false">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/transparent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/app_name">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_30">
+
+                    <ImageView
+                        android:id="@+id/mIvBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp_20"
+                        android:src="@mipmap/ic_back" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dp_10"
+                        android:text="提交详情"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/dp_36" />
+
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/dp_13"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:id="@+id/mTvUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dp_32"
+            android:layout_marginStart="@dimen/dp_42"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            tools:text="人才 ：张三"/>
+
+        <TextView
+            android:id="@+id/mTvUserId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mTvUserName"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dp_27"
+            android:layout_marginStart="@dimen/dp_42"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            tools:text="ID：12458965"/>
+
+        <TextView
+            android:id="@+id/mTvSubmitTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mTvUserId"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dp_27"
+            android:layout_marginStart="@dimen/dp_42"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            tools:text="提交时间：11.23  23:07"/>
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mTvSubmitTime"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dp_65"
+            android:layout_marginStart="@dimen/dp_42"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:text="提交信息："/>
+
+        <View
+            android:id="@+id/line_content"
+            style="@style/base_line_horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/tv_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/dp_27"
+            android:layout_marginStart="@dimen/dp_42"
+            android:layout_marginEnd="@dimen/dp_42"/>
+
+        <TextView
+            android:id="@+id/mTvContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/line_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dp_27"
+            android:paddingStart="@dimen/dp_42"
+            android:paddingEnd="@dimen/dp_42"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"/>
+
+        <TextView
+            android:id="@+id/tv_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mTvContent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dp_65"
+            android:layout_marginStart="@dimen/dp_42"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:text="相关图片 ："/>
+
+        <com.flash.worker.lib.common.view.widget.LMRecyclerView
+            android:id="@+id/mRvWorksPic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_pic"
+            android:layout_marginTop="@dimen/dp_24"
+            android:paddingStart="@dimen/dp_22"
+            android:paddingEnd="@dimen/dp_22"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
+            app:spanCount="4"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

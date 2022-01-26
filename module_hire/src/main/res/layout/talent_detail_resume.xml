@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_white_radius_13"
+    android:paddingTop="@dimen/dp_27"
+    android:paddingBottom="@dimen/dp_27"
+    tools:ignore="MissingDefaultResource,ResourceName">
+
+    <LinearLayout
+        android:id="@+id/ll_resume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingLeft="@dimen/dp_21"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <View
+            android:id="@+id/line_resume"
+            android:layout_width="@dimen/dp_5"
+            android:layout_height="@dimen/dp_27"
+            android:background="@color/color_FFD424"/>
+
+        <TextView
+            android:id="@+id/tv_resume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_21"
+            android:textSize="@dimen/dp_32"
+            android:textColor="@color/color_333333"
+            android:text="简历"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_education"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_resume"
+        android:layout_marginTop="@dimen/dp_39"
+        android:paddingLeft="@dimen/dp_21"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        android:text="学历："/>
+
+    <TextView
+        android:id="@+id/mTvEducation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/dp_21"
+        app:layout_constraintLeft_toRightOf="@+id/tv_education"
+        app:layout_constraintTop_toTopOf="@+id/tv_education"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_education"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_28"
+        tools:text="本科"/>
+
+    <View
+        android:id="@+id/line_education"
+        style="@style/base_line_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_education"
+        android:layout_marginTop="@dimen/dp_40"
+        android:layout_marginLeft="@dimen/dp_21"
+        android:layout_marginRight="@dimen/dp_21"/>
+
+    <TextView
+        android:id="@+id/tv_work_experience"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line_education"
+        android:layout_marginTop="@dimen/dp_66"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        android:text="工作经历："/>
+
+    <com.flash.worker.lib.common.view.widget.LMRecyclerView
+        android:id="@+id/mRvWorkExperience"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_work_experience"
+        android:layout_marginTop="@dimen/dp_10"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    <View
+        android:id="@+id/line_work_experience"
+        style="@style/base_line_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mRvWorkExperience"
+        android:layout_marginTop="@dimen/dp_39"
+        android:layout_marginLeft="@dimen/dp_21"
+        android:layout_marginRight="@dimen/dp_21"/>
+
+    <TextView
+        android:id="@+id/tv_qualification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line_work_experience"
+        android:layout_marginTop="@dimen/dp_66"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        android:text="技能/荣誉："/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mRvQualification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_11"
+        android:paddingRight="@dimen/dp_11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_qualification"
+        android:layout_marginTop="@dimen/dp_40"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="false" />
+
+    <View
+        android:id="@+id/line_work_qualification"
+        style="@style/base_line_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mRvQualification"
+        android:layout_marginTop="@dimen/dp_66"
+        android:layout_marginLeft="@dimen/dp_21"
+        android:layout_marginRight="@dimen/dp_21"/>
+
+    <TextView
+        android:id="@+id/tv_work_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line_work_qualification"
+        android:layout_marginTop="@dimen/dp_66"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        android:text="工作情景或作品："/>
+
+    <com.flash.worker.lib.common.view.widget.LMRecyclerView
+        android:id="@+id/mRvWorksPic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_work_pic"
+        android:layout_marginTop="@dimen/dp_40"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="false"
+        app:spanCount="5"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+
+    <View
+        android:id="@+id/line_work_pic"
+        style="@style/base_line_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mRvWorksPic"
+        android:layout_marginTop="@dimen/dp_66"
+        android:layout_marginLeft="@dimen/dp_21"
+        android:layout_marginRight="@dimen/dp_21"/>
+
+    <TextView
+        android:id="@+id/tv_introduction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line_work_pic"
+        android:layout_marginTop="@dimen/dp_66"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        android:text="自我推荐："/>
+
+    <TextView
+        android:id="@+id/mTvIntroduction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_introduction"
+        android:layout_marginTop="@dimen/dp_39"
+        android:paddingBottom="@dimen/dp_30"
+        android:paddingLeft="@dimen/dp_21"
+        android:paddingRight="@dimen/dp_21"
+        android:lineSpacingMultiplier="1.2"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_28"
+        tools:text="自我推荐自我推荐自我推荐自我推荐自我推荐自我推荐自我自我推荐自我推荐自我推荐自我推荐自我推"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

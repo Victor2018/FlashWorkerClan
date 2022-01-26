@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_6"
+    android:layout_marginStart="@dimen/dp_21"
+    android:layout_marginEnd="@dimen/dp_21"
+    android:paddingTop="@dimen/dp_26"
+    android:paddingBottom="@dimen/dp_26"
+    android:paddingLeft="@dimen/dp_21"
+    android:paddingRight="@dimen/dp_21"
+    android:background="@drawable/shape_white_radius_13"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource,ResourceName">
+
+    <TextView
+        android:id="@+id/mTvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_0CA400"
+        android:text="审批通过"/>
+
+    <View style="@style/base_line_horizontal"
+        android:layout_marginTop="@dimen/dp_27"/>
+
+    <TextView
+        android:id="@+id/mTvAuditTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_27"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_333333"
+        tools:text="通过时间：2021.05.02 15:20"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mClRejection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_27">
+
+        <TextView
+            android:id="@+id/tv_rejection_reason"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:text="驳回原因："/>
+
+        <TextView
+            android:id="@+id/mTvRejectionReason"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_rejection_reason"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingEnd="@dimen/dp_23"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            tools:text="审批不通过得了审批不通过得了审批不通过得了审批不通过得了"/>
+
+        <TextView
+            android:id="@+id/mTvRejectionTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mTvRejectionReason"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dp_27"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            tools:text="驳回时间：2021.05.02 15:20"/>
+
+        <View style="@style/base_line_horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mTvRejectionTime"
+            android:layout_marginTop="@dimen/dp_27"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/mTvApplyCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_27"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_333333"
+        tools:text="申请城市：广东省深圳市"/>
+
+    <TextView
+        android:id="@+id/mTvGuildName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_27"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_333333"
+        tools:text="公会名称：轻松公会"/>
+
+    <TextView
+        android:id="@+id/mTvApplyTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_27"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_333333"
+        tools:text="申请时间：2021.04.29  14:56"/>
+
+</LinearLayout>

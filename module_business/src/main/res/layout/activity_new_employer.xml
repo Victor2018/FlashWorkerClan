@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:ignore="MissingDefaultResource,ResourceName">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="false">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/transparent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/app_name">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_30">
+                    <ImageView
+                        android:id="@+id/mIvBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp_20"
+                        android:src="@mipmap/ic_back"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dp_10"
+                        android:textSize="@dimen/dp_36"
+                        android:textColor="@color/color_333333"
+                        android:text="新增雇主信息"/>
+
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/dp_200"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/mIvAuthentication"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_13"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:scaleType="fitXY"
+                android:src="@mipmap/img_authentication"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_81"
+                android:paddingLeft="@dimen/dp_42"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/dp_28"
+                android:text="雇主信息"/>
+
+            <View style="@style/base_line_horizontal"
+                android:layout_marginLeft="@dimen/dp_21"
+                android:layout_marginRight="@dimen/dp_21"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_53"
+                android:paddingLeft="@dimen/dp_25"
+                android:paddingRight="@dimen/dp_42">
+
+                <com.flash.worker.lib.common.view.widget.RequiredTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/mRgIdentity"
+                    app:layout_constraintBottom_toBottomOf="@+id/mRgIdentity"
+                    android:textColor="@color/color_666666"
+                    android:textSize="@dimen/dp_28"
+                    app:prefix_color="@color/color_E26853"
+                    app:android_text=" 类型"/>
+
+                <RadioGroup
+                    android:id="@+id/mRgIdentity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <RadioButton
+                        android:id="@+id/mRbEnterprise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/dp_13"
+                        android:paddingBottom="@dimen/dp_13"
+                        android:paddingStart="@dimen/dp_25"
+                        android:paddingEnd="@dimen/dp_25"
+                        android:button="@null"
+                        android:textSize="@dimen/dp_24"
+                        android:gravity="center"
+                        android:textColor="@color/rb_student_title_color"
+                        android:background="@drawable/rb_student_selector"
+                        android:drawablePadding="@dimen/dp_24"
+                        android:text="企业"/>
+
+                    <RadioButton
+                        android:id="@+id/mRbMerchant"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_25"
+                        android:paddingTop="@dimen/dp_13"
+                        android:paddingBottom="@dimen/dp_13"
+                        android:paddingStart="@dimen/dp_25"
+                        android:paddingEnd="@dimen/dp_25"
+                        android:button="@null"
+                        android:textSize="@dimen/dp_24"
+                        android:gravity="center"
+                        android:textColor="@color/rb_student_title_color"
+                        android:background="@drawable/rb_student_selector"
+                        android:drawablePadding="@dimen/dp_24"
+                        android:text="商户"/>
+                    <RadioButton
+                        android:id="@+id/mRbPersonal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/dp_13"
+                        android:paddingBottom="@dimen/dp_13"
+                        android:paddingStart="@dimen/dp_25"
+                        android:paddingEnd="@dimen/dp_25"
+                        android:layout_marginLeft="@dimen/dp_25"
+                        android:button="@null"
+                        android:checked="true"
+                        android:textSize="@dimen/dp_24"
+                        android:gravity="center"
+                        android:textColor="@color/rb_student_title_color"
+                        android:background="@drawable/rb_student_selector"
+                        android:drawablePadding="@dimen/dp_24"
+                        android:text="个人"/>
+                </RadioGroup>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View style="@style/base_line_horizontal"
+                android:layout_marginLeft="@dimen/dp_42"
+                android:layout_marginRight="@dimen/dp_42"
+                android:layout_marginTop="@dimen/dp_27"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_40"
+                android:paddingLeft="@dimen/dp_25">
+
+                <com.flash.worker.lib.common.view.widget.RequiredTextView
+                    android:id="@+id/tv_employ_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/mEtEmployerName"
+                    app:layout_constraintBottom_toBottomOf="@+id/mEtEmployerName"
+                    android:textColor="@color/color_666666"
+                    android:textSize="@dimen/dp_28"
+                    app:prefix_color="@color/color_E26853"
+                    app:android_text=" 名称"/>
+
+                <EditText
+                    android:id="@+id/mEtEmployerName"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_90"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tv_employ_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@color/white"
+                    android:paddingRight="@dimen/dp_42"
+                    android:hint="请输入雇主名称"
+                    android:maxLength="12"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:gravity="center|right"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View style="@style/base_line_horizontal"
+                android:layout_marginLeft="@dimen/dp_42"
+                android:layout_marginRight="@dimen/dp_42"/>
+
+            <TextView
+                android:id="@+id/mTvBusinessLicense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp_42"
+                android:paddingRight="@dimen/dp_42"
+                android:layout_marginTop="@dimen/dp_53"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/dp_28"
+                android:text="企业资质"
+                android:visibility="gone"
+                tools:visibility="visible"/>
+
+            <FrameLayout
+                android:id="@+id/mFlBusinessLicense"
+                android:layout_width="@dimen/dp_160"
+                android:layout_height="@dimen/dp_160"
+                android:layout_marginLeft="@dimen/dp_22"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/dp_20"
+                    android:src="@drawable/border_cccccc_radius_3"/>
+
+                <ImageView
+                    android:id="@+id/mIvUploadAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp_53"
+                    android:src="@mipmap/ic_img_add"/>
+
+                <TextView
+                    android:id="@+id/mTvUploadTip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginBottom="@dimen/dp_33"
+                    android:textColor="@color/color_999999"
+                    android:textSize="@dimen/dp_16"
+                    android:text="上传企业资质"/>
+
+                <ImageView
+                    android:id="@+id/mIvBusinessLicense"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/dp_20"/>
+
+                <ImageView
+                    android:id="@+id/mIvDelBusinessLicense"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:padding="@dimen/dp_10"
+                    android:src="@mipmap/ic_image_del"
+                    android:visibility="gone"
+                    tools:visibility="visible"/>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp_42"
+                android:paddingRight="@dimen/dp_42"
+                android:layout_marginTop="@dimen/dp_43"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/dp_28"
+                android:text="雇主介绍"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp_42"
+                android:paddingRight="@dimen/dp_42"
+                android:layout_marginTop="@dimen/dp_40"
+                android:paddingBottom="@dimen/dp_45">
+                <EditText
+                    android:id="@+id/mEtDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:minHeight="@dimen/dp_200"
+                    android:maxLength="200"
+                    android:padding="@dimen/dp_10"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:gravity="left|top"
+                    android:background="@drawable/border_cccccc_radius_7"/>
+                <TextView
+                    android:id="@+id/mTvDescriptionCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dp_16"
+                    android:paddingBottom="@dimen/dp_13"
+                    android:textColor="@color/color_999999"
+                    android:textSize="@dimen/dp_24"
+                    android:text="0/200"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/mTvSave"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_99"
+        android:layout_gravity="bottom"
+        android:background="@color/color_F7E047"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_32"
+        android:text="保存"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

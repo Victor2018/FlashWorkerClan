@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/dp_20"
+    android:paddingBottom="@dimen/dp_20"
+    android:paddingStart="@dimen/dp_42"
+    android:paddingEnd="@dimen/dp_42"
+    android:clickable="true"
+    android:foreground="?selectableItemBackground"
+    tools:ignore="ResourceName">
+
+    <ImageView
+        android:id="@+id/mIvCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mTvTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/mTvTitle"
+        android:padding="@dimen/dp_10"
+        android:src="@mipmap/ic_release_normal"/>
+
+    <TextView
+        android:id="@+id/mTvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/mIvCheck"
+        app:layout_constraintEnd_toStartOf="@+id/mTvEmploymentCount"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:drawableLeft="@mipmap/ic_job_lable"
+        android:drawablePadding="@dimen/dp_15"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_333333"
+        android:text="JAVA开发工程师"/>
+
+    <TextView
+        android:id="@+id/mTvWorkDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/mTvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/mTvTitle"
+        android:layout_marginTop="@dimen/dp_13"
+        android:textSize="@dimen/dp_24"
+        android:textColor="@color/color_999999"
+        android:text="2020.03.03 - 2020.03.23"/>
+
+    <TextView
+        android:id="@+id/mTvEmploymentCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mTvTitle"
+        android:textColor="@color/color_E26853"
+        android:textSize="@dimen/dp_28"
+        android:text="3人 / 已雇用1人"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

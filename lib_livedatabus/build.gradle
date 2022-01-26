@@ -1,0 +1,15 @@
+plugins {
+    id 'com.android.library'
+}
+
+apply from: "../config_build.gradle"
+
+android {
+}
+
+dependencies {
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation deps.basic.app_compat
+
+}

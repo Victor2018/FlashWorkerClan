@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.flash.worker.module.job">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:label="@string/job_module_job"
+        android:name="com.flash.worker.lib.common.app.App"
+        android:icon="@drawable/module_job_logo"
+        android:theme="@style/AppTheme.NoActionBar"
+        android:usesCleartextTraffic="true"
+        android:allowBackup="true"
+        tools:replace="android:allowBackup,android:label">
+        <activity
+            android:name=".view.activity.JobActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".view.activity.JobDetailActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".view.activity.SignUpActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"/>
+
+        <activity
+            android:name=".view.activity.SignUpSuccessActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"/>
+
+        <activity
+            android:name=".view.activity.HirerDetailActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"/>
+
+        <activity
+            android:name=".view.activity.EmployerAllEvaluationActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"/>
+
+        <activity
+            android:name=".view.activity.EmployerDetailActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".view.activity.JobSearchActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"/>
+
+    </application>
+</manifest>

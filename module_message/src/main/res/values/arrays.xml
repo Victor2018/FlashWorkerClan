@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="message_tab_titles">
+		<item>消息</item>
+		<item>通知</item>
+    </string-array>
+
+    <string-array name="message_talent_common_words">
+		<item>您好，我已报名，简历真实、绝不爽约！</item>
+		<item>您好，请问到岗后具体和谁联系呢？</item>
+		<item>您好，我已在路上了，马上就到！</item>
+		<item>好的，谢谢！</item>
+    </string-array>
+
+    <string-array name="message_employer_common_words">
+		<item>您好，请务必根据要求按时到岗！</item>
+		<item>您好，请问还有多久能到？</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,52 @@
+package com.flash.worker.module.business.view.dialog
+
+import android.content.Context
+import android.view.View
+import android.widget.TextView
+import com.flash.worker.lib.common.view.dialog.AbsPopWindow
+import com.flash.worker.module.business.R
+import com.flash.worker.module.business.interfaces.OnReportCancelListener
+
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2020-2080, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: ReportCancelPopWindow
+ * Author: Victor
+ * Date: 2021/1/5 16:53
+ * Description: 
+ * -----------------------------------------------------------------
+ */
+class ReportCancelPopWindow(context: Context?): AbsPopWindow(context), View.OnClickListener {
+
+    var mOnReportCancelListener: OnReportCancelListener? = null
+
+    override fun bindContentView() = R.layout.pop_report_cancel
+
+    override fun getWeightPercentage(): Double {
+        return 0.0
+    }
+
+    override fun getHeightPercentage(): Double {
+        return 0.0
+    }
+
+    override fun initView(view: View?) {
+        view?.findViewById<TextView>(R.id.mTvReport)?.setOnClickListener(this)
+        view?.findViewById<TextView>(R.id.mTvCancel)?.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.mTvReport -> {
+                mOnReportCancelListener?.OnReport()
+                dismiss()
+            }
+            R.id.mTvCancel -> {
+                mOnReportCancelListener?.OnCancel()
+                dismiss()
+            }
+        }
+    }
+
+}

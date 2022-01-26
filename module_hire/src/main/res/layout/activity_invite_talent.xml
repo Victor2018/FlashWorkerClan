@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mSrlRefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ResourceName">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:background="@color/white"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/mCtlWebTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:titleEnabled="false">
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/transparent"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:title="@string/app_name">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dp_30">
+
+                        <ImageView
+                            android:id="@+id/mIvBack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:padding="@dimen/dp_20"
+                            android:src="@mipmap/ic_back"/>
+
+                        <TextView
+                            android:id="@+id/mTvTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:padding="@dimen/dp_10"
+                            android:text="发送工作"
+                            android:textColor="@color/color_333333"
+                            android:textSize="@dimen/dp_36" />
+
+                        <TextView
+                            android:id="@+id/mTvNewRelease"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:padding="@dimen/dp_10"
+                            android:textSize="@dimen/dp_32"
+                            android:textColor="@color/color_333333"
+                            android:text="新增发布"/>
+
+                    </RelativeLayout>
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_12"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <com.flash.worker.lib.common.view.widget.DropDownMenu
+                android:id="@+id/mInviteDropDownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:ddIsFakeBoldText="true"
+                app:ddmenuTextSize="@dimen/dp_32"
+                app:ddtextUnselectedColor="@color/color_333333"
+                app:ddtextSelectedColor="@color/color_333333"
+                app:dddividerColor="@color/transparent"
+                app:ddunderlineColor="@color/transparent"
+                app:ddmenuMenuHeightPercent="1"
+                app:ddmenuUnselectedIcon="@mipmap/ic_black_arrow_down"
+                app:ddmenuSelectedIcon="@mipmap/ic_black_arrow_down"
+                app:ddmaskColor="@color/color_88888888"
+                app:ddmenuTabLeft="@dimen/dp_62"
+                app:ddmenuTabRight="@dimen/dp_42"
+                app:ddmenuBackgroundColor="@color/white"/>
+
+            <View
+                android:id="@+id/line_category_header"
+                android:layout_width="@dimen/dp_5"
+                android:layout_height="@dimen/dp_27"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/mInviteDropDownMenu"
+                app:layout_constraintBottom_toBottomOf="@+id/line_filter_menu"
+                android:layout_marginStart="@dimen/dp_42"
+                android:background="@color/color_333333"/>
+
+            <View
+                android:id="@+id/line_filter_menu"
+                style="@style/base_line_horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="@dimen/dp_88"
+                android:layout_marginStart="@dimen/dp_42"
+                android:layout_marginEnd="@dimen/dp_42"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+

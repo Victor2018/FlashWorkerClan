@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_white_radius_13"
+    tools:ignore="MissingDefaultResource,ResourceName">
+
+    <TextView
+        android:id="@+id/mTvAllEvaluation"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_103"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingEnd="@dimen/dp_21"
+        android:drawableRight="@mipmap/ic_right"
+        android:drawablePadding="@dimen/dp_20"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
+        android:gravity="center|right"
+        android:textSize="@dimen/dp_24"
+        android:textColor="@color/color_999999"
+        android:text="全部评价"/>
+
+    <View
+        android:id="@+id/line_evaluation"
+        android:layout_width="@dimen/dp_5"
+        android:layout_height="@dimen/dp_27"
+        android:background="@color/color_FFD424"
+        app:layout_constraintTop_toTopOf="@+id/tv_evaluation"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_evaluation"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/dp_21"/>
+
+    <TextView
+        android:id="@+id/tv_evaluation"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_87"
+        app:layout_constraintStart_toEndOf="@+id/line_evaluation"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/dp_21"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="@dimen/dp_32"
+        android:textColor="@color/color_333333"
+        android:text="评价(0)"/>
+
+    <View
+        android:id="@+id/line_evaluation_header"
+        style="@style/base_line_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/mTvAllEvaluation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/dp_21"
+        android:layout_marginEnd="@dimen/dp_21"/>
+
+    <RadioGroup
+        android:id="@+id/mRgEvaluation"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_100"
+        app:layout_constraintTop_toBottomOf="@+id/line_evaluation_header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingStart="@dimen/dp_21"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <RadioButton
+            android:id="@+id/mRbVeryGood"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_60"
+            android:paddingStart="@dimen/dp_30"
+            android:paddingEnd="@dimen/dp_30"
+            android:background="@drawable/shape_33ffd424_radius_30"
+            android:button="@null"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            android:drawableLeft="@mipmap/ic_very_good_checked_small"
+            android:drawablePadding="@dimen/dp_20"
+            android:text="0"/>
+
+        <RadioButton
+            android:id="@+id/mRbGeneral"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_60"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:paddingStart="@dimen/dp_30"
+            android:paddingEnd="@dimen/dp_30"
+            android:background="@drawable/shape_33ffd424_radius_30"
+            android:button="@null"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            android:drawableLeft="@mipmap/ic_general_checked_small"
+            android:drawablePadding="@dimen/dp_20"
+            android:text="0"/>
+
+        <RadioButton
+            android:id="@+id/mRbVeryBad"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_60"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:paddingStart="@dimen/dp_30"
+            android:paddingEnd="@dimen/dp_30"
+            android:background="@drawable/shape_33ffd424_radius_30"
+            android:button="@null"
+            android:gravity="center"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            android:drawableLeft="@mipmap/ic_very_bad_checked_small"
+            android:drawablePadding="@dimen/dp_20"
+            android:text="0"/>
+    </RadioGroup>
+
+    <com.flash.worker.lib.common.view.widget.LMRecyclerView
+        android:id="@+id/mRvEvaluation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/mRgEvaluation"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    <TextView
+        android:id="@+id/mTvNoData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/mRgEvaluation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_gravity="center"
+        android:paddingTop="@dimen/dp_100"
+        android:paddingBottom="@dimen/dp_100"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_4C3B30"
+        android:text="暂无评价~"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

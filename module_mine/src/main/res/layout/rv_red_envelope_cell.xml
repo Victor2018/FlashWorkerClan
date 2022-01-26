@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_13"
+    android:layout_marginStart="@dimen/dp_42"
+    android:layout_marginEnd="@dimen/dp_42"
+    android:background="@drawable/shape_fff7ed_radius_13"
+    android:clickable="true"
+    android:foreground="?selectableItemBackground"
+    android:paddingTop="@dimen/dp_12"
+    android:paddingBottom="@dimen/dp_12"
+    android:paddingStart="@dimen/dp_22"
+    android:paddingEnd="@dimen/dp_15"
+    tools:ignore="MissingDefaultResource,ResourceName">
+
+    <ImageView
+        android:id="@+id/mIvRedEnvelopeBg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@mipmap/ic_red_envelope_focus"/>
+
+    <TextView
+        android:id="@+id/mTvRemainCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/mIvRedEnvelopeBg"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/dp_40"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_DA0505"
+        tools:text="当前可领取2个"/>
+
+    <TextView
+        android:id="@+id/mTvReceiveCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/mIvRedEnvelopeBg"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="@dimen/dp_40"
+        android:textSize="@dimen/dp_24"
+        android:textColor="@color/color_333333"
+        tools:text="已领取1个（共20个）"/>
+
+    <ImageView
+        android:id="@+id/mIvReceive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_receive_red_envelope_focus"
+        app:layout_constraintStart_toStartOf="@+id/mIvRedEnvelopeBg"
+        app:layout_constraintEnd_toEndOf="@+id/mIvRedEnvelopeBg"
+        app:layout_constraintBottom_toBottomOf="@+id/mIvRedEnvelopeBg"
+        android:layout_marginBottom="@dimen/dp_9"/>
+
+    <TextView
+        android:id="@+id/mTvRedEnvelopeAmtPrefix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/mTvRedEnvelopeAmt"
+        app:layout_constraintTop_toTopOf="@+id/mTvRedEnvelopeAmt"
+        app:layout_constraintBottom_toBottomOf="@+id/mTvRedEnvelopeAmt"
+        android:layout_marginTop="@dimen/dp_21"
+        android:textStyle="bold"
+        android:textColor="@color/color_DC2B2D"
+        android:textSize="@dimen/dp_16"
+        android:text="￥"/>
+
+    <TextView
+        android:id="@+id/mTvRedEnvelopeAmt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/mIvRedEnvelopeBg"
+        app:layout_constraintEnd_toEndOf="@+id/mIvRedEnvelopeBg"
+        app:layout_constraintTop_toTopOf="@+id/mIvRedEnvelopeBg"
+        android:layout_marginTop="@dimen/dp_10"
+        android:fontFamily="@font/impact"
+        android:textColor="@color/color_DC2B2D"
+        android:textSize="@dimen/dp_36"
+        tools:text="3"/>
+
+    <TextView
+        android:id="@+id/mTvRedEnvelopeRange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/mIvRedEnvelopeBg"
+        app:layout_constraintEnd_toEndOf="@+id/mIvRedEnvelopeBg"
+        app:layout_constraintTop_toTopOf="@+id/mIvRedEnvelopeBg"
+        android:layout_marginTop="@dimen/dp_60"
+        android:gravity="center"
+        android:textColor="@color/color_DC2B2D"
+        android:textSize="@dimen/dp_18"
+        tools:text="单笔收入\n81-150可用"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

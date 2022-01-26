@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:fitsSystemWindows="true"
+    tools:ignore="ResourceName">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="false">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/transparent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/app_name">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_30">
+                    <ImageView
+                        android:id="@+id/mIvBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp_20"
+                        android:src="@mipmap/ic_back"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dp_10"
+                        android:textSize="@dimen/dp_36"
+                        android:textColor="@color/color_333333"
+                        android:text="直接邀请"/>
+
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_13"
+        android:paddingBottom="@dimen/dp_200"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <com.flash.worker.lib.common.view.widget.RequiredTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_40"
+                android:paddingLeft="@dimen/dp_25"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/dp_24"
+                app:prefix_color="@color/color_E26853"
+                app:android_text=" 雇主"/>
+
+            <TextView
+                android:id="@+id/mTvResumeCurrentCity"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_90"
+                android:paddingLeft="@dimen/dp_42"
+                android:paddingRight="@dimen/dp_42"
+                android:drawableRight="@mipmap/ic_right"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/dp_32"
+                android:textColor="@color/color_999999"
+                android:text="深圳市计算有限公司(企业)"/>
+
+            <View style="@style/base_line_horizontal"
+                android:layout_marginLeft="@dimen/dp_42"
+                android:layout_marginRight="@dimen/dp_42"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_69"
+                android:paddingLeft="@dimen/dp_42"
+                android:paddingRight="@dimen/dp_42"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/dp_32"
+                    android:textColor="@color/color_333333"
+                    android:text="在家可做"/>
+
+                <Switch
+                    android:id="@+id/mToggleDoAtHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumb="@drawable/switch_thumb_selector"
+                    android:track="@drawable/switch_track_selector"/>
+
+            </LinearLayout>
+
+            <com.flash.worker.lib.common.view.widget.RequiredTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_59"
+                android:paddingLeft="@dimen/dp_25"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/dp_24"
+                app:prefix_color="@color/color_E26853"
+                app:android_text=" 工作日期"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_100"
+                android:paddingTop="@dimen/dp_15"
+                android:paddingLeft="@dimen/dp_42"
+                android:paddingRight="@dimen/dp_42"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/mTvStartDate"
+                    android:layout_width="@dimen/dp_215"
+                    android:layout_height="match_parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:gravity="center"
+                    android:textSize="@dimen/dp_32"
+                    android:textColor="@color/color_999999"
+                    android:text="开始日期"/>
+
+                <TextView
+                    android:id="@+id/tv_to"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@+id/mTvStartDate"
+                    app:layout_constraintTop_toTopOf="@+id/mTvStartDate"
+                    app:layout_constraintBottom_toBottomOf="@+id/mTvStartDate"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="至"/>
+
+                <TextView
+                    android:id="@+id/mTvEndDate"
+                    android:layout_width="@dimen/dp_215"
+                    android:layout_height="match_parent"
+                    app:layout_constraintLeft_toRightOf="@+id/tv_to"
+                    app:layout_constraintTop_toTopOf="@+id/mTvStartDate"
+                    app:layout_constraintBottom_toBottomOf="@+id/mTvStartDate"
+                    android:gravity="center"
+                    android:textSize="@dimen/dp_32"
+                    android:textColor="@color/color_999999"
+                    android:text="结束日期"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintRight_toLeftOf="@+id/mTvDayCount"
+                    app:layout_constraintTop_toTopOf="@+id/mTvStartDate"
+                    app:layout_constraintBottom_toBottomOf="@+id/mTvStartDate"
+                    android:gravity="center"
+                    android:textSize="@dimen/dp_24"
+                    android:textColor="@color/color_E26853"
+                    android:text="合计："/>
+
+                <TextView
+                    android:id="@+id/mTvDayCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintRight_toLeftOf="@+id/tv_day"
+                    app:layout_constraintTop_toTopOf="@+id/mTvStartDate"
+                    app:layout_constraintBottom_toBottomOf="@+id/mTvStartDate"
+                    android:textSize="@dimen/dp_32"
+                    android:textColor="@color/color_E26853"
+                    android:text="0"/>
+
+                <TextView
+                    android:id="@+id/tv_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/mTvStartDate"
+                    app:layout_constraintBottom_toBottomOf="@+id/mTvStartDate"
+                    android:textSize="@dimen/dp_24"
+                    android:textColor="@color/color_E26853"
+                    android:text="天"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="@dimen/dp_456"
+                android:layout_height="@dimen/dp_1"
+                android:layout_marginLeft="@dimen/dp_42"
+                android:background="@color/color_CCCCCC"/>
+
+            <com.flash.worker.lib.common.view.widget.RequiredTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_59"
+                android:paddingLeft="@dimen/dp_25"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/dp_24"
+                app:prefix_color="@color/color_E26853"
+                app:android_text=" 工作时段"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_85"
+                android:layout_marginTop="@dimen/dp_15"
+                android:paddingLeft="@dimen/dp_42"
+                android:paddingRight="@dimen/dp_42"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/mTvStartTime"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="@dimen/dp_32"
+                    android:textColor="@color/color_999999"
+                    android:hint="0:00"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:text="至"/>
+
+                <TextView
+                    android:id="@+id/mTvEndTime"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="@dimen/dp_32"
+                    android:textColor="@color/color_999999"
+                    android:hint="0:00"/>
+
+            </LinearLayout>
+
+            <View style="@style/base_line_horizontal"
+                android:layout_marginLeft="@dimen/dp_42"
+                android:layout_marginRight="@dimen/dp_42"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_85"
+                android:layout_marginTop="@dimen/dp_15"
+                android:paddingLeft="@dimen/dp_42"
+                android:paddingRight="@dimen/dp_42"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/mTvDiffTime"
+                    android:layout_width="@dimen/dp_292"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_et_line"
+                    android:gravity="center"
+                    android:textSize="@dimen/dp_32"
+                    android:textColor="@color/color_333333"
+                    android:text="0  小时"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="@dimen/dp_24"
+                    android:textColor="@color/color_999999"
+                    android:text="日记薪小时数（不含休息时间）"/>
+            </LinearLayout>
+
+            <com.flash.worker.lib.common.view.widget.RequiredTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_59"
+                android:paddingLeft="@dimen/dp_25"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/dp_24"
+                app:prefix_color="@color/color_E26853"
+                app:android_text=" 报酬单价"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_15"
+                android:paddingLeft="@dimen/dp_42"
+                android:paddingRight="@dimen/dp_42">
+                <EditText
+                    android:id="@+id/mEtUnitPrice"
+                    android:layout_width="@dimen/dp_312"
+                    android:layout_height="@dimen/dp_85"
+                    android:layout_alignTop="@+id/mRgSalary"
+                    android:layout_alignBottom="@+id/mRgSalary"
+                    android:paddingLeft="@dimen/dp_8"
+                    android:paddingRight="@dimen/dp_8"
+                    android:background="@drawable/bg_et_line"
+                    android:maxLength="9"
+                    android:gravity="center_vertical"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textSize="@dimen/dp_32"
+                    android:textColor="@color/color_333333"
+                    android:hint="请输入您的报酬单价"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/mEtUnitPrice"
+                    android:layout_alignTop="@+id/mRgSalary"
+                    android:layout_alignBottom="@+id/mRgSalary"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:gravity="center"
+                    android:textSize="@dimen/dp_32"
+                    android:textColor="@color/color_333333"
+                    android:text="元"/>
+
+                <RadioGroup
+                    android:id="@+id/mRgSalary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_85"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <RadioButton
+                        android:id="@+id/mRbHourlySalary"
+                        android:layout_width="@dimen/dp_103"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/dp_13"
+                        android:paddingBottom="@dimen/dp_13"
+                        android:button="@null"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:textColor="@color/rb_student_title_color"
+                        android:background="@drawable/rb_student_selector"
+                        android:drawablePadding="@dimen/dp_24"
+                        android:text="时薪"/>
+                    <RadioButton
+                        android:id="@+id/mRbPieceSalary"
+                        android:layout_width="@dimen/dp_103"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_12"
+                        android:paddingTop="@dimen/dp_13"
+                        android:paddingBottom="@dimen/dp_13"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:textColor="@color/rb_student_title_color"
+                        android:background="@drawable/rb_student_selector"
+                        android:drawablePadding="@dimen/dp_24"
+                        android:text="整单"/>
+                </RadioGroup>
+
+                <LinearLayout
+                    android:id="@+id/mLlPieceSalary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:visibility="gone"
+                    android:layout_below="@+id/mEtUnitPrice"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textSize="@dimen/dp_24"
+                        android:textColor="@color/color_333333"
+                        android:text="请输入结算数量"/>
+                    <EditText
+                        android:layout_width="@dimen/dp_187"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_et_line"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:textSize="@dimen/dp_32"
+                        android:textColor="@color/color_333333"
+                        android:hint="0"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="@dimen/dp_24"
+                        android:textColor="@color/color_333333"
+                        android:text="单"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:gravity="center|right"
+                        android:textColor="@color/color_E26853"
+                        android:textSize="@dimen/dp_24"
+                        android:text="报酬合计："/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:gravity="center"
+                        android:textColor="@color/color_E26853"
+                        android:textSize="@dimen/dp_32"
+                        android:text="0.00"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/color_E26853"
+                        android:textSize="@dimen/dp_24"
+                        android:text="元"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/mLlHourlySalary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:layout_below="@+id/mEtUnitPrice"
+                    android:orientation="horizontal"
+                    android:gravity="center|right">
+                    <TextView
+                        android:id="@+id/tv_day_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/mTvDayPrice"
+                        android:layout_alignTop="@+id/mTvDayPrice"
+                        android:layout_alignBottom="@+id/mTvDayPrice"
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:gravity="center"
+                        android:textColor="@color/color_E26853"
+                        android:textSize="@dimen/dp_24"
+                        android:text="日薪："/>
+
+                    <TextView
+                        android:id="@+id/mTvDayPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/tv_day_price_yuan"
+                        android:layout_alignTop="@+id/mTvTotalPrice"
+                        android:layout_alignBottom="@+id/mTvTotalPrice"
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:gravity="center"
+                        android:textColor="@color/color_E26853"
+                        android:textSize="@dimen/dp_32"
+                        android:text="0.00"/>
+
+                    <TextView
+                        android:id="@+id/tv_day_price_yuan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dp_66"
+                        android:gravity="center"
+                        android:textColor="@color/color_E26853"
+                        android:textSize="@dimen/dp_24"
+                        android:text="元"/>
+
+                    <TextView
+                        android:id="@+id/tv_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:gravity="center"
+                        android:textColor="@color/color_E26853"
+                        android:textSize="@dimen/dp_24"
+                        android:text="合计："/>
+                    <TextView
+                        android:id="@+id/mTvTotalPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:gravity="center"
+                        android:textColor="@color/color_E26853"
+                        android:textSize="@dimen/dp_32"
+                        android:text="0.00"/>
+                    <TextView
+                        android:id="@+id/tv_total_price_yuan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/color_E26853"
+                        android:textSize="@dimen/dp_24"
+                        android:text="元"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <com.flash.worker.lib.common.view.widget.RequiredTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_59"
+                android:paddingLeft="@dimen/dp_25"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/dp_24"
+                app:prefix_color="@color/color_E26853"
+                app:android_text=" 结算方式"/>
+
+            <TextView
+                android:id="@+id/mTvSettlementMethod"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_90"
+                android:paddingLeft="@dimen/dp_42"
+                android:paddingRight="@dimen/dp_42"
+                android:drawableRight="@mipmap/ic_right"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/dp_32"
+                android:textColor="@color/color_999999"
+                android:text="周结(7天)"/>
+
+            <View style="@style/base_line_horizontal"
+                android:layout_marginLeft="@dimen/dp_42"
+                android:layout_marginRight="@dimen/dp_42"/>
+
+            <LinearLayout
+                android:id="@+id/mLlSettlementAmount"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_85"
+                android:layout_marginTop="@dimen/dp_15"
+                android:paddingLeft="@dimen/dp_42"
+                android:paddingRight="@dimen/dp_42"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/mTvDayPrice"
+                    android:layout_alignTop="@+id/mTvDayPrice"
+                    android:layout_alignBottom="@+id/mTvDayPrice"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:gravity="center"
+                    android:textColor="@color/color_E26853"
+                    android:textSize="@dimen/dp_24"
+                    android:text="结算金额："/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/tv_day_price_yuan"
+                    android:layout_alignTop="@+id/mTvTotalPrice"
+                    android:layout_alignBottom="@+id/mTvTotalPrice"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:gravity="center"
+                    android:textColor="@color/color_E26853"
+                    android:textSize="@dimen/dp_32"
+                    android:text="0.00"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/tv_total"
+                    android:layout_alignTop="@+id/mTvTotalPrice"
+                    android:layout_alignBottom="@+id/mTvTotalPrice"
+                    android:layout_marginRight="@dimen/dp_66"
+                    android:gravity="center"
+                    android:textColor="@color/color_E26853"
+                    android:textSize="@dimen/dp_24"
+                    android:text="元"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mLlSettlementQuantity"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_80"
+                android:paddingLeft="@dimen/dp_42"
+                android:paddingRight="@dimen/dp_42"
+                android:layout_marginTop="@dimen/dp_10"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="@dimen/dp_24"
+                    android:textColor="@color/color_333333"
+                    android:text="请输入结算数量"/>
+                <EditText
+                    android:layout_width="@dimen/dp_187"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_et_line"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:maxLength="9"
+                    android:textSize="@dimen/dp_32"
+                    android:textColor="@color/color_333333"
+                    android:hint="0"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="@dimen/dp_24"
+                    android:textColor="@color/color_333333"
+                    android:text="单"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_39"
+                android:paddingLeft="@dimen/dp_42"
+                android:paddingRight="@dimen/dp_42"
+                android:paddingBottom="@dimen/dp_40"
+                android:textSize="@dimen/dp_24"
+                android:textColor="@color/color_999999"
+                android:text="温馨提醒：人才到岗开始工作前，您须预付结算报酬到平台，在人才完成结算期工作且无异议后，平台再将该笔报酬支付给人才。"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_99"
+        android:layout_gravity="bottom"
+        android:background="@color/color_F7E047"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_32"
+        android:text="发送邀请"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mEmoticonPickerView"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_275"
+    android:paddingStart="@dimen/dp_42"
+    android:paddingEnd="@dimen/dp_42"
+    android:background="@color/color_F6F6F6"
+    tools:ignore="ResourceName" >
+
+    <TextView
+        android:id="@+id/mTvSendJob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/mTvSendResume"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:drawableTop="@drawable/bg_send_job"
+        android:drawablePadding="@dimen/dp_17"
+        android:gravity="center"
+        android:textSize="@dimen/dp_24"
+        android:textColor="@color/color_999999"
+        android:text="发送工作"/>
+
+    <TextView
+        android:id="@+id/mTvSendResume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/mTvSendJob"
+        app:layout_constraintEnd_toStartOf="@+id/mTvSendImage"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:drawableTop="@drawable/bg_send_resume"
+        android:drawablePadding="@dimen/dp_17"
+        android:gravity="center"
+        android:textSize="@dimen/dp_24"
+        android:textColor="@color/color_999999"
+        android:text="选择简历"/>
+
+    <TextView
+        android:id="@+id/mTvSendImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/mTvSendResume"
+        app:layout_constraintEnd_toStartOf="@+id/mTvLocation"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:drawableTop="@drawable/bg_send_image"
+        android:drawablePadding="@dimen/dp_17"
+        android:gravity="center"
+        android:textSize="@dimen/dp_24"
+        android:textColor="@color/color_999999"
+        android:text="图片"/>
+
+    <TextView
+        android:id="@+id/mTvLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/mTvSendImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:drawableTop="@drawable/bg_send_location"
+        android:drawablePadding="@dimen/dp_17"
+        android:gravity="center"
+        android:textSize="@dimen/dp_24"
+        android:textColor="@color/color_999999"
+        android:text="位置"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

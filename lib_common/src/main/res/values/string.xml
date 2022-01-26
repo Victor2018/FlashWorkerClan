@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="loading">努力加载中...</string>
+    <string name="all_presented_for_you">已经全部为你呈现了</string>
+
+    <string name="copy_to_clipboard">Copied to the clipboard</string>
+    <string name="cope_the_url">Cope the url</string>
+    <string name="open_in_browser">Open in browser</string>
+    <string name="share">Share</string>
+    <string name="retry">Retry</string>
+    <string name="mail_to_me_tip">Please select the mail application</string>
+
+    <string name="network_error">当前网络不可用，请检查你的网络设置</string>
+    <string name="connectivity">网络已连接</string>
+
+    <string name="notify_qq_client_not_exist">请先安装QQ客户端!</string>
+    <string name="user_cancelled_operation">用户取消操作</string>
+    <string name="not_install_wx_tip">请先安装微信客户端</string>
+    <string name="share_success">分享成功~</string>
+    <string name="notify_share_cancel">分享取消～</string>
+    <string name="notify_share_auth_denied">授权失败~</string>
+    <string name="notify_share_failed">分享失败~</string>
+    <string name="copied_you_can_share">复制成功，你可以分享给你的朋友了</string>+
+
+    <string name="yesterday">昨天&#160;</string>
+    <string name="dispute_handle_rules">尊敬的雇主/人才：\n\t\t\t\t当您在闪工族平台进行雇用或工作时，若与人才/雇主发生争议，您可发起投诉/举报。\n1. 发起投诉/举报须真实，须说明理由和诉求，并上传相关证据。\n2. 投诉/举报发送后，若对方同意投诉/举报，则直接按诉求内容进行赔付。\n3. 投诉/举报发送后，若对方不同意投诉/举报，可申请平台介入，进行调解；对方超过3日未处理平台将自动介入进行调解。\n4. 同理，当被投诉/举报方收到投诉/举报后，若同意投诉/举报，则直接按诉求内容进行赔付。若不同意投诉/举报，可申请平台介入，进行调解；收到投诉/举报超过3日未处理，平台将自动介入进行调解。\n5. 申请平台介入后，平台将在1-5个工作日内、根据双方所提供的证据进行调解。\n6. 平台介入后，若核实投诉/举报方系虚假投诉/举报，	将对投诉/举报方处于扣除信用积分10分的处罚；若核实投诉/举报方系真实投诉/举报，将对被投诉/举报方处于扣除信用积分10分的处罚；情节严重者平台将冻结账号的使用。\n7. 您发起投诉/举报或申请平台介入时，即表明您同意授权平台按最后调解的结果划转您账户中已冻结的资金。\n8. 平台调解完毕后，赔付款项的到账时间为1—3日！\n\t\t\t\t闪工族感谢您的理解与支持！我们将竭力为您创造公平、自由、高效的体验环境！</string>
+    <string name="evalutaion_rules">尊敬的雇主/人才：\n\t\t\t\t当您在闪工族平台上完成雇用或工作后，您有权对该次雇用进行评价，该评价将成为闪工族平台用户诚信的重要标记，请您务必给出中肯、客观、公正的评价。\n1. 雇用全部报酬结算完毕后，雇主和人才可在15天内对对方进行评价。\n2. 评价时可选择匿名评价，选匿名评价后，评价记录都将匿名显示。\n3. 评价内容须与雇用相关，不得包含链接、广告等，不得违反法律、法规及社会道德标准，不得泄露他人隐私信息（手机号、真实姓名、身份证号、QQ号等）。\n4. 雇主和人才均不可进行恶意评价，或采取任何不正当手段提高自身的信用度或降低其他用户的信用度。\n5. 若有异议须在评价方作出评价的15天内进行申述，并提供相关证明材料；\n6. 评价积分:\n\t\t6.1 雇主和人才信用积分的初始分均为“100”；\n\t\t6.2 评价分为好评、中评、差评三类。\n\t\t6.3 被评者获得“好评”评价时，信用积分+1分；被评者获得“中评”评价时，信用积分不变；被评者获得“差评”评价时，信用积分-1分。\n\t\t6.4 平台将对用户的评价积分进行累计。\n7. 删除评价：\n\t\t评价方可有一次删除评价的机会，删除评价后将不保留记录；删除后，信用分数不变。\n8. 审核：\n\t\t平台将对评价进行审核，识别出来恶意给差评，虚假刷好评的用户，平台将视其情节严重删除或屏蔽该用户近期的评价，并酌情扣减信用分。</string>
+    <string name="img_transition_name">img_transition_name</string>
+    <string name="privacy_policy_content">欢迎使用闪工族！\n\t\t\t\t请您充分阅读和理解<a href="shangongzu://openurl?title=《闪工族服务协议》&#38;url=https://www.shangongzu.com/static/userServiceAgreement.html">《闪工族服务协议》</a>和<a href="shangongzu://openurl?title=《闪工族隐私政策》&#38;url=https://www.shangongzu.com/static/userPrivacyPolicy.html">《闪工族隐私政策》</a>，以及本提示的全部内容。点击“同意”按钮表示您已同意前述《协议》、《政策》全部条款以及以下提示约定。\n1.为了给您提供发布服务，我们可能会申请手机存储权限、摄像头权限；\n2.为了基于您所在的位置给您提供信息推荐服务，我们可能会申请您的位置权限；\n3.为了您的账号及信息推送安全，我们会申请系统设备权限收集设备信息、日志信息；\n4.我们会努力采取各种安全技术保护您的个人信息，未经您的同意，我们不会从第三方获取、共享或对外提供您的信息；\n5.您可随时访问、更正、删除您的个人信息，我们同时为您提供了注销、投诉方式；\n6.我们十分重视青少年/儿童的信息保护，若您是未满18岁的未成年人，将不能进行信息的发布和使用我们的主要功能。</string>
+
+
+</resources>

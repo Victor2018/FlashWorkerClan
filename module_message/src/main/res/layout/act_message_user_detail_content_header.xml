@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dp_21"
+    android:layout_marginRight="@dimen/dp_21"
+    android:background="@drawable/shape_white_radius_13"
+    android:paddingTop="@dimen/dp_27"
+    android:paddingBottom="@dimen/dp_27"
+    android:paddingLeft="@dimen/dp_21"
+    android:paddingRight="@dimen/dp_21"
+    tools:ignore="ResourceName">
+
+    <TextView
+        android:id="@+id/mTvSex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="@dimen/dp_43"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_28"
+        tools:text="男"/>
+
+    <View
+        android:id="@+id/line_sex"
+        android:layout_width="@dimen/dp_1"
+        android:layout_height="@dimen/dp_23"
+        app:layout_constraintLeft_toRightOf="@+id/mTvSex"
+        app:layout_constraintTop_toTopOf="@+id/mTvSex"
+        app:layout_constraintBottom_toBottomOf="@+id/mTvSex"
+        android:layout_marginLeft="@dimen/dp_19"
+        android:background="@color/color_999999"/>
+
+    <TextView
+        android:id="@+id/mTvAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/line_sex"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="@dimen/dp_19"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_28"
+        tools:text="24岁"/>
+
+    <View
+        android:id="@+id/line_age"
+        android:layout_width="@dimen/dp_1"
+        android:layout_height="@dimen/dp_23"
+        app:layout_constraintLeft_toRightOf="@+id/mTvAge"
+        app:layout_constraintTop_toTopOf="@+id/mTvAge"
+        app:layout_constraintBottom_toBottomOf="@+id/mTvAge"
+        android:layout_marginLeft="@dimen/dp_19"
+        android:background="@color/color_999999"/>
+
+    <TextView
+        android:id="@+id/mTvIdentity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/line_age"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="@dimen/dp_19"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_28"
+        tools:text="学生"/>
+
+    <View
+        android:id="@+id/line_identity"
+        android:layout_width="@dimen/dp_1"
+        android:layout_height="@dimen/dp_23"
+        app:layout_constraintLeft_toRightOf="@+id/mTvIdentity"
+        app:layout_constraintTop_toTopOf="@+id/mTvIdentity"
+        app:layout_constraintBottom_toBottomOf="@+id/mTvIdentity"
+        android:layout_marginLeft="@dimen/dp_19"
+        android:background="@color/color_999999"/>
+
+    <TextView
+        android:id="@+id/mTvHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/line_identity"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="@dimen/dp_19"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_28"
+        tools:text="179cm"/>
+
+    <View
+        android:id="@+id/line_height"
+        android:layout_width="@dimen/dp_1"
+        android:layout_height="@dimen/dp_23"
+        app:layout_constraintLeft_toRightOf="@+id/mTvHeight"
+        app:layout_constraintTop_toTopOf="@+id/mTvHeight"
+        app:layout_constraintBottom_toBottomOf="@+id/mTvHeight"
+        android:layout_marginLeft="@dimen/dp_19"
+        android:background="@color/color_999999"/>
+
+    <TextView
+        android:id="@+id/mTvWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/line_height"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="@dimen/dp_19"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_28"
+        tools:text="58kg"/>
+
+    <TextView
+        android:id="@+id/tv_live_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/mTvWeight"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/dp_39"
+        android:drawableLeft="@mipmap/ic_location_focus"
+        android:drawablePadding="@dimen/dp_27"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_666666"
+        android:text="现居地址："/>
+    <TextView
+        android:id="@+id/mTvLiveCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/tv_live_city"
+        app:layout_constraintTop_toTopOf="@+id/tv_live_city"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_live_city"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_333333"
+        tools:text="深圳市南山区"/>
+
+    <TextView
+        android:id="@+id/tv_work_years"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_live_city"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/dp_38"
+        android:drawableLeft="@mipmap/ic_hire_work_years"
+        android:drawablePadding="@dimen/dp_25"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_666666"
+        android:text="工作年限："/>
+
+    <TextView
+        android:id="@+id/mTvWorkYears"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/tv_work_years"
+        app:layout_constraintTop_toTopOf="@+id/tv_work_years"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_work_years"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_333333"
+        tools:text="1 - 3年"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

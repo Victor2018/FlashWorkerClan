@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.SubmitTaskActivity"
+    tools:ignore="ResourceName">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="false">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/transparent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/app_name">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_30">
+
+                    <ImageView
+                        android:id="@+id/mIvBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp_20"
+                        android:src="@mipmap/ic_back" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dp_10"
+                        android:text="提交任务"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/dp_36" />
+
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/dp_13"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <View
+            android:id="@+id/line_info"
+            android:layout_width="@dimen/dp_5"
+            android:layout_height="@dimen/dp_27"
+            app:layout_constraintTop_toTopOf="@+id/tv_info"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_info"
+            android:layout_marginStart="@dimen/dp_42"
+            android:background="@color/color_FFD424"/>
+
+        <TextView
+            android:id="@+id/tv_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/line_info"
+            android:layout_marginTop="@dimen/dp_31"
+            android:layout_marginStart="@dimen/dp_21"
+            android:textSize="@dimen/dp_32"
+            android:textColor="@color/color_333333"
+            android:text="信息填写"/>
+
+        <EditText
+            android:id="@+id/mEtContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_info"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dp_28"
+            android:layout_marginStart="@dimen/dp_42"
+            android:layout_marginEnd="@dimen/dp_42"
+            android:minHeight="@dimen/dp_200"
+            android:maxLength="500"
+            android:textSize="@dimen/dp_24"
+            android:textColor="@color/color_333333"
+            android:padding="@dimen/dp_10"
+            android:gravity="left|top"
+            android:background="@drawable/border_cccccc_radius_7"
+            android:hint="单号、身份证后六位、用户名"/>
+
+        <TextView
+            android:id="@+id/mTvContentCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/mEtContent"
+            app:layout_constraintBottom_toBottomOf="@+id/mEtContent"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_13"
+            android:text="0/500"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/dp_24" />
+
+        <View
+            android:id="@+id/line_pic"
+            android:layout_width="@dimen/dp_5"
+            android:layout_height="@dimen/dp_27"
+            app:layout_constraintTop_toTopOf="@+id/tv_pic"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_pic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_pic"
+            android:layout_marginStart="@dimen/dp_42"
+            android:background="@color/color_FFD424"/>
+
+        <TextView
+            android:id="@+id/tv_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mEtContent"
+            app:layout_constraintStart_toEndOf="@+id/line_pic"
+            android:layout_marginTop="@dimen/dp_53"
+            android:layout_marginStart="@dimen/dp_21"
+            android:textSize="@dimen/dp_32"
+            android:textColor="@color/color_333333"
+            android:text="图片上传(最多4张)"/>
+
+        <com.flash.worker.lib.common.view.widget.LMRecyclerView
+            android:id="@+id/mRvWorksPic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_pic"
+            android:layout_marginTop="@dimen/dp_24"
+            android:paddingStart="@dimen/dp_22"
+            android:paddingEnd="@dimen/dp_22"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
+            app:spanCount="4"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+
+
+        <TextView
+            android:id="@+id/tv_tip_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="@dimen/dp_198"
+            android:paddingLeft="@dimen/dp_168"
+            android:paddingRight="@dimen/dp_168"
+            android:textSize="@dimen/dp_24"
+            android:gravity="center"
+            android:textColor="@color/color_999999"
+            android:lineSpacingMultiplier="1.2"
+            android:text="温馨提醒：\n请确认您已如约完成任务，并呈报给雇主，否则您将可能被雇主投诉！"/>
+
+        <TextView
+            android:id="@+id/mTvConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_90"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/color_F7E047"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:textSize="@dimen/dp_36"
+            android:textColor="@color/color_333333"
+            android:textAllCaps="false"
+            android:text="确认提交"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

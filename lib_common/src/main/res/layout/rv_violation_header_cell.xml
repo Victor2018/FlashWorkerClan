@@ -1,0 +1,14 @@
+<com.skydoves.expandablelayout.ExpandableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mElTip"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toTopOf="parent"
+    app:expandable_duration="200"
+    app:expandable_isExpanded="false"
+    app:expandable_parentLayout="@layout/rv_violation_header_cell_p"
+    app:expandable_secondLayout="@layout/rv_violation_header_cell_s"
+    app:expandable_spinner_color="@color/color_333333"
+    tools:ignore="MissingDefaultResource,ResourceName" />

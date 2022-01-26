@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingStart="@dimen/dp_30"
+    android:paddingEnd="@dimen/dp_30"
+    tools:ignore="ResourceName">
+
+    <View
+        android:id="@+id/line_top_dot"
+        android:layout_width="@dimen/dp_1"
+        android:layout_height="0dp"
+        android:background="@color/color_F7A730"
+        app:layout_constraintTop_toTopOf="@+id/fl_message"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_dot"
+        app:layout_constraintStart_toStartOf="@+id/iv_dot"
+        app:layout_constraintEnd_toEndOf="@+id/iv_dot"
+        android:layout_marginBottom="@dimen/dp_6"/>
+
+    <View
+        android:id="@+id/line_bottom_dot"
+        android:layout_width="@dimen/dp_1"
+        android:layout_height="0dp"
+        android:background="@color/color_F7A730"
+        app:layout_constraintTop_toTopOf="@+id/iv_dot"
+        app:layout_constraintBottom_toBottomOf="@+id/mTvCreateTime"
+        app:layout_constraintStart_toStartOf="@+id/iv_dot"
+        app:layout_constraintEnd_toEndOf="@+id/iv_dot"
+        android:layout_marginTop="@dimen/dp_6"/>
+
+    <ImageView
+        android:id="@+id/iv_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bg_dot_focus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/fl_message"
+        app:layout_constraintTop_toTopOf="@+id/fl_message" />
+
+    <FrameLayout
+        android:id="@+id/fl_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/iv_dot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/dp_30"
+        android:paddingEnd="@dimen/dp_30">
+        <TextView
+            android:id="@+id/mTvMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@mipmap/ic_dispute_question_mark"
+            android:drawablePadding="@dimen/dp_10"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            android:text="人才:发起举报"/>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/mTvCreateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/fl_message"
+        app:layout_constraintTop_toBottomOf="@+id/fl_message"
+        android:layout_marginTop="@dimen/dp_26"
+        android:paddingBottom="@dimen/dp_40"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_999999"
+        android:text="2021.01.15  12:30"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

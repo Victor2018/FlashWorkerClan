@@ -1,0 +1,49 @@
+/**
+ * 关于整个项目(module)的通用gradle配置
+ * 通过isModule这个变量来确定每个模块是单独运行还是以Library的形式加载到整个App
+ */
+if (isModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+apply from: "../config_build.gradle"
+
+android {
+    //给 Module 内的资源名增加前缀, 避免资源名冲突
+    resourcePrefix "${project.name.toLowerCase().replaceAll("module_", "")}_"
+
+    //这里进行设置使用单独运行还是合并运行的Manifest.xml
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            if (isModule.toBoolean()) {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    api project(':lib_common')
+    //支付模块
+    implementation project(':lib_pay')
+    //分享模块
+    implementation project(':lib_share')
+    //压缩模块
+    implementation project(':lib_luban')
+
+    //Arouter
+    implementation deps.arouter.runtime
+    kapt deps.arouter.compiler
+
+    //room
+    kapt deps.room.compiler
+    implementation deps.room.runtime
+    implementation deps.room.ktx
+
+}

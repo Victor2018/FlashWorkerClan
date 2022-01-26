@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/dp_30"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/bg_dlg_city_picker"
+    tools:ignore="MissingDefaultResource,ResourceName">
+
+    <TextView
+        android:id="@+id/mTvFakeInfo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_110"
+        android:gravity="center"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
+        android:textSize="@dimen/dp_32"
+        android:textColor="@color/color_333333"
+        android:text="人才提供虚假信息"/>
+
+    <View style="@style/base_line_horizontal"/>
+
+    <TextView
+        android:id="@+id/mTvNotArrived"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_110"
+        android:gravity="center"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
+        android:textSize="@dimen/dp_32"
+        android:textColor="@color/color_333333"
+        android:text="人才未到岗"/>
+
+    <View style="@style/base_line_horizontal"/>
+
+    <TextView
+        android:id="@+id/mTvOther"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_110"
+        android:gravity="center"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
+        android:textSize="@dimen/dp_32"
+        android:textColor="@color/color_333333"
+        android:text="其他"/>
+
+</LinearLayout>

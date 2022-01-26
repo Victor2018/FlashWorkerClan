@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/mClJobReleaseCell"
+    android:background="@color/white"
+    android:paddingStart="@dimen/dp_42"
+    android:paddingEnd="@dimen/dp_42"
+    android:paddingTop="@dimen/dp_28"
+    tools:ignore="MissingDefaultResource,ResourceName">
+
+    <View
+        android:id="@+id/mViewHead"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <com.flash.worker.lib.common.view.widget.ShapedImageView
+        android:id="@+id/mCivAvatar"
+        android:layout_width="@dimen/dp_55"
+        android:layout_height="@dimen/dp_55"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_avatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mViewHead"
+        app:shape_mode="circle"
+        app:stroke_color="@color/white"
+        app:stroke_width="@dimen/dp_2" />
+
+    <TextView
+        android:id="@+id/mTvUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_24"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/mCivAvatar"
+        app:layout_constraintTop_toTopOf="@+id/mCivAvatar"
+        android:text="王大锤" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_10"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_24"
+        app:layout_constraintStart_toEndOf="@+id/mTvUserName"
+        app:layout_constraintTop_toTopOf="@+id/mCivAvatar"
+        android:text="人才评价" />
+
+    <TextView
+        android:id="@+id/mTvLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_23"
+        android:drawableLeft="@mipmap/ic_very_good_checked_small"
+        android:drawablePadding="@dimen/dp_13"
+        android:textColor="@color/color_E26853"
+        android:textSize="@dimen/dp_24"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/mCivAvatar"
+        app:layout_constraintBottom_toBottomOf="@+id/mCivAvatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="很好" />
+
+    <TextView
+        android:id="@+id/mTvCommentTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_999999"
+        android:textSize="@dimen/dp_24"
+        app:layout_constraintStart_toStartOf="@+id/mTvUserName"
+        app:layout_constraintTop_toBottomOf="@+id/mTvUserName"
+        android:text="2021.03.22" />
+
+    <TextView
+        android:id="@+id/mTvEvaluation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/mCivAvatar"
+        app:layout_constraintStart_toStartOf="@+id/mCivAvatar"
+        app:layout_constraintEnd_toEndOf="@+id/mTvLabel"
+        android:layout_marginTop="@dimen/dp_25"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_28"
+        android:text="守时保质量，熟悉各项开发技术，精神小伙；守时保质量，熟悉各项开发技术。" />
+
+    <View
+        android:id="@+id/view_employ_bg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_127"
+        android:background="@drawable/shape_f9f9f9_radius_7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTvEvaluation"
+        android:layout_marginTop="@dimen/dp_20"/>
+
+    <TextView
+        android:id="@+id/mTvCompany"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_21"
+        android:layout_marginTop="@dimen/dp_25"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_24"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/view_employ_bg"
+        app:layout_constraintTop_toTopOf="@+id/view_employ_bg"
+        android:text="深圳计算有限公司" />
+
+    <ImageView
+        android:id="@+id/mIvCompanyVerified"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:src="@mipmap/ic_company_verified"
+        app:layout_constraintBottom_toBottomOf="@+id/mTvCompany"
+        app:layout_constraintLeft_toRightOf="@+id/mTvCompany"
+        app:layout_constraintTop_toTopOf="@+id/mTvCompany" />
+
+    <TextView
+        android:id="@+id/mTvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_25"
+        android:drawableLeft="@mipmap/ic_job_lable"
+        android:drawablePadding="@dimen/dp_15"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_24"
+        app:layout_constraintBottom_toBottomOf="@+id/view_employ_bg"
+        app:layout_constraintStart_toStartOf="@+id/mTvCompany"
+        android:text="java开发工程师" />
+
+    <TextView
+        android:id="@+id/mTvWorkDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_21"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_24"
+        app:layout_constraintEnd_toEndOf="@+id/view_employ_bg"
+        app:layout_constraintTop_toTopOf="@+id/mTvTitle"
+        android:text="12.29 - 01.01" />
+
+    <View
+        style="@style/base_line_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/view_employ_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/dp_68"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

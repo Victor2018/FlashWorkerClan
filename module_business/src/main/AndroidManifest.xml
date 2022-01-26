@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.flash.worker.module.business">
+
+    <application android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".view.activity.TalentBasicActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.EmployerBasicActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.NewResumeActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.NewEmployerActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.AddWorkExperienceActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.AddQualificationActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.AuthenticationActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.MyResumeActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.MyEmployerActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.ResumeDetailActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.TalentNewReleaseActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.TalentUpdateReleaseActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.HireNewReleaseActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.HireUpdateReleaseActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.TalentTypeActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.TalentReleaseActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.HireReleaseActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.EditEmployerActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.AddWorkingHoursActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.MyWorkActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.MyEmploymentActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.EmploymentBondActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.flash.worker.module.task.view.activity.PrepaidFreezeActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.flash.worker.module.task.view.activity.LeadTaskActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.flash.worker.module.task.view.activity.PrepaidFreezeSuccessActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.TalentEvaluationActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.TalentEmployingActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.TalentTaskEmployingActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.TalentOrderDetailActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.ReportActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.TalentBreachContractActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.EmployerWaitEmployActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.EmploySuccessActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.EmployerEmployingActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.EmployerBreachContractActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.ComplaintActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.ModifyComplaintActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.RewardActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.EncourageActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.PrepaidSalaryActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.PrepaidSalarySuccessActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.SettlementSalaryActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.SettlementSalarySuccessActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.AttendanceRecordsActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.AttendancePunchCardActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.EvaluationSuccessActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.EmployerWaitCommentActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.EmployerEvaluationActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.EmployerJobFinishActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.TalentEvaluationCenterActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.EmployerEvaluationCenterActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.InvitationSentActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.ReceivedInvitationActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.CreditScoreActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.MyFollowActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.TalentFavoriteActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.ReportMatterActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.ReportAppealActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.ComplaintMatterActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.ComplaintAppealActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.TalentDisputeHandlingActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.EmployerDisputeHandlingActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.TalentHandlingDetailActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.EmployerHandlingDetailActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.RewardReasonActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.activity.DisputeHandleRulesActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.EvaluationRulesActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.MyIncomeActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.SalaryExpenseActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.EmployerTaskEmployingActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.ComplaintModifyHistoryActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.ComplaintChangeHistoryActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.ReportModifyHistoryActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.ModifyReportActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.ReportChangeHistoryActivity"
+            android:label="@string/business_module_business"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

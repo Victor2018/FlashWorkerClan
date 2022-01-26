@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string-array name="hire_complex_titles">
+		<item>信用降序</item>
+		<item>年龄降序</item>
+		<item>年龄升序</item>
+		<item>单价降序</item>
+		<item>单价升序</item>
+    </string-array>
+
+	<string-array name="hire_invite_talent_menu">
+		<item>全部</item>
+	</string-array>
+
+</resources>

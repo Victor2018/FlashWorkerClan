@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:fitsSystemWindows="true"
+    tools:ignore="ResourceName">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/mCtlWebTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="false">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/transparent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/app_name">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_30">
+                    <ImageView
+                        android:id="@+id/mIvBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp_20"
+                        android:src="@mipmap/ic_back"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dp_10"
+                        android:text="结算报酬"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/dp_36" />
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingRight="@dimen/dp_42"
+        android:paddingTop="@dimen/dp_32"
+        android:paddingBottom="@dimen/dp_100"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/dp_6"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:id="@+id/tv_settled_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dp_36"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="结算人数："/>
+
+        <TextView
+            android:id="@+id/mTvSettledCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/tv_settled_count_unit"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_settled_count"
+            android:layout_marginEnd="@dimen/dp_5"
+            android:textStyle="bold"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dp_36"
+            tools:text="4"/>
+
+        <TextView
+            android:id="@+id/tv_settled_count_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_settled_count"
+            android:layout_marginBottom="@dimen/dp_5"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dp_24"
+            android:text="人"/>
+
+        <TextView
+            android:id="@+id/tv_talent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_salary"
+            app:layout_constraintTop_toBottomOf="@+id/tv_settled_count"
+            android:layout_marginTop="@dimen/dp_69"
+            app:layout_constraintHorizontal_weight="1"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dp_24"
+            android:text="人才"/>
+
+        <TextView
+            android:id="@+id/tv_salary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/tv_talent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_service_fee_rate"
+            app:layout_constraintTop_toTopOf="@+id/tv_talent"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_talent"
+            app:layout_constraintHorizontal_weight="1"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dp_24"
+            android:text="报酬"/>
+
+        <TextView
+            android:id="@+id/tv_service_fee_rate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/tv_salary"
+            app:layout_constraintEnd_toStartOf="@+id/tv_settled_amount"
+            app:layout_constraintTop_toTopOf="@+id/tv_talent"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_talent"
+            app:layout_constraintHorizontal_weight="1"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dp_24"
+            tools:text="平台服务费\n(3%)"/>
+        <TextView
+            android:id="@+id/tv_settled_amount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/tv_service_fee_rate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_talent"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_talent"
+            app:layout_constraintHorizontal_weight="1"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dp_24"
+            android:text="小计"/>
+
+        <com.flash.worker.lib.common.view.widget.LMRecyclerView
+            android:id="@+id/mRvSalaryTalent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_talent"
+            android:layout_marginTop="@dimen/dp_40"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+        <TextView
+            android:id="@+id/tv_total_settled_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/mTvTotalSettledAmount"
+            app:layout_constraintTop_toBottomOf="@+id/mRvSalaryTalent"
+            android:layout_marginTop="@dimen/dp_35"
+            android:textStyle="bold"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dp_36"
+            android:text="合计："/>
+
+        <TextView
+            android:id="@+id/mTvTotalSettledAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/tv_total_amount_unit"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_total_settled_amount"
+            android:layout_marginEnd="@dimen/dp_5"
+            android:textStyle="bold"
+            android:textColor="@color/color_E26853"
+            android:textSize="@dimen/dp_36"
+            tools:text="8240"/>
+
+        <TextView
+            android:id="@+id/tv_total_amount_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_total_settled_amount"
+            android:textColor="@color/color_E26853"
+            android:textSize="@dimen/dp_24"
+            android:text="元"/>
+
+        <TextView
+            android:id="@+id/tv_tip_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="@dimen/dp_110"
+            android:paddingLeft="@dimen/dp_80"
+            android:paddingRight="@dimen/dp_80"
+            android:gravity="center"
+            android:textSize="@dimen/dp_24"
+            android:textColor="@color/color_999999"
+            android:lineSpacingMultiplier="1.2"
+            android:text="温馨提示：\n请确认人才已按要求完工，确认结算后，已冻结的报酬将支付给人才，不能再发起投诉。"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/mTvConfimSettle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_90"
+        android:background="@color/color_F7E047"
+        android:layout_gravity="bottom"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:textSize="@dimen/dp_32"
+        android:textColor="@color/color_333333"
+        android:textAllCaps="false"
+        android:text="确认结算"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

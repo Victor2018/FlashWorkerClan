@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_13"
+    android:paddingTop="@dimen/dp_42"
+    android:paddingBottom="@dimen/dp_22"
+    android:paddingStart="@dimen/dp_42"
+    android:paddingEnd="@dimen/dp_42"
+    android:background="@color/white"
+    tools:ignore="MissingDefaultResource,ResourceName">
+
+    <View
+        android:id="@+id/line_header"
+        android:layout_width="@dimen/dp_5"
+        android:layout_height="@dimen/dp_27"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/mTvTime"
+        app:layout_constraintTop_toTopOf="@+id/mTvTime"
+        app:layout_constraintBottom_toBottomOf="@+id/mTvTime"
+        android:background="@color/color_FFD424"/>
+
+    <TextView
+        android:id="@+id/mTvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/line_header"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/dp_25"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_999999"
+        android:text="2011.01.04  15:05:22"/>
+
+    <View
+        android:id="@+id/line_time"
+        style="@style/base_line_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTvTime"
+        android:layout_marginTop="@dimen/dp_40"/>
+
+    <TextView
+        android:id="@+id/mTvUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/line_time"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/dp_40"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_333333"
+        android:text="【投诉对象】王大锤"/>
+
+    <TextView
+        android:id="@+id/tv_matter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/mTvUserName"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/dp_40"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_333333"
+        android:text="【事项】"/>
+
+    <TextView
+        android:id="@+id/mTvMatter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/tv_matter"
+        app:layout_constraintStart_toEndOf="@+id/tv_matter"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_333333"
+        android:text="1.人才提供虚假信息\n2.人才未到岗\n3.其他：人才不按规定规章，迟到早退，上班吃零食。"/>
+
+    <TextView
+        android:id="@+id/tv_appeal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/mTvMatter"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/dp_40"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_333333"
+        android:text="【诉求】"/>
+
+    <TextView
+        android:id="@+id/mTvAppeal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/tv_appeal"
+        app:layout_constraintStart_toEndOf="@+id/tv_appeal"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_333333"
+        android:text="要求信用金赔付：200.00元"/>
+
+    <TextView
+        android:id="@+id/tv_certificate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/mTvAppeal"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/dp_40"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/color_333333"
+        android:text="【相关凭证】"/>
+
+    <com.flash.worker.lib.common.view.widget.LMRecyclerView
+        android:id="@+id/mRvCertificate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/tv_certificate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_certificate"
+        android:orientation="horizontal"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

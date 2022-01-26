@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.skydoves.expandablelayout.ExpandableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mElWaitSettlement"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:expandable_duration="200"
+    app:expandable_isExpanded="true"
+    app:expandable_parentLayout="@layout/rv_talent_task_wait_settlement_header_p_cell"
+    app:expandable_secondLayout="@layout/rv_talent_task_wait_settlement_header_s_cell"
+    app:expandable_spinner_color="@color/color_E26853"
+    tools:ignore="ResourceName" />

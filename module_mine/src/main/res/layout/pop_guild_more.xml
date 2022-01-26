@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dp_6"
+    android:background="@drawable/shape_f7a730_radius_20"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:ignore="ResourceName">
+
+    <TextView
+        android:id="@+id/mTvGuildHall"
+        android:layout_width="@dimen/dp_208"
+        android:layout_height="@dimen/dp_90"
+        android:paddingLeft="@dimen/dp_27"
+        android:gravity="center"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/white"
+        android:text="公会大厅>>"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/color_FFCC80"
+        android:layout_marginStart="@dimen/dp_13"
+        android:layout_marginEnd="@dimen/dp_13"/>
+
+    <TextView
+        android:id="@+id/mTvExit"
+        android:layout_width="@dimen/dp_208"
+        android:layout_height="@dimen/dp_90"
+        android:paddingLeft="@dimen/dp_27"
+        android:gravity="center"
+        android:textSize="@dimen/dp_28"
+        android:textColor="@color/white"
+        android:text="退出公会"/>
+
+</LinearLayout>
+
+

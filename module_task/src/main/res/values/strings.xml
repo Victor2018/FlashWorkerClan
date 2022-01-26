@@ -1,0 +1,4 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="task_module_task">module_task</string>
+
+</resources>

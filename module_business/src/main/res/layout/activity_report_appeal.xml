@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:fitsSystemWindows="true"
+    tools:ignore="ResourceName">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/mCtlWebTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="false">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/transparent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/app_name">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_30">
+                    <ImageView
+                        android:id="@+id/mIvBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp_20"
+                        android:src="@mipmap/ic_close"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dp_10"
+                        android:text="诉求选择"
+                        android:textColor="@color/color_333333"
+                        android:textSize="@dimen/dp_36" />
+
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_12"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+
+        <CheckBox
+            android:id="@+id/mChkRequireMarginPayment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_80"
+            android:paddingStart="@dimen/dp_42"
+            android:paddingEnd="@dimen/dp_42"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:clickable="true"
+            android:foreground="?selectableItemBackground"
+            android:button="@null"
+            android:drawableLeft="@drawable/chk_talent_employer_selector"
+            android:drawablePadding="@dimen/dp_25"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:text="要求信用金赔付"/>
+
+        <View
+            android:id="@+id/line_require_margin_payment"
+            style="@style/base_line_horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/mChkRequireMarginPayment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <CheckBox
+            android:id="@+id/mChkRequireSettlementSalary"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_80"
+            android:paddingStart="@dimen/dp_42"
+            android:paddingEnd="@dimen/dp_42"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_require_margin_payment"
+            android:clickable="true"
+            android:foreground="?selectableItemBackground"
+            android:button="@null"
+            android:drawableLeft="@drawable/chk_talent_employer_selector"
+            android:drawablePadding="@dimen/dp_25"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:text="要求结算雇主已预付报酬"/>
+
+        <TextView
+            android:id="@+id/tv_prepaid_salary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mChkRequireSettlementSalary"
+            android:layout_marginStart="@dimen/dp_97"
+            android:layout_marginTop="@dimen/dp_68"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dp_40"
+            android:text="￥"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+        <EditText
+            android:id="@+id/mEtPrepaidSalary"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_90"
+            app:layout_constraintTop_toBottomOf="@+id/mChkRequireSettlementSalary"
+            android:layout_marginStart="@dimen/dp_42"
+            android:layout_marginEnd="@dimen/dp_42"
+            app:layout_constraintStart_toEndOf="@+id/tv_prepaid_salary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_prepaid_salary"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_prepaid_salary"
+            android:maxLines="1"
+            android:inputType="numberDecimal"
+            android:textSize="@dimen/dp_52"
+            android:textColor="@color/color_333333"
+            android:gravity="center_vertical"
+            android:hint="请输入1.00 ~ 1000.00范围内金额"
+            android:background="@null"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+        <View
+            android:id="@+id/line_prepaid_salary"
+            style="@style/base_line_horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mEtPrepaidSalary"
+            android:layout_marginStart="@dimen/dp_97"
+            android:layout_marginEnd="@dimen/dp_42"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/mTvConfim"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_99"
+        android:background="@color/color_F7E047"
+        android:layout_gravity="bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:textSize="@dimen/dp_36"
+        android:textColor="@color/color_333333"
+        android:textAllCaps="false"
+        android:text="确定"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

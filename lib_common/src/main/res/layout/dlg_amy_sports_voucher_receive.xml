@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:background="#99669966">
+
+    <ImageView
+        android:id="@+id/iv_bg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_580"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitXY"
+        android:src="@mipmap/img_dlg_amy_sports_voucher_receive_bg"/>
+
+    <ImageView
+        android:id="@+id/mIvReceive"
+        android:layout_width="@dimen/dp_216"
+        android:layout_height="@dimen/dp_62"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_bg"
+        app:layout_constraintStart_toStartOf="@+id/iv_bg"
+        android:layout_marginStart="@dimen/dp_160"
+        android:layout_marginBottom="@dimen/dp_99"
+        android:src="@mipmap/img_amy_sports_voucher_receive"/>
+
+    <ImageView
+        android:id="@+id/mIvClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/iv_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/dp_32"
+        android:layout_gravity="right"
+        android:src="@mipmap/dlg_amy_sports_voucher_receive_close"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

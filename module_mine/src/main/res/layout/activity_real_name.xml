@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    tools:ignore="MissingDefaultResource,ResourceName">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/mCtlWebTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="false">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/transparent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/app_name">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_30">
+                    <ImageView
+                        android:id="@+id/mIvBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp_20"
+                        android:src="@mipmap/ic_back"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dp_10"
+                        android:textSize="@dimen/dp_36"
+                        android:textColor="@color/color_333333"
+                        android:text="实名认证"/>
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:id="@+id/tv_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingStart="@dimen/dp_42"
+            android:paddingEnd="@dimen/dp_42"
+            android:paddingTop="@dimen/dp_45"
+            android:paddingBottom="@dimen/dp_42"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/dp_24"
+            android:text="\t\t\t\t根据国家《网络安全法》第二十四条规定：网络运营者在为用户提供服务时，应当要求用户提供真实身份信息；用户不提供真实身份信息的，网络运营者不得为其提供相关服务。"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_97"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tip"
+            app:layout_constraintStart_toStartOf="parent"
+            android:paddingStart="@dimen/dp_42"
+            android:background="@color/white"
+            android:gravity="center"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:text="姓名"/>
+
+        <EditText
+            android:id="@+id/mEtRealName"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_97"
+            app:layout_constraintTop_toTopOf="@+id/tv_name"
+            app:layout_constraintStart_toEndOf="@+id/tv_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/white"
+            android:paddingEnd="@dimen/dp_42"
+            android:gravity="center|right"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:maxHeight="@dimen/dp_10"
+            android:maxLines="1"
+            android:inputType="text"
+            android:hint="请输入您的姓名"/>
+
+        <TextView
+            android:id="@+id/tv_id"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_97"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dp_13"
+            android:paddingStart="@dimen/dp_42"
+            android:background="@color/white"
+            android:gravity="center"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:text="身份证号码"/>
+
+        <EditText
+            android:id="@+id/mEtIdCard"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_97"
+            app:layout_constraintTop_toTopOf="@+id/tv_id"
+            app:layout_constraintStart_toEndOf="@+id/tv_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/white"
+            android:paddingEnd="@dimen/dp_42"
+            android:gravity="center|right"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:maxLength="18"
+            android:maxLines="1"
+            android:inputType="text"
+            android:hint="请输入您的身份证号码"/>
+
+        <TextView
+            android:id="@+id/tv_tip_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_id"
+            android:paddingTop="@dimen/dp_29"
+            android:paddingStart="@dimen/dp_42"
+            android:paddingEnd="@dimen/dp_42"
+            android:textSize="@dimen/dp_24"
+            android:textColor="@color/color_666666"
+            android:text="\t\t\t\t温馨提示：我们将严格按照公安机关网络安全管理要求保护您的个人信息，未经您同意，我们不会对外提供您的个人信息。身份认证成功后，将会提取您的年龄性别作为简历展示，闪工族感谢您的信任和认可。"/>
+
+        <TextView
+            android:id="@+id/mTvAuth"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_98"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tip_bottom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/dp_42"
+            android:layout_marginEnd="@dimen/dp_42"
+            android:layout_marginTop="@dimen/dp_198"
+            android:background="@drawable/shape_f7e047_radius_13"
+            android:clickable="true"
+            android:foreground="?selectableItemBackground"
+            android:gravity="center"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dp_36"
+            android:text="立即认证"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mTvTip"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/dp_42"
+    android:paddingRight="@dimen/dp_42"
+    android:paddingBottom="@dimen/dp_28"
+    app:layout_constraintTop_toTopOf="parent"
+    android:background="@color/color_4DDDDDDD"
+    android:textSize="@dimen/dp_24"
+    android:textColor="@color/color_E26853"
+    android:text="1. 人才按约到岗打卡后，超过开工时间1小时您未预付报酬，即属违约，您被冻结的信用金平台将划转赔付给人才。\n\n2. 人才未在开工时间前打卡，属人才违约，若您在开工时间1小时内预付报酬，则雇用正常继续，若您未预付报酬，到时间雇用结束，您将获得人才的信用金赔付。"
+    tools:ignore="ResourceName" />

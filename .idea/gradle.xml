@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/lib_common" />
+            <option value="$PROJECT_DIR$/lib_coremodel" />
+            <option value="$PROJECT_DIR$/lib_im" />
+            <option value="$PROJECT_DIR$/lib_livedatabus" />
+            <option value="$PROJECT_DIR$/lib_luban" />
+            <option value="$PROJECT_DIR$/lib_opensource" />
+            <option value="$PROJECT_DIR$/lib_pay" />
+            <option value="$PROJECT_DIR$/lib_share" />
+            <option value="$PROJECT_DIR$/module_business" />
+            <option value="$PROJECT_DIR$/module_camera" />
+            <option value="$PROJECT_DIR$/module_hire" />
+            <option value="$PROJECT_DIR$/module_job" />
+            <option value="$PROJECT_DIR$/module_login" />
+            <option value="$PROJECT_DIR$/module_message" />
+            <option value="$PROJECT_DIR$/module_mine" />
+            <option value="$PROJECT_DIR$/module_task" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_hire"
+        android:icon="@drawable/bottom_navigation_talent_selector"
+        android:title="@string/title_talent" />
+
+    <item
+        android:id="@+id/navigation_job"
+        android:icon="@drawable/bottom_navigation_job_selector"
+        android:title="@string/title_job" />
+
+    <item
+        android:id="@+id/navigation_business"
+        android:icon="@drawable/bottom_navigation_business_selector"
+        android:title="@string/title_business" />
+    <item
+        android:id="@+id/navigation_message"
+        android:icon="@drawable/bottom_navigation_message_selector"
+        android:title="@string/title_messages" />
+
+    <item
+        android:id="@+id/navigation_mine"
+        android:icon="@drawable/bottom_navigation_mine_selector"
+        android:title="@string/title_mine" />
+
+
+
+</menu>

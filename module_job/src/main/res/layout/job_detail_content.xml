@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_white_radius_13"
+    android:paddingTop="@dimen/dp_27"
+    android:paddingBottom="@dimen/dp_27"
+    tools:ignore="MissingDefaultResource,ResourceName">
+
+    <LinearLayout
+        android:id="@+id/ll_talent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingLeft="@dimen/dp_21"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <View
+            android:id="@+id/line_talent"
+            android:layout_width="@dimen/dp_5"
+            android:layout_height="@dimen/dp_27"
+            android:background="@color/color_FFD424"/>
+
+        <TextView
+            android:id="@+id/tv_talent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_21"
+            android:textStyle="bold"
+            android:textSize="@dimen/dp_32"
+            android:textColor="@color/color_333333"
+            android:text="详细信息"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_work_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_talent"
+        android:layout_marginTop="@dimen/dp_39"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        android:text="工作日期："/>
+
+    <TextView
+        android:id="@+id/mTvWorkDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/tv_work_date"
+        app:layout_constraintTop_toTopOf="@+id/tv_work_date"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_work_date"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_28"
+        tools:text="2020.12.29 - 2021.01.02"/>
+
+    <TextView
+        android:id="@+id/tv_work_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_work_date"
+        android:layout_marginTop="@dimen/dp_39"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        android:text="工作时段："/>
+
+    <TextView
+        android:id="@+id/mTvWorkTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/tv_work_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_work_time"
+        android:paddingRight="@dimen/dp_21"
+        android:gravity="center_vertical"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_28"
+        tools:text="13:30 - 18:30 / 20:30 - 22:30 / 23:30 - 01:30"/>
+
+    <TextView
+        android:id="@+id/tv_work_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_work_time"
+        android:layout_marginTop="@dimen/dp_39"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        android:text="日工作时长(计薪时间)："/>
+
+    <TextView
+        android:id="@+id/mTvPaidHour"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/dp_21"
+        app:layout_constraintLeft_toRightOf="@+id/tv_work_hours"
+        app:layout_constraintTop_toTopOf="@+id/tv_work_hours"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_work_hours"
+        android:textStyle="bold"
+        android:textColor="@color/color_E26853"
+        android:textSize="@dimen/dp_28"
+        tools:text="7小时"/>
+
+    <TextView
+        android:id="@+id/tv_total_remuneration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_work_hours"
+        android:layout_marginTop="@dimen/dp_39"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        android:text="报酬总价："/>
+
+    <TextView
+        android:id="@+id/mTvTotalRemuneration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/tv_total_remuneration"
+        app:layout_constraintTop_toTopOf="@+id/tv_total_remuneration"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_total_remuneration"
+        android:textStyle="bold"
+        android:textColor="@color/color_E26853"
+        android:textSize="@dimen/dp_28"
+        tools:text="11,235元(100元/小时)"/>
+
+    <TextView
+        android:id="@+id/tv_work_addr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_total_remuneration"
+        android:layout_marginTop="@dimen/dp_39"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        android:text="工作地址："/>
+
+    <TextView
+        android:id="@+id/mTvWorkAddr"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/tv_work_addr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_work_addr"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_28"
+        tools:text="深圳市南山区滨海街道1001号21层110室"/>
+
+    <View
+        android:id="@+id/line_work_addr"
+        style="@style/base_line_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mTvWorkAddr"
+        android:layout_marginTop="@dimen/dp_65"
+        android:layout_marginLeft="@dimen/dp_21"
+        android:layout_marginRight="@dimen/dp_21"/>
+
+    <TextView
+        android:id="@+id/tv_work_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line_work_addr"
+        android:layout_marginTop="@dimen/dp_65"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        android:text="工作环境："/>
+
+    <com.flash.worker.lib.common.view.widget.LMRecyclerView
+        android:id="@+id/mRvWorksPic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_work_pic"
+        android:layout_marginTop="@dimen/dp_40"
+        android:clipToPadding="false"
+        android:nestedScrollingEnabled="false"
+        app:spanCount="5"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+
+    <TextView
+        android:id="@+id/tv_work_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mRvWorksPic"
+        android:layout_marginTop="@dimen/dp_65"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        android:text="工作描述："/>
+
+    <TextView
+        android:id="@+id/mTvWorkDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_work_description"
+        android:layout_marginTop="@dimen/dp_39"
+        android:paddingBottom="@dimen/dp_30"
+        android:paddingLeft="@dimen/dp_21"
+        android:paddingRight="@dimen/dp_21"
+        android:lineSpacingMultiplier="1.2"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_28"
+        tools:text="可在家工作可在家工作可在家工作可在家工作可在家工作可在家工作可在家工作可在家工作可在家工作"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

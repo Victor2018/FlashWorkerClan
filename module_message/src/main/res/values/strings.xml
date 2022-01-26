@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="message_module_message">module_message</string>
+
+    <string name="message_enter_content_tip">请输入发送内容！</string>
+    <string name="message_image_transition_name">message_image_transition_name</string>
+
+
+</resources>

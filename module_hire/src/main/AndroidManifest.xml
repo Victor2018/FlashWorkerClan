@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.flash.worker.module.hire">
+
+    <application android:theme="@style/AppTheme.NoActionBar">
+
+        <activity
+            android:name=".view.activity.HireActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/hire_module_hire"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".view.activity.TalentDetailActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/hire_module_hire"/>
+
+        <activity
+            android:name=".view.activity.InviteTalentActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/hire_module_hire"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".view.activity.DirectInvitationActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/hire_module_hire"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".view.activity.TalentResumeDetailActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/hire_module_hire"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".view.activity.TalentAllEvaluationActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/hire_module_hire"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".view.activity.TalentSearchActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/hire_module_hire"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".view.activity.InviteTalentSuccessActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/hire_module_hire"
+            android:launchMode="singleTask" />
+
+    </application>
+
+</manifest>

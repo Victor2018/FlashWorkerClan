@@ -1,0 +1,315 @@
+package com.flash.worker.module.business.view.activity
+
+import android.content.Intent
+import android.os.Bundle
+import android.text.TextUtils
+import android.view.View
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import com.flash.worker.lib.common.app.App
+import com.flash.worker.lib.common.base.BaseActivity
+import com.flash.worker.lib.common.event.BussinessEmployerEvent
+import com.flash.worker.lib.common.interfaces.OnDialogOkCancelClickListener
+import com.flash.worker.lib.common.interfaces.OnTradePasswordListener
+import com.flash.worker.lib.common.module.UMengEventModule
+import com.flash.worker.lib.common.util.*
+import com.flash.worker.lib.common.view.dialog.CommonTipDialog
+import com.flash.worker.lib.common.view.dialog.LoadingDialog
+import com.flash.worker.lib.common.view.dialog.TradePasswordDialog
+import com.flash.worker.lib.coremodel.data.bean.HttpResult
+import com.flash.worker.lib.coremodel.data.parm.RewardConfirmDetailParm
+import com.flash.worker.lib.coremodel.data.parm.RewardParm
+import com.flash.worker.lib.coremodel.data.req.RewardConfirmDetailReq
+import com.flash.worker.lib.coremodel.util.InjectorUtils
+import com.flash.worker.lib.coremodel.viewmodel.AccountVM
+import com.flash.worker.lib.coremodel.viewmodel.EmploymentVM
+import com.flash.worker.lib.livedatabus.action.BusinessActions
+import com.flash.worker.lib.livedatabus.action.JobActions
+import com.flash.worker.lib.livedatabus.core.LiveDataBus
+import com.flash.worker.module.business.R
+import kotlinx.android.synthetic.main.activity_encourage.*
+
+
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2020-2080, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: EncourageActivity
+ * Author: Victor
+ * Date: 2020/12/17 20:41
+ * Description: 
+ * -----------------------------------------------------------------
+ */
+class EncourageActivity: BaseActivity(),View.OnClickListener, OnTradePasswordListener {
+
+    private val accountVM: AccountVM by viewModels {
+        InjectorUtils.provideAccountVMFactory(this)
+    }
+
+    private val employmentVM: EmploymentVM by viewModels {
+        InjectorUtils.provideEmploymentVMFactory(this)
+    }
+
+    var mLoadingDialog: LoadingDialog? = null
+    var passwordErrorCount: Int = 0//密码输入错误次数
+
+    var mRewardParm: RewardParm? = null
+    var mRewardConfirmDetailReq: RewardConfirmDetailReq? = null
+
+    companion object {
+        fun  intentStart (activity: AppCompatActivity,data: RewardParm?) {
+            var intent = Intent(activity, EncourageActivity::class.java)
+            intent.putExtra(Constant.INTENT_DATA_KEY,data)
+            activity.startActivity(intent)
+        }
+    }
+
+    override fun getLayoutResource() = R.layout.activity_encourage
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        setNavigationBarBottomPading = false
+        super.onCreate(savedInstanceState)
+        initialize()
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        initData(intent)
+    }
+
+    fun initialize () {
+
+        subscribeUi()
+
+        mLoadingDialog = LoadingDialog(this)
+
+        mIvBack.setOnClickListener(this)
+        mTvConfimReward.setOnClickListener(this)
+    }
+
+    fun initData (intent: Intent?) {
+        mRewardParm = intent?.getSerializableExtra(Constant.INTENT_DATA_KEY) as RewardParm?
+
+        sendRewardConfirmDetialRequest()
+    }
+
+    fun subscribeUi() {
+        accountVM.accountInfoData.observe(this, Observer {
+            mLoadingDialog?.dismiss()
+            when(it) {
+                is HttpResult.Success -> {
+                    var hasTradePassword = it.value?.data?.hasTradePassword ?: false
+                    if (!hasTradePassword) {
+                        showSetTransactionPwdDlg()
+                        return@Observer
+                    }
+                    getTradePasswordDialog().show()
+                }
+                is HttpResult.Error -> {
+                    ToastUtils.show(it.message.toString())
+                }
+            }
+        })
+
+        employmentVM.rewardConfirmDetailData.observe(this, Observer {
+            mLoadingDialog?.dismiss()
+            when(it) {
+                is HttpResult.Success -> {
+                    showRewardConfirmDetial(it.value)
+                }
+                is HttpResult.Error -> {
+                    ToastUtils.show(it.message.toString())
+                }
+            }
+        })
+
+        employmentVM.rewardData.observe(this, Observer {
+            mLoadingDialog?.dismiss()
+            when(it) {
+                is HttpResult.Success -> {
+                    ToastUtils.show("奖励成功")
+                    LiveDataBus.send(JobActions.DISMISS_TRADE_PASSWORD_DLG)
+                    UMengEventModule.report(this, BussinessEmployerEvent.employer_reward_talent)
+                    onBackPressed()
+                }
+                is HttpResult.Error -> {
+                    if (TextUtils.equals("151135",it.code)) {
+                        if (passwordErrorCount >= 4) {
+                            LiveDataBus.send(JobActions.DISMISS_TRADE_PASSWORD_DLG)
+                            showErrorPasswordTipDlg()
+                            passwordErrorCount = 0
+                        }
+                        LiveDataBus.send(JobActions.TRADE_PASSWORD_ERROR)
+                        passwordErrorCount++
+                        return@Observer
+                    }
+                    LiveDataBus.send(JobActions.DISMISS_TRADE_PASSWORD_DLG)
+                    ToastUtils.show(it.message.toString())
+                }
+            }
+        })
+
+    }
+
+    fun sendAccountInfoRequest () {
+        mLoadingDialog?.show()
+        val loginReq = App.get().getLoginReq()
+        val token = loginReq?.data?.token
+
+        accountVM.fetchAccountInfo(token)
+    }
+
+    fun sendRewardConfirmDetialRequest () {
+        mLoadingDialog?.show()
+        val loginReq = App.get().getLoginReq()
+        val token = loginReq?.data?.token
+
+        val body = RewardConfirmDetailParm()
+        body.rewardAmount = mRewardParm?.rewardAmount ?: 0
+        body.settlementOrderId = mRewardParm?.settlementOrderId
+
+        employmentVM.fetchRewardConfirmDetail(token,body)
+    }
+
+    fun sendRewardRequest (tradePassword: String?) {
+        mLoadingDialog?.show()
+        val loginReq = App.get().getLoginReq()
+        val token = loginReq?.data?.token
+
+        mRewardParm?.tradePassword = tradePassword
+
+        employmentVM.reward(token,mRewardParm)
+    }
+
+    fun showRewardConfirmDetial (data: RewardConfirmDetailReq) {
+        mRewardConfirmDetailReq = data
+
+        mTvRewardAmount.text = AmountUtil.addCommaDots(data?.data?.rewardAmount)
+        tv_service_amount.text = String.format("平台服务费(%s",data?.data?.serviceFeeRate) + "%)："
+        mTvServiceAmount.text = AmountUtil.addCommaDots(data?.data?.serviceFeeAmount)
+        mTvTotalAmount.text = AmountUtil.addCommaDots(data?.data?.totalAmount)
+        mTvBalanceAmount.text = AmountUtil.addCommaDots(data?.data?.availableBalance)
+
+        var availableBalance = data.data?.availableBalance ?: 0.0
+        var totalAmount = data.data?.totalAmount ?: 0.0
+        if (availableBalance < totalAmount) {
+            mTvConfimReward.text = "余额充值"
+        } else {
+            mTvConfimReward.text = "确认奖励"
+        }
+    }
+
+    fun showErrorPasswordTipDlg () {
+        var commonTipDialog = CommonTipDialog(this)
+        commonTipDialog.mTitle = "温馨提示"
+        commonTipDialog.mContent = "您已连续输错密码5次，\n" +
+                "若连续输错密码10次 ，\n" +
+                "您的帐户将被锁定2小时。"
+        commonTipDialog.mCancelText = "忘记密码"
+        commonTipDialog.mOkText = "重试"
+        commonTipDialog.mOnDialogOkCancelClickListener = object : OnDialogOkCancelClickListener {
+            override fun OnDialogOkClick() {
+                getTradePasswordDialog().show()
+            }
+
+            override fun OnDialogCancelClick() {
+                var userInfo = App.get().getUserInfo()
+                if (userInfo?.realNameStatus == 0) {
+                    showAuthTipDlg()
+                    return
+                }
+                NavigationUtils.goVerifyIdentidyActivity(this@EncourageActivity)
+            }
+
+        }
+        commonTipDialog.show()
+    }
+
+    fun showAuthTipDlg () {
+        var commonTipDialog = CommonTipDialog(this)
+        commonTipDialog.mTitle = "温馨提示"
+        commonTipDialog.mContent = "您还未做身份认证，暂时发布不了岗位哦~"
+        commonTipDialog.mCancelText = "放弃认证"
+        commonTipDialog.mOkText = "前往认证"
+        commonTipDialog.mOnDialogOkCancelClickListener = object : OnDialogOkCancelClickListener {
+            override fun OnDialogOkClick() {
+                NavigationUtils.goRealNameActivity(this@EncourageActivity)
+            }
+
+            override fun OnDialogCancelClick() {
+            }
+
+        }
+        commonTipDialog.show()
+    }
+
+    fun showBreachTipDlg () {
+        var commonTipDialog = CommonTipDialog(this)
+        commonTipDialog.mTitle = "温馨提示"
+        commonTipDialog.mContent = "您确定要解除本次雇用吗？"
+        commonTipDialog.mCancelText = "暂不取消"
+        commonTipDialog.mOkText = "确定取消"
+        commonTipDialog.mOnDialogOkCancelClickListener = object : OnDialogOkCancelClickListener {
+            override fun OnDialogOkClick() {
+                sendAccountInfoRequest()
+            }
+
+            override fun OnDialogCancelClick() {
+            }
+
+        }
+        commonTipDialog.show()
+    }
+
+    fun showSetTransactionPwdDlg () {
+        var commonTipDialog = CommonTipDialog(this)
+        commonTipDialog.mTitle = "温馨提示"
+        commonTipDialog.mContent = "您还未设置交易密码~"
+        commonTipDialog.mCancelText = "取消"
+        commonTipDialog.mOkText = "立即设置"
+        commonTipDialog.mOnDialogOkCancelClickListener = object : OnDialogOkCancelClickListener {
+            override fun OnDialogOkClick() {
+                NavigationUtils.goSetTransactionPasswordActivity(this@EncourageActivity)
+            }
+
+            override fun OnDialogCancelClick() {
+            }
+
+        }
+        commonTipDialog.show()
+    }
+
+
+    fun getTradePasswordDialog (): TradePasswordDialog {
+        var mTradePasswordDialog = TradePasswordDialog(this)
+        mTradePasswordDialog.mOnTradePasswordListener = this
+        mTradePasswordDialog.showAmount = false
+        mTradePasswordDialog.setCanceledOnTouchOutside(false)
+
+        return mTradePasswordDialog
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.mIvBack -> {
+                onBackPressed()
+            }
+            R.id.mTvConfimReward -> {
+                var availableBalance = mRewardConfirmDetailReq?.data?.availableBalance ?: 0.0
+                var totalAmount = mRewardConfirmDetailReq?.data?.totalAmount ?: 0.0
+                if (availableBalance < totalAmount) {
+                    NavigationUtils.goRechargeActivity(this)
+                    return
+                }
+                sendAccountInfoRequest()
+            }
+        }
+    }
+
+    override fun OnTradePassword(tradeAmount: Double, tradePassword: String?) {
+        sendRewardRequest(tradePassword)
+    }
+
+}

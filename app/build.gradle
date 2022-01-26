@@ -1,0 +1,196 @@
+plugins {
+    id 'com.android.application'
+}
+
+apply from: "../config_build.gradle"
+
+def releaseTime() {
+    return new Date().format("yyyy_MM_dd_HHmm", TimeZone.getTimeZone("GMT+08:00"))
+}
+def releaseVersion() {
+    return new Date().format("yyMMdd", TimeZone.getTimeZone("GMT+08:00"))
+}
+
+/**
+ * 读取版本配置
+ */
+def Properties mVersionProps = getProperty()
+/**
+ * 读取版本名
+ */
+def String mVersionName = mVersionProps['VERSION_NAME']
+/**
+ * 构建编号
+ */
+def String mBuildNumber = String.valueOf(mVersionProps['BUILD_NUMBER'])
+/**
+ * 编译apk文件名称
+ */
+def String mBuildName = String.valueOf(mVersionProps['BUILD_NAME'])
+/**
+ * 指定输出目录
+ */
+def mOutputDir = "${rootDir}/app/build/outputs/apk"
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    def currentVersionCode = getVersionCode()
+
+    defaultConfig {
+        applicationId "com.sgz.flash.workers"
+        versionCode currentVersionCode
+        versionName mVersionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            //设置支持的SO库架构
+            abiFilters "armeabi-v7a", "x86","arm64-v8a","x86_64"
+        }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : applicationId,
+                JPUSH_APPKEY : "35dfbad2b96b3fdb4dc85b29",
+                JPUSH_CHANNEL : "sgz",
+
+                //meizu_config_start
+                MEIZU_APPKEY  : "MZ-28a576ba60b040c891a99ea6c8d70028",
+                MEIZU_APPID   : "MZ-139713",
+                //meizu_config_end
+
+                //xiaomi_config_start
+                XIAOMI_APPID  : "MI-2882303761519784634",
+                XIAOMI_APPKEY : "MI-5721978484634",
+                //xiaomi_config_end
+
+                //oppo_config_start
+                OPPO_APPKEY   : "OP-fbdcd35a6a634484a366d7fc1768070c",
+                OPPO_APPID    : "OP-30490011",
+                OPPO_APPSECRET: "OP-b4a77634764d41a8a90a1bb0f617dc57",
+                //oppo_config_end
+
+                //vivo_config_start
+                VIVO_APPKEY   : "f2f4714e3a7637f8cff1f283034d20f3",
+                VIVO_APPID    : "105471432",
+                //vivo_config_end
+
+        ]
+    }
+
+    buildTypes {
+        release {
+            //Zipalign优化
+            zipAlignEnabled true
+            //去掉无用资源
+            shrinkResources true
+            //混淆
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+        }
+        debug {
+        }
+    }
+
+    // 自定义输出配置，这里我们加上APK版本号1.0
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            outputFileName = "${mBuildName}_v${defaultConfig.versionName}_$currentVersionCode" +
+            "_${mBuildNumber}_${variant.productFlavors[0].name}_${buildType.name}.apk"
+        }
+    }
+}
+
+/**
+ * 获取构建版本
+ * @return
+ */
+def getProperty() {
+    def Properties buildProps = new Properties()
+    buildProps.load(new FileInputStream(file('../docs/build.properties')))
+    return buildProps
+}
+/**
+ * 打包成功之后
+ * 输出相应的日志记录
+ * 保留此次打包的记录
+ * 包括版本名称
+ * 构建时间
+ * 提交记录等
+ */
+def buildLog(String output, String vName, String vCode, String buildName,String buildVerNumber) {
+    println("************************** buildLog **************************")
+    File outputFile = new File(output)
+    if (!outputFile.exists())
+        outputFile.mkdirs()
+    FileWriter fw = new FileWriter(output + File.separator + "log.txt")
+    StringBuilder builder = new StringBuilder()
+    builder.append("[构建时间]=" + releaseTime())
+    builder.append("\r\n")
+    builder.append("[版本编号]=" + vCode)
+    builder.append("\r\n")
+    builder.append("[版本名称]=" + vName)
+    builder.append("\r\n")
+    builder.append("[编译版本]=" + buildVerNumber)
+    fw.write(builder.toString())
+    fw.flush()
+    fw.close()
+}
+
+/**
+ * 获取版本号
+ */
+def getVersionCode() {
+    // 读取第一步新建的文件
+    def versionFile = file('../docs/build.properties')
+    // 判断文件读取异常
+    if (versionFile.canRead()) {
+        Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionFile))
+        // 读取文件里面的版本号
+        def versionCode = versionProps['VERSION_CODE'].toInteger()
+        def runTasks = gradle.startParameter.taskNames
+        //仅在assembleRelease任务是增加版本号,其他渠道包在此分别配置版本号自增之后再写入文件(此处是关键，
+        // 版本号自增+1)
+//        if (':app:assembleRelease' in runTasks || 'task1' in runTasks || 'task2' in runTasks ) {
+//            versionProps['VERSION_CODE'] = (++versionCode).toString()//自增版本号
+            versionProps['VERSION_CODE'] = releaseVersion()//当前日期做完版本号
+            versionProps.store(versionFile.newWriter(), null)
+//        }
+        // 返回新的版本号
+        return versionCode
+    } else {
+        throw new GradleException("Could not find build.properties!")
+    }
+}
+
+build {
+    doLast {
+        buildLog(mOutputDir, mVersionName, releaseVersion(), mBuildName,mBuildNumber)
+        copy {
+            from "$buildDir/outputs/mapping"
+            into mOutputDir
+        }
+    }
+}
+
+dependencies {
+    if (isModule.toBoolean()) {
+        implementation project(':lib_common')
+        implementation project(':lib_coremodel')
+        implementation project(':lib_pay')
+        implementation project(':lib_share')
+        implementation project(':lib_luban')
+    } else {
+        implementation project(':module_login')
+//        implementation project(':module_camera')
+
+        implementation project(':module_hire')
+        implementation project(':module_job')
+        implementation project(':module_business')
+        implementation project(':module_message')
+        implementation project(':module_mine')
+        implementation project(':module_task')
+    }
+}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mClSalaryTalent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground"
+    tools:ignore="ResourceName">
+
+    <TextView
+        android:id="@+id/mTvUserName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/mTvSalary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        android:paddingTop="@dimen/dp_20"
+        android:paddingBottom="@dimen/dp_20"
+        android:gravity="center"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        tools:text="王大锤"/>
+
+    <TextView
+        android:id="@+id/mTvSalary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/mTvUserName"
+        app:layout_constraintEnd_toStartOf="@+id/mTvServiceFeeAmount"
+        app:layout_constraintTop_toTopOf="@+id/mTvUserName"
+        app:layout_constraintBottom_toBottomOf="@+id/mTvUserName"
+        app:layout_constraintHorizontal_weight="1"
+        android:paddingTop="@dimen/dp_20"
+        android:paddingBottom="@dimen/dp_20"
+        android:gravity="center"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        tools:text="2000.00"/>
+
+    <TextView
+        android:id="@+id/mTvServiceFeeAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/mTvSalary"
+        app:layout_constraintEnd_toStartOf="@+id/mTvTotalSettledAmount"
+        app:layout_constraintTop_toTopOf="@+id/mTvUserName"
+        app:layout_constraintBottom_toBottomOf="@+id/mTvUserName"
+        app:layout_constraintHorizontal_weight="1"
+        android:paddingTop="@dimen/dp_20"
+        android:paddingBottom="@dimen/dp_20"
+        android:gravity="center"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        tools:text="60.00"/>
+    <TextView
+        android:id="@+id/mTvTotalSettledAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/mTvServiceFeeAmount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mTvUserName"
+        app:layout_constraintBottom_toBottomOf="@+id/mTvUserName"
+        app:layout_constraintHorizontal_weight="1"
+        android:paddingTop="@dimen/dp_20"
+        android:paddingBottom="@dimen/dp_20"
+        android:gravity="center"
+        android:textColor="@color/color_666666"
+        android:textSize="@dimen/dp_28"
+        tools:text="2060.00"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

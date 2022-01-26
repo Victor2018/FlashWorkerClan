@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="job_complex_titles">
+		<item>开工日期(由近到远)</item>
+		<item>信用降序</item>
+		<item>单价降序</item>
+		<item>单价升序</item>
+    </string-array>
+
+
+	<string-array name="job_employer_detail_titles">
+		<item>雇佣中(0)</item>
+		<item>评价</item>
+	</string-array>
+
+
+</resources>

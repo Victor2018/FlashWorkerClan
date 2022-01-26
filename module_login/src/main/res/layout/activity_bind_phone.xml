@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:fitsSystemWindows="true"
+    tools:ignore="ResourceName">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/white"
+        app:elevation="@dimen/dp_0"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/mCtlWebTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="false">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/transparent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/app_name">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_30">
+                    <ImageView
+                        android:id="@+id/mIvBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp_20"
+                        android:src="@mipmap/ic_one_key_login_back"/>
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/mPWeb"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/dp_72"
+            android:paddingLeft="@dimen/dp_46"
+            android:paddingRight="@dimen/dp_46"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/color_060D11"
+                android:textSize="@dimen/dp_54"
+                android:text="@string/login_bind_phone"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/dp_24"
+                android:text="@string/login_bind_phone_tip"/>
+            <EditText
+                android:id="@+id/mEtPhone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_84"
+                android:background="@null"
+                android:layout_marginTop="@dimen/dp_180"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:hint="请输入手机号码"
+                android:gravity="center_vertical"
+                android:textColor="@color/color_060D11"
+                android:textSize="@dimen/dp_40"
+                tools:text="18025460000"/>
+            <View style="@style/base_line_horizontal"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_48"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <EditText
+                    android:id="@+id/mEtCode"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_84"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:hint="@string/login_enter_verification_code"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/color_060D11"
+                    android:textSize="@dimen/dp_40"/>
+                <TextView
+                    android:id="@+id/mTvTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_84"
+                    android:layout_marginRight="@dimen/dp_5"
+                    android:gravity="center"
+                    android:textColor="@color/color_CD0000"
+                    android:textSize="@dimen/dp_32"
+                    tools:text="40s"/>
+                <TextView
+                    android:id="@+id/mTvSendSms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_84"
+                    android:inputType="number"
+                    android:gravity="center"
+                    android:textColor="@color/color_060D11"
+                    android:textSize="@dimen/dp_32"
+                    android:text="@string/login_get_verification_code"/>
+            </LinearLayout>
+            <View style="@style/base_line_horizontal"/>
+
+            <Button
+                android:id="@+id/mBtnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_90"
+                android:layout_marginTop="@dimen/dp_90"
+                android:layout_marginLeft="@dimen/dp_30"
+                android:layout_marginRight="@dimen/dp_30"
+                android:background="@drawable/bg_f5eeeeee_shape_radius_10"
+                android:textSize="@dimen/dp_40"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:text="@string/login_login"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

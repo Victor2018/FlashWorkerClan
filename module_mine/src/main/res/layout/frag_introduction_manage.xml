@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mSrlRefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ResourceName">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_6">
+
+        <TextView
+            android:id="@+id/mTvIntroduction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@color/white"
+            android:paddingTop="@dimen/dp_27"
+            android:paddingBottom="@dimen/dp_27"
+            android:paddingStart="@dimen/dp_42"
+            android:paddingEnd="@dimen/dp_42"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dp_28"
+            tools:text="凤凰公会成立于2020年12月9日，公会委员会共有5人，宣传委员陈琳、财务委员王云、组织委员高松、调解委员朱泽。加入公会就是亲人，我们一起努力，把公会壮大起来。一起赚钱、一起开心。"/>
+
+        <com.flash.worker.lib.common.view.widget.LMRecyclerView
+            android:id="@+id/mRvImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mTvIntroduction"
+            android:layout_marginTop="@dimen/dp_10"
+            android:paddingStart="@dimen/dp_22"
+            android:paddingEnd="@dimen/dp_22"
+            android:background="@color/white"
+            android:clipToPadding="false"
+            app:spanCount="4"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/mTvEdit"
+            android:layout_marginBottom="@dimen/dp_65"
+            android:gravity="center"
+            android:textSize="@dimen/dp_24"
+            android:textColor="@color/color_999999"
+            android:text="温馨提示：\n公会简介每月1号可进行修改。请勿发布任何违\n法违规、涉及人身攻击的不雅言论"/>
+
+        <TextView
+            android:id="@+id/mTvEdit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_99"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/color_DDDDDD"
+            android:clickable="true"
+            android:foreground="?selectableItemBackground"
+            android:gravity="center"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dp_36"
+            android:text="编辑"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

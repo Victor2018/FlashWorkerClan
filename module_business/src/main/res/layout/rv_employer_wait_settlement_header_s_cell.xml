@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mTvTip"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/dp_42"
+    android:paddingRight="@dimen/dp_42"
+    android:paddingBottom="@dimen/dp_28"
+    app:layout_constraintTop_toTopOf="parent"
+    android:background="@color/color_4DDDDDDD"
+    android:textSize="@dimen/dp_24"
+    android:textColor="@color/color_E26853"
+    android:text="1. 人才按约完工打卡后，超过完工时间24小时您未结算报酬，平台将自动结算报酬给人才。\n\n2. 人才超过完工时间12小时未进行完工打卡，即属违约，若您在完工时间12小时内结算了报酬，则雇用正常继续，若您未结算报酬，到时间雇用结束，您将获得人才的信用金赔付，已预付报酬退回。"
+    tools:ignore="ResourceName" />

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mSrlRefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.TaskDetailActivity"
+    tools:ignore="ResourceName">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:ignore="ResourceName">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:background="@color/white"
+            android:fitsSystemWindows="true"
+            app:elevation="@dimen/dp_0">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:titleEnabled="false">
+
+                <ImageView
+                    android:id="@+id/mIvHeaderImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/img_job_detail_header"
+                    android:scaleType="centerCrop"
+                    app:layout_collapseMode="parallax"
+                    app:layout_collapseParallaxMultiplier="0.9"
+                    android:fitsSystemWindows="true"/>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/transparent"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:title="@string/app_name">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dp_30">
+                        <ImageView
+                            android:id="@+id/mIvBack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:padding="@dimen/dp_20"
+                            android:src="@mipmap/ic_back"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:padding="@dimen/dp_10"
+                            android:textSize="@dimen/dp_36"
+                            android:textColor="@color/color_333333"
+                            android:text="任务详情"/>
+
+                        <ImageView
+                            android:id="@+id/mIvReport"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/dp_10"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/mIvShare"
+                            android:layout_marginRight="@dimen/dp_10"
+                            android:src="@mipmap/ic_report"/>
+
+                        <ImageView
+                            android:id="@+id/mIvShare"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/dp_32"
+                            android:padding="@dimen/dp_10"
+                            android:src="@mipmap/ic_share" />
+                    </RelativeLayout>
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/mNsvResumeContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:behavior_overlapTop="@dimen/dp_180"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/dp_200">
+
+                <include
+                    android:id="@+id/cl_header"
+                    layout="@layout/task_detail_header" />
+
+                <include
+                    android:id="@+id/cl_content"
+                    layout="@layout/task_detail_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cl_header"
+                    android:layout_marginLeft="@dimen/dp_21"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_21" />
+
+                <include
+                    layout="@layout/task_detail_evaluation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cl_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:layout_marginLeft="@dimen/dp_21"
+                    android:layout_marginRight="@dimen/dp_21"/>
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <ImageView
+            android:id="@+id/mIvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_124"
+            android:layout_marginRight="@dimen/dp_33"
+            android:src="@mipmap/ic_off_shelf"
+            android:layout_gravity="right"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_99"
+            android:layout_gravity="bottom">
+
+            <TextView
+                android:id="@+id/mTvChat"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/mTvLeadTask"
+                app:layout_constraintHorizontal_weight="1"
+                android:paddingStart="@dimen/dp_70"
+                android:background="@color/color_FFEE7D"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:drawableLeft="@mipmap/ic_chat"
+                android:drawablePadding="@dimen/dp_14"
+                android:textSize="@dimen/dp_32"
+                android:textColor="@color/color_333333"
+                android:text="联系"/>
+
+            <TextView
+                android:id="@+id/mTvLeadTask"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toEndOf="@+id/mTvChat"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="2"
+                android:background="@color/color_F7E047"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:textSize="@dimen/dp_32"
+                android:textColor="@color/color_333333"
+                android:text="我要领任务"/>
+
+            <View
+                android:id="@+id/line_chat"
+                android:layout_width="@dimen/dp_3"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toEndOf="@+id/mTvChat"
+                android:background="@color/color_F9F9F9"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+

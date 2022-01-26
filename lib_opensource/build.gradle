@@ -1,0 +1,157 @@
+plugins {
+    id 'com.android.library'
+    id 'com.huawei.agconnect'
+}
+
+apply from: "../config_build.gradle"
+
+android {
+
+}
+
+dependencies {
+    api fileTree(dir: "libs", include: ["*.jar"])
+
+    api deps.kotlin.stdlib
+    api deps.basic.app_compat
+    api deps.basic.constraint_layout
+    api deps.basic.material
+    api deps.basic.recyclerview
+    api deps.basic.cardview
+
+    testApi deps.basic.junit
+
+    androidTestApi deps.atsl.runner
+    androidTestApi deps.atsl.rules
+    androidTestApi deps.atsl.ext_junit
+    androidTestApi deps.espresso.core
+    androidTestApi deps.espresso.contrib
+
+    //lifecycle
+    api deps.lifecycle.runtime
+    api deps.lifecycle.viewmodel_ktx
+    api deps.lifecycle.livedata_ktx
+
+    //ktx
+    api deps.ktx.core
+    api deps.ktx.activity
+    api deps.ktx.fragment
+
+    //协程
+    api deps.coroutines.core
+    api deps.coroutines.android
+    testApi deps.coroutines.test
+
+    //网络请求
+    api deps.retrofit.core
+    api deps.retrofit.retrofit_converter_gson //已替换为fastjson解析
+    api deps.okhttp3.core
+    api deps.okhttp3.logging
+//    api deps.fastjson.core
+
+    //paging 3
+//    api deps.paging.runtime//not use
+
+    //workmanager
+//    api deps.work.runtime//not use
+
+    api deps.multidex.core
+
+    //屏幕适配库
+    api deps.victor.match
+    //动态权限申请
+    api deps.victor.permissions
+    //播放器
+//    api deps.victor.player
+    //crash spider
+    api deps.victor.crash_spider
+    //coroutines dl
+//    api deps.victor.CoroutinesDL
+
+    //腾讯bugly崩溃日志收集
+    api deps.bugly.core
+    //Setting UI
+    api deps.preference.core
+
+    //支付宝
+    api(name: 'alipaySdk-15.7.4-20200228192259', ext: 'aar')
+    //ali真人认证
+    api(name: 'rpsdk-4.0.0', ext: 'aar')
+    //阿里云oss上传
+//    api(name: 'oss-android-sdk-2.9.2', ext: 'aar')//同api deps.aliyun_oss.core
+    api(name: 'SecurityBodySDK-external-release-5.4.112-preInstall', ext: 'aar')
+    api(name: 'SecurityGuardSDK-external-release-5.4.193-preInstall', ext: 'aar')
+
+    //阿里手机号码一键登录
+    api(name: 'alicomphonenumberauthsdk-log-online-standard-release', ext: 'aar')
+    //oppo推送,极光推送已包含此aar
+//    api(name: 'com.heytap.msp-push-2.1.0', ext: 'aar')
+    //vivo推送,极光推送已包含此aar
+//    api(name: 'vivo_pushsdk_v3.0.0.0_480', ext: 'aar')
+
+    //阿里云oss上传
+    api deps.aliyun_oss.core
+
+    //glide
+    api deps.glide.runtime
+    kapt deps.glide.compiler
+
+    //图片选择库
+    api deps.picture_selector.core
+    //图片查看(picture_selector中已包含此库)
+    //api deps.scale_image_view.core
+
+    //事件总线
+    api project(':lib_livedatabus')
+
+    //NumberPickerView
+    api deps.number_picker.core
+
+    //云信
+    api deps.nim.basesdk
+    //云信小米等厂商推送需要
+    api deps.nim.push
+
+    //banner
+    api deps.convenientbanner.core
+
+    //公告跑马灯
+    api deps.marquee_view.core
+
+    //recyclerview流式布局 layout manager
+    api deps.flow_layout_manager.core
+
+    //微信sdk(包含登录、支付、分享)
+    api deps.wechat_sdk.core
+
+    //倒计时view
+//    api deps.countdownview.core
+
+    //折叠layout
+    api deps.expandablelayout.core
+
+    //华为推送
+    api deps.hw_push.kit
+
+    //魅族推送极光推送已包含此aar
+//    api deps.flyme_push.core
+
+    //友盟信息收集
+    api deps.umeng.common
+    api deps.umeng.asms
+
+    //极光推送
+    api deps.jpush.jpush_jcore
+    api deps.jpush.jpush_jpush
+    api deps.jpush.jpush_hw
+    api deps.jpush.jpush_xiaomi
+    api deps.jpush.jpush_oppo
+    api deps.jpush.jpush_vivo
+    api deps.jpush.jpush_meizu
+
+    //高德地图
+    api deps.amap.amap_location
+    api deps.amap.amap_3dmap
+    api deps.amap.amap_search
+
+}

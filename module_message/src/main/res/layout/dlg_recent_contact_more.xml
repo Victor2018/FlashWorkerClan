@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/shape_white_radius_7"
+    tools:ignore="ResourceName">
+
+    <LinearLayout
+        android:id="@+id/mLlStickyRecentContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_40"
+        android:paddingBottom="@dimen/dp_40"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/mIvSticky"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_sicky_recent_contract"/>
+
+        <TextView
+            android:id="@+id/mTvStickyRecentContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/dp_20"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            android:text="置顶该聊天"
+            tools:ignore="ResourceName"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line_sticky"
+        style="@style/base_line_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/mLlStickyRecentContact"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/mLlDeleteRecentContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_40"
+        android:paddingBottom="@dimen/dp_40"
+        app:layout_constraintTop_toBottomOf="@+id/line_sticky"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_delete_recent_contact"/>
+
+        <TextView
+            android:id="@+id/mTvDeleteRecentContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/dp_20"
+            android:gravity="center_vertical"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/dp_28"
+            android:text="删除聊天记录"
+            tools:ignore="ResourceName"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+

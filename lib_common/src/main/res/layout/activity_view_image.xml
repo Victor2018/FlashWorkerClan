@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flash.worker.lib.common.view.widget.PullBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mPblBack"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/mVpImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/mTvImageCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginEnd="@dimen/dp_42"
+        android:layout_marginBottom="@dimen/dp_95"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dp_28"
+        tools:text="1/2"/>
+
+</com.flash.worker.lib.common.view.widget.PullBackLayout>

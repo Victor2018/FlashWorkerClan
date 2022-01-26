@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:ignore="MissingDefaultResource">
+
+    <ImageView
+        android:id="@+id/mIvSplash"
+        android:layout_width="@dimen/dp_579"
+        android:layout_height="@dimen/dp_694"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/dp_330"
+        android:src="@mipmap/img_splash_logo"/>
+
+    <TextView
+        android:id="@+id/mTvSkip"
+        android:layout_width="@dimen/dp_147"
+        android:layout_height="@dimen/dp_60"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/dp_92"
+        android:layout_marginEnd="@dimen/dp_42"
+        android:background="@drawable/border_333333_radius_30"
+        android:gravity="center"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_28"
+        android:text="跳过\t3S"/>
+
+    <TextView
+        android:id="@+id/mTvAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/mIvSplash"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/dp_100"
+        android:textSize="@dimen/dp_66"
+        android:textColor="@color/color_333333"
+        android:text="闪工族"/>
+
+    <TextView
+        android:id="@+id/tv_slogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/mTvAppName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/dp_30"
+        android:textSize="@dimen/dp_40"
+        android:textColor="@color/color_666666"
+        android:text="公平 · 自由 · 高效"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

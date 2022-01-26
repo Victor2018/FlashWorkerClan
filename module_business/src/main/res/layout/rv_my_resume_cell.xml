@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mClResume"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_100"
+    android:paddingLeft="@dimen/dp_42"
+    android:paddingRight="@dimen/dp_42"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground"
+    tools:ignore="ResourceName">
+
+    <TextView
+        android:id="@+id/mTvResumeName"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:drawableRight="@mipmap/ic_right"
+        android:gravity="center_vertical"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/dp_32"
+        android:text="简历1"/>
+
+    <View
+        style="@style/base_line_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

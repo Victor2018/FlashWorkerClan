@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/color_FFF7D7"
+    tools:ignore="ResourceName">
+    <item
+        android:id="@+id/mask"
+        android:drawable="@mipmap/ic_send_location" />
+</ripple>

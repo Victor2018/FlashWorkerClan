@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:fitsSystemWindows="true"
+    tools:ignore="ResourceName">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/mCtlWebTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="false">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/transparent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/app_name">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_30">
+                    <ImageView
+                        android:id="@+id/mIvBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp_20"
+                        android:src="@mipmap/ic_back"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dp_10"
+                        android:textSize="@dimen/dp_36"
+                        android:textColor="@color/color_333333"
+                        android:text="举报"/>
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/dp_6"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/dp_32"
+            android:paddingBottom="@dimen/dp_200">
+
+            <TextView
+                android:id="@+id/tv_report_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:paddingLeft="@dimen/dp_42"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/dp_28"
+                android:text="举报对象："/>
+
+            <TextView
+                android:id="@+id/mTvReportCompany"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_report_company"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/dp_28"
+                tools:text="深圳市计算有限公司"/>
+
+            <TextView
+                android:id="@+id/tv_employer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tv_report_company"
+                app:layout_constraintStart_toStartOf="parent"
+                android:paddingLeft="@dimen/dp_42"
+                android:layout_marginTop="@dimen/dp_20"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/dp_28"
+                android:text="雇&#12288;&#12288;主："/>
+
+            <TextView
+                android:id="@+id/mTvEmployer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/tv_employer"
+                app:layout_constraintStart_toEndOf="@+id/tv_employer"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/dp_28"
+                tools:text="僵小鱼"/>
+
+            <TextView
+                android:id="@+id/tv_matter"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_85"
+                app:layout_constraintTop_toBottomOf="@+id/tv_employer"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/dp_50"
+                android:paddingLeft="@dimen/dp_42"
+                android:gravity="center"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/dp_28"
+                android:text=" "/>
+
+            <com.flash.worker.lib.common.view.widget.RequiredTextView
+                android:id="@+id/rtv_matter"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_85"
+                app:layout_constraintTop_toBottomOf="@+id/tv_employer"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/dp_50"
+                android:paddingStart="@dimen/dp_42"
+                android:gravity="center"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/dp_28"
+                app:prefix_color="@color/color_E26853"
+                app:android_text=" 事项"/>
+
+            <TextView
+                android:id="@+id/mTvMatter"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_85"
+                app:layout_constraintTop_toTopOf="@+id/tv_matter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:paddingRight="@dimen/dp_42"
+                android:drawableRight="@mipmap/ic_right"
+                android:drawablePadding="@dimen/dp_21"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
+                android:gravity="center|right"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/dp_28"
+                android:text="事项选择"/>
+
+            <View
+                android:id="@+id/line_matter"
+                style="@style/base_line_horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/mTvMatter"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <com.flash.worker.lib.common.view.widget.LMRecyclerView
+                android:id="@+id/mRvMatter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/line_matter"
+                android:layout_marginTop="@dimen/dp_20"
+                android:background="@color/white"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+            <TextView
+                android:id="@+id/tv_certificate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/mRvMatter"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/dp_42"
+                android:paddingLeft="@dimen/dp_42"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/dp_28"
+                android:text="相关凭证："/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tv_certificate"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/dp_20"
+                android:paddingLeft="@dimen/dp_42"
+                android:textColor="@color/color_666666"
+                android:textSize="@dimen/dp_28"
+                android:text="(最多3张)"/>
+
+            <com.flash.worker.lib.common.view.widget.LMRecyclerView
+                android:id="@+id/mRvCertificate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dp_42"
+                app:layout_constraintStart_toEndOf="@+id/tv_certificate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_certificate"
+                android:background="@color/white"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+            <TextView
+                android:id="@+id/tv_appeal"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_85"
+                app:layout_constraintTop_toBottomOf="@+id/mRvCertificate"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="@dimen/dp_50"
+                android:paddingLeft="@dimen/dp_42"
+                android:gravity="center"
+                android:textColor="@color/color_333333"
+                android:textSize="@dimen/dp_28"
+                android:text="诉求"/>
+
+            <TextView
+                android:id="@+id/mTvAppeal"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_85"
+                app:layout_constraintTop_toTopOf="@+id/tv_appeal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:paddingRight="@dimen/dp_42"
+                android:drawableRight="@mipmap/ic_right"
+                android:drawablePadding="@dimen/dp_21"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
+                android:gravity="center|right"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/dp_28"
+                android:text="诉求选择"/>
+
+            <View
+                android:id="@+id/line_tv_appeal"
+                style="@style/base_line_horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/tv_appeal"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <com.flash.worker.lib.common.view.widget.LMRecyclerView
+                android:id="@+id/mRvAppeal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/line_tv_appeal"
+                android:layout_marginTop="@dimen/dp_20"
+                android:background="@color/white"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+            <TextView
+                android:id="@+id/tv_tip_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/mRvAppeal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/dp_295"
+                android:gravity="center"
+                android:textSize="@dimen/dp_24"
+                android:textColor="@color/color_999999"
+                android:text="温馨提示：\n提交举报后，本次雇用立即终止，\n工单将进入争议处理流程。"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_90"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/mTvReport"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/color_F7E047"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:textSize="@dimen/dp_32"
+            android:textColor="@color/color_333333"
+            android:textAllCaps="false"
+            android:text="举报，终止工作"/>
+        <TextView
+            android:id="@+id/mTvCancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/dp_3"
+            android:background="@color/color_F7E047"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:textSize="@dimen/dp_32"
+            android:textColor="@color/color_333333"
+            android:textAllCaps="false"
+            android:text="返回，继续工作"/>
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

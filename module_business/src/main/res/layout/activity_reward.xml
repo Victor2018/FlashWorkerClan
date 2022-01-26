@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:fitsSystemWindows="true"
+    tools:ignore="ResourceName">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/mCtlWebTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="false">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/transparent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/app_name">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_30">
+                    <ImageView
+                        android:id="@+id/mIvBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp_20"
+                        android:src="@mipmap/ic_back"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dp_10"
+                        android:textSize="@dimen/dp_36"
+                        android:textColor="@color/color_333333"
+                        android:text="奖励"/>
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/dp_42"
+        android:paddingRight="@dimen/dp_42"
+        android:paddingTop="@dimen/dp_40"
+        android:paddingBottom="@dimen/dp_90"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/dp_6"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:id="@+id/tv_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dp_28"
+            android:text="尊敬的雇主："/>
+
+        <TextView
+            android:id="@+id/tv_confirm_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_call"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dp_20"
+            android:gravity="center"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dp_36"
+            android:text="感谢您对 王大锤 的认可！"/>
+
+        <TextView
+            android:id="@+id/tv_reward"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_82"
+            app:layout_constraintTop_toBottomOf="@+id/tv_confirm_tip"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dp_59"
+            android:gravity="center"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:text="奖励金额"/>
+
+        <EditText
+            android:id="@+id/mEtRewardAmount"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_82"
+            app:layout_constraintTop_toTopOf="@+id/tv_reward"
+            app:layout_constraintStart_toEndOf="@+id/tv_reward"
+            app:layout_constraintEnd_toStartOf="@+id/tv_reward_unit"
+            android:layout_marginEnd="@dimen/dp_19"
+            android:background="@null"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:maxLines="1"
+            android:gravity="center|right"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/dp_28"
+            android:hint="请输入奖励金额"/>
+
+        <TextView
+            android:id="@+id/tv_reward_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_reward"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_reward"
+            android:textColor="@color/color_E26853"
+            android:textSize="@dimen/dp_28"
+            android:text="元"/>
+
+        <View style="@style/base_line_horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/tv_reward"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_reward_reason"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_82"
+            app:layout_constraintTop_toBottomOf="@+id/tv_reward"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/dp_90"
+            android:gravity="center"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:text="奖励理由"/>
+
+        <TextView
+            android:id="@+id/mTvRewardReason"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_82"
+            app:layout_constraintTop_toTopOf="@+id/tv_reward_reason"
+            app:layout_constraintStart_toEndOf="@+id/tv_reward_reason"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:drawableRight="@mipmap/ic_right"
+            android:drawablePadding="@dimen/dp_21"
+            android:gravity="center|right"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:hint="理由选择"/>
+
+        <View
+            android:id="@+id/line_reward_reason"
+            style="@style/base_line_horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/tv_reward_reason"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"/>
+
+        <com.flash.worker.lib.common.view.widget.LMRecyclerView
+            android:id="@+id/mRvRewardReason"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/line_reward_reason"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="@dimen/dp_40"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_90"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/mTvGiveUp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/color_F7E047"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:textSize="@dimen/dp_32"
+            android:textColor="@color/color_333333"
+            android:textAllCaps="false"
+            android:text="放弃奖励"/>
+        <TextView
+            android:id="@+id/mTvReward"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/dp_3"
+            android:background="@color/color_F7E047"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:textSize="@dimen/dp_32"
+            android:textColor="@color/color_333333"
+            android:textAllCaps="false"
+            android:text="以资鼓励"/>
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

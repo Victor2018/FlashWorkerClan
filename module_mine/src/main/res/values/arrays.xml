@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string-array name="mine_pay_way_titles">
+		<item>支付宝支付(推荐)</item>
+		<item>微信支付</item>
+	</string-array>
+
+	<string-array name="mine_balance_detail_menu">
+		<item>全部</item>
+	</string-array>
+
+	<string-array name="mine_balance_detail_titles">
+		<item>全部</item>
+		<item>充值</item>
+		<item>提现</item>
+		<item>收入</item>
+		<item>支出</item>
+		<item>其他</item>
+	</string-array>
+
+	<integer-array name="mine_pay_way_icons">
+		<item>@mipmap/ic_ali_pay</item>
+		<item>@mipmap/ic_wx_pay</item>
+	</integer-array>
+
+	<string-array name="mine_news_manage_titles">
+		<item>资讯管理</item>
+		<item>简介管理</item>
+		<item>制度管理</item>
+	</string-array>
+
+
+</resources>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:fitsSystemWindows="true"
+    tools:ignore="ResourceName">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/mCtlWebTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="false">
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/transparent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@string/app_name">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dp_30">
+                    <ImageView
+                        android:id="@+id/mIvBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp_20"
+                        android:src="@mipmap/ic_close"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="@dimen/dp_10"
+                        android:textSize="@dimen/dp_36"
+                        android:textColor="@color/color_333333"
+                        android:text="事项选择"/>
+
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_12"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+
+        <CheckBox
+            android:id="@+id/mChkFakeInfo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_80"
+            android:paddingStart="@dimen/dp_42"
+            android:paddingEnd="@dimen/dp_42"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:clickable="true"
+            android:foreground="?selectableItemBackground"
+            android:button="@null"
+            android:drawableLeft="@drawable/chk_talent_employer_selector"
+            android:drawablePadding="@dimen/dp_25"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:text="人才提供虚假信息"/>
+
+        <View
+            android:id="@+id/line_fake_info"
+            style="@style/base_line_horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/mChkFakeInfo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <CheckBox
+            android:id="@+id/mChkNotArrived"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_80"
+            android:paddingStart="@dimen/dp_42"
+            android:paddingEnd="@dimen/dp_42"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_fake_info"
+            android:clickable="true"
+            android:foreground="?selectableItemBackground"
+            android:button="@null"
+            android:drawableLeft="@drawable/chk_talent_employer_selector"
+            android:drawablePadding="@dimen/dp_25"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:text="人才未到岗"/>
+
+        <View
+            android:id="@+id/line_not_arrived"
+            style="@style/base_line_horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/mChkNotArrived"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <CheckBox
+            android:id="@+id/mChkTalentIllegalOperation"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_80"
+            android:paddingStart="@dimen/dp_42"
+            android:paddingEnd="@dimen/dp_42"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_not_arrived"
+            android:clickable="true"
+            android:foreground="?selectableItemBackground"
+            android:button="@null"
+            android:drawableLeft="@drawable/chk_talent_employer_selector"
+            android:drawablePadding="@dimen/dp_25"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:text="人才接任务后不按要求操作"/>
+
+        <View
+            android:id="@+id/line_talent_illegal_operation"
+            style="@style/base_line_horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/mChkTalentIllegalOperation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <CheckBox
+            android:id="@+id/mChkOther"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_80"
+            android:paddingStart="@dimen/dp_42"
+            android:paddingEnd="@dimen/dp_42"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line_talent_illegal_operation"
+            android:clickable="true"
+            android:foreground="?selectableItemBackground"
+            android:button="@null"
+            android:drawableLeft="@drawable/chk_talent_employer_selector"
+            android:drawablePadding="@dimen/dp_25"
+            android:textSize="@dimen/dp_28"
+            android:textColor="@color/color_333333"
+            android:text="其他"/>
+
+        <EditText
+            android:id="@+id/mEtReportContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mChkOther"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_42"
+            android:layout_marginEnd="@dimen/dp_42"
+            android:minHeight="@dimen/dp_200"
+            android:maxLength="200"
+            android:padding="@dimen/dp_20"
+            android:textSize="@dimen/dp_24"
+            android:textColor="@color/color_333333"
+            android:gravity="left|top"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:hint="请输入其他事项理由~"
+            android:background="@drawable/border_cccccc_radius_7"/>
+
+        <TextView
+            android:id="@+id/mTvReportContentCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/mEtReportContent"
+            app:layout_constraintBottom_toBottomOf="@+id/mEtReportContent"
+            android:layout_marginRight="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_13"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/dp_24"
+            android:text="0/200"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/mTvConfim"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_99"
+        android:background="@color/color_F7E047"
+        android:layout_gravity="bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:textSize="@dimen/dp_36"
+        android:textColor="@color/color_333333"
+        android:textAllCaps="false"
+        android:text="确定"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
