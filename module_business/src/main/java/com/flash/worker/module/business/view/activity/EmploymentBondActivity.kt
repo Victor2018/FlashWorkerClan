@@ -37,7 +37,7 @@ class EmploymentBondActivity : BaseActivity(),View.OnClickListener, OnTradePassw
     AdapterView.OnItemClickListener {
 
     companion object {
-        fun  intentStart (
+        fun intentStart (
             activity: AppCompatActivity,
             body: EmployConfirmDetailParm?,
             data: EmployerWaitEmployInfo?,

@@ -31,4 +31,7 @@ object EmployerJobApi {
     const val EMPLOYER_RELEASING = "employerRelease/releasingList"
     const val UNREAD_STATUS = "employerJob/getUnreadStatus"
     const val TASK_SETTLEMENT = "employerJob/taskSettlementList"
+    const val CHECK_AUTO_PREPAID = "employerJob/checkAutoPrepaid"
+    const val OPEN_AUTO_PREPAID = "employerJob/openAutoPrepaid"
+    const val CLOSE_AUTO_PREPAID = "employerJob/closeAutoPrepaid"
 }

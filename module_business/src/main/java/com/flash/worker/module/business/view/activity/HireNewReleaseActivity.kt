@@ -30,6 +30,8 @@ import com.flash.worker.lib.common.etfilter.PointLengthFilter
 import com.flash.worker.lib.common.event.BussinessEmployerEvent
 import com.flash.worker.lib.common.module.OssUploadModule
 import com.flash.worker.lib.common.module.UMengEventModule
+import com.flash.worker.lib.common.util.ViewUtils.hide
+import com.flash.worker.lib.common.util.ViewUtils.show
 import com.flash.worker.lib.coremodel.data.bean.*
 import com.flash.worker.lib.coremodel.data.parm.AreaTreeParm
 import com.flash.worker.lib.coremodel.data.parm.SaveEmployerReleaseParm
@@ -45,7 +47,19 @@ import com.flash.worker.lib.livedatabus.core.LiveDataBus
 import com.flash.worker.module.business.interfaces.*
 import com.flash.worker.module.business.view.dialog.*
 import kotlinx.android.synthetic.main.activity_hire_new_release.*
+import kotlinx.android.synthetic.main.activity_hire_new_release.mIvBack
+import kotlinx.android.synthetic.main.activity_hire_new_release.mTvSave
+import kotlinx.android.synthetic.main.activity_talent_new_release.*
 import kotlinx.android.synthetic.main.hire_release_content.*
+import kotlinx.android.synthetic.main.hire_release_content.mClTalentType
+import kotlinx.android.synthetic.main.hire_release_content.mClTel
+import kotlinx.android.synthetic.main.hire_release_content.mEtTel
+import kotlinx.android.synthetic.main.hire_release_content.mEtTitle
+import kotlinx.android.synthetic.main.hire_release_content.mEtUnitPrice
+import kotlinx.android.synthetic.main.hire_release_content.mRbHourlySalary
+import kotlinx.android.synthetic.main.hire_release_content.mToggleDoAtHome
+import kotlinx.android.synthetic.main.hire_release_content.mTogglePublicTel
+import kotlinx.android.synthetic.main.hire_release_content.mTvTalentType
 import kotlin.collections.ArrayList
 
 @Route(path = ARouterPath.HireNewReleaseAct)
@@ -88,6 +102,8 @@ class HireNewReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePickL
     var selectDateMode: Int = 0//选择时间模式，0，开始时间；1，结束时间；2截止时间
 
     var mCurrentTime: Long = 0
+
+    var mWorkHoursSelected: String? = null//选择的工作时长，null默认7.5小时
 
     private val commonVM: CommonVM by viewModels {
         InjectorUtils.provideCommonViewModelFactory(this)
@@ -149,6 +165,7 @@ class HireNewReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePickL
         mToggleDoAtHome.setOnCheckedChangeListener(this)
         mRgSalary.setOnCheckedChangeListener(this)
         mToggleEmergencyRelease.setOnCheckedChangeListener(this)
+        mTogglePublicTel.setOnCheckedChangeListener(this)
 
         mEtUnitPrice.filters = arrayOf(PointLengthFilter(5, 2))
 
@@ -422,6 +439,12 @@ class HireNewReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePickL
             return
         }
 
+        var tel = mEtTel.text.toString()
+        if (TextUtils.isEmpty(tel) && mTogglePublicTel.isChecked && isRelease) {
+            ToastUtils.show("请输入联系方式")
+            return
+        }
+
         var settlementAmount = mTvSettlementAmount.text.toString().replace(",","")
 
         var dailySalary = mTvDailySalary.text.toString().replace(",","")
@@ -515,6 +538,12 @@ class HireNewReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePickL
                 body.settlementAmount = settlementAmount
             }
         }
+
+        if (mTogglePublicTel.isChecked) {
+            body.isOpenContactPhone = mTogglePublicTel.isChecked
+            body.contactPhone = tel
+        }
+
         body.pics = getWorkPics()
         body.workDescription = mEtDescription.text.toString()
 
@@ -901,8 +930,16 @@ class HireNewReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePickL
     }
 
     fun getWorkingHoursPickerDialog (): WorkingHoursPickerDialog {
+        var mWorkHours = getWorkHours()
+        Loger.e(TAG,"getWorkingHoursPickerDialog()...mWorkHours = $mWorkHours")
         var mWorkingHoursPickerDialog = WorkingHoursPickerDialog(this)
         mWorkingHoursPickerDialog.mOnWorkingHoursSelectListener = this
+
+        if (!TextUtils.isEmpty(mWorkHoursSelected)) {
+            mWorkingHoursPickerDialog.mWorkHours = mWorkHoursSelected
+        } else {
+            mWorkingHoursPickerDialog.mWorkHours = mWorkHours
+        }
         return mWorkingHoursPickerDialog
     }
 
@@ -952,6 +989,48 @@ class HireNewReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePickL
         mMyEmployerDialog?.mOnEmployerSelectListener = this
 
         return mMyEmployerDialog
+    }
+
+    fun getWorkHours (): String? {
+        Loger.e(TAG,"getWorkHours()......")
+        var mWorkHours: String? = null
+        var startTime = mTvStartTime.text.toString()
+        var endTime = mTvEndTime.text.toString()
+        if (!TextUtils.isEmpty(startTime) && !TextUtils.isEmpty(endTime)) {
+            var startHour = startTime.split(":")[0].toInt()
+            var startMin = startTime.split(":")[1].toInt()
+
+            var endHour = endTime.split(":")[0].replace("次日","").toInt()
+            var endMin = endTime.split(":")[1].toInt()
+
+            var isBeforeStartTime = endHour < startHour
+            Loger.e(TAG,"getWorkHours-isBeforeStartTime = $isBeforeStartTime")
+
+            var diffHour = endHour - startHour
+            if (isBeforeStartTime) {//结束时间比开始时间小说明是次日
+                diffHour = 24 + endHour - startHour
+            }
+            Loger.e(TAG,"getWorkHours-diffHour = $diffHour")
+            if (startMin == 0 && endMin == 0) {
+                //8:00-10:00(2h)
+                mWorkHours = "${diffHour}小时"
+                Loger.e(TAG,"getWorkHours-mWorkHours-00_00 = $mWorkHours")
+            } else if (startMin == 30 && endMin == 30) {
+                //8:30-10:30(2h)
+                mWorkHours = "${diffHour}小时"
+                Loger.e(TAG,"getWorkHours-mWorkHours-30_30 = $mWorkHours")
+            } else if (startMin == 30 && endMin == 0) {
+                //8:30-10:00(1.5h)
+                mWorkHours = "${diffHour - 1}.5小时"
+                Loger.e(TAG,"getWorkHours-mWorkHours-30_00 = $mWorkHours")
+            } else if (startMin == 0 && endMin == 30) {
+                //8:00-10:30(1.5h)
+                mWorkHours = "${diffHour}.5小时"
+                Loger.e(TAG,"getWorkHours-mWorkHours-00_30 = $mWorkHours")
+            }
+        }
+
+        return mWorkHours
     }
 
     override fun onClick(v: View?) {
@@ -1072,6 +1151,7 @@ class HireNewReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePickL
                 }
             }
             mTvStartTime.text = time
+            mWorkHoursSelected = null
         } else if (selectDateMode == 3) {//日完工时间
             var startTime = mTvStartTime.text.toString()
             if (!checkEndTime(startTime,time)) {
@@ -1084,6 +1164,7 @@ class HireNewReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePickL
             } else {
                 mTvEndTime.text = time
             }
+            mWorkHoursSelected = null
         }
 
         cacuDeadlineDate()
@@ -1237,6 +1318,13 @@ class HireNewReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePickL
             }
             R.id.mToggleEmergencyRelease -> {
                 cacuDeadlineDate()
+            }
+            R.id.mTogglePublicTel -> {
+                if (isChecked) {
+                    mClTel.show()
+                } else {
+                    mClTel.hide()
+                }
             }
         }
     }
@@ -1433,6 +1521,7 @@ class HireNewReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePickL
     }
 
     override fun OnWorkingHoursSelect(position: Int, hours: String) {
+        mWorkHoursSelected = hours
         mTvPaidHour.text = hours
     }
 

@@ -3,6 +3,7 @@ package com.flash.worker.lib.common.util
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.text.TextUtils
 
 
 /*
@@ -40,7 +41,11 @@ object PhoneUtil {
      * 拨打电话（直接拨打电话）
      * @param phoneNum 电话号码
      */
-    fun callPhone(context: Context?, phoneNum: String){
+    fun callPhone(context: Context?, phoneNum: String?){
+        if (TextUtils.isEmpty(phoneNum)) {
+            ToastUtils.show("号码不能为空")
+            return
+        }
         var intent = Intent(Intent.ACTION_CALL)
         var data = Uri.parse("tel:$phoneNum")
         intent.data = data

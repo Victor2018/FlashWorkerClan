@@ -35,7 +35,7 @@ class TalentReleaseVM(private val dataSource: ITalentReleaseDS): ViewModel() {
 
     val updateTalentDraftsData = dataSource.updateTalentDraftsData
 
-    fun updateSaveTalent(token: String?,body: UpdateTalentReleaseParm?) {
+    fun updateTalentDrafts(token: String?,body: UpdateTalentReleaseParm?) {
         // Launch a coroutine that reads from a remote data source and updates cache
         viewModelScope.launch {
             dataSource.updateTalentDrafts(token,body)

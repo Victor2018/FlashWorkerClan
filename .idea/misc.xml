@@ -19,11 +19,13 @@
         <entry key="..\:/GitProjects/FlashWorkerClan/lib_common/src/main/res/drawable/shape_fff7d7_radius_20.xml" value="0.23333333333333334" />
         <entry key="..\:/GitProjects/FlashWorkerClan/lib_common/src/main/res/drawable/shape_gradient_66000000_00000000_radius_0.xml" value="0.23029472241261137" />
         <entry key="..\:/GitProjects/FlashWorkerClan/lib_common/src/main/res/drawable/shape_gradient_ffce24_fffad1_radius_0.xml" value="0.23029472241261137" />
+        <entry key="..\:/GitProjects/FlashWorkerClan/lib_common/src/main/res/drawable/shape_gradient_fffad1_white_radius_0.xml" value="0.23333333333333334" />
         <entry key="..\:/GitProjects/FlashWorkerClan/lib_common/src/main/res/layout/activity_splash.xml" value="0.2062841530054645" />
         <entry key="..\:/GitProjects/FlashWorkerClan/lib_common/src/main/res/layout/activity_view_image.xml" value="0.19433060109289618" />
         <entry key="..\:/GitProjects/FlashWorkerClan/lib_common/src/main/res/layout/activity_violation_report.xml" value="0.1994535519125683" />
         <entry key="..\:/GitProjects/FlashWorkerClan/lib_common/src/main/res/layout/dlg_age_requirement.xml" value="0.20491803278688525" />
         <entry key="..\:/GitProjects/FlashWorkerClan/lib_common/src/main/res/layout/dlg_amy_sports_voucher_receive.xml" value="0.10757987763426241" />
+        <entry key="..\:/GitProjects/FlashWorkerClan/lib_common/src/main/res/layout/dlg_call.xml" value="0.21687158469945356" />
         <entry key="..\:/GitProjects/FlashWorkerClan/lib_common/src/main/res/layout/dlg_employer_release.xml" value="0.21550546448087432" />
         <entry key="..\:/GitProjects/FlashWorkerClan/lib_common/src/main/res/layout/dlg_gender_requirement.xml" value="0.20491803278688525" />
         <entry key="..\:/GitProjects/FlashWorkerClan/lib_common/src/main/res/layout/dlg_guild_red_envelope_tip.xml" value="0.19262295081967212" />
@@ -162,7 +164,7 @@
         <entry key="..\:/GitProjects/FlashWorkerClan/module_business/src/main/res/layout/fragment_talent_wait_settlement.xml" value="0.14548611111111112" />
         <entry key="..\:/GitProjects/FlashWorkerClan/module_business/src/main/res/layout/fragment_task_review.xml" value="0.18203551912568305" />
         <entry key="..\:/GitProjects/FlashWorkerClan/module_business/src/main/res/layout/hire_new_release_content.xml" value="0.1919398907103825" />
-        <entry key="..\:/GitProjects/FlashWorkerClan/module_business/src/main/res/layout/hire_release_content.xml" value="0.43472222222222223" />
+        <entry key="..\:/GitProjects/FlashWorkerClan/module_business/src/main/res/layout/hire_release_content.xml" value="0.22" />
         <entry key="..\:/GitProjects/FlashWorkerClan/module_business/src/main/res/layout/hire_update_release_content.xml" value="0.10757987763426241" />
         <entry key="..\:/GitProjects/FlashWorkerClan/module_business/src/main/res/layout/pop_complaint_cancel.xml" value="0.17725409836065573" />
         <entry key="..\:/GitProjects/FlashWorkerClan/module_business/src/main/res/layout/pop_delete_my_evaluation.xml" value="0.20047814207650272" />
@@ -291,7 +293,7 @@
         <entry key="..\:/GitProjects/FlashWorkerClan/module_job/src/main/res/layout/act_employer_detail_header.xml" value="0.19603825136612021" />
         <entry key="..\:/GitProjects/FlashWorkerClan/module_job/src/main/res/layout/activity_employer_detail.xml" value="0.20662568306010928" />
         <entry key="..\:/GitProjects/FlashWorkerClan/module_job/src/main/res/layout/activity_hirer_detail.xml" value="0.20662568306010928" />
-        <entry key="..\:/GitProjects/FlashWorkerClan/module_job/src/main/res/layout/activity_job_detail.xml" value="0.10757987763426241" />
+        <entry key="..\:/GitProjects/FlashWorkerClan/module_job/src/main/res/layout/activity_job_detail.xml" value="0.21" />
         <entry key="..\:/GitProjects/FlashWorkerClan/module_job/src/main/res/layout/activity_job_search.xml" value="0.20047814207650272" />
         <entry key="..\:/GitProjects/FlashWorkerClan/module_job/src/main/res/layout/activity_sign_up.xml" value="0.25" />
         <entry key="..\:/GitProjects/FlashWorkerClan/module_job/src/main/res/layout/activity_sign_up_success.xml" value="0.18442622950819673" />

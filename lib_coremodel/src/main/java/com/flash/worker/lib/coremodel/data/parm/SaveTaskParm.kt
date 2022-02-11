@@ -26,4 +26,6 @@ class SaveTaskParm: BaseParm() {
     var pics: List<String>? = null
     var ageRequirement: String? = null//年龄要求：格式18-35;不限传空
     var sexRequirement: Int = 0//性别要求：0-女；1-男；2-男女不限
+    var isOpenContactPhone: Boolean = false//公开联系方式
+    var contactPhone: String? = null//联系电话
 }

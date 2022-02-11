@@ -40,4 +40,7 @@ class TaskDetailData: Serializable {
     var requirementInfo: RequirementInfo? = null
 
     var status: Int = 0//发布状态：1-编辑中；2-发布中；3-已下架；4-已驳回；5，已关闭
+
+    var isOpenContactPhone: Boolean = false//公开联系方式
+    var contactPhone: String? = null//联系电话
 }

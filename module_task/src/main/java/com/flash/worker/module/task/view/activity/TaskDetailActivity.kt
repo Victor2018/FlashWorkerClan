@@ -1,5 +1,6 @@
 package com.flash.worker.module.task.view.activity
 
+import android.Manifest
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -30,10 +31,7 @@ import com.flash.worker.lib.common.view.activity.ViolationReportActivity
 import com.flash.worker.lib.common.view.adapter.BaseRecycleAdapter
 import com.flash.worker.lib.common.view.adapter.EmployerCommentAdapter
 import com.flash.worker.lib.common.view.adapter.JobWorkPicAdapter
-import com.flash.worker.lib.common.view.dialog.CommonTipDialog
-import com.flash.worker.lib.common.view.dialog.LoadingDialog
-import com.flash.worker.lib.common.view.dialog.MyResumeDialog
-import com.flash.worker.lib.common.view.dialog.ShareDialog
+import com.flash.worker.lib.common.view.dialog.*
 import com.flash.worker.lib.coremodel.data.bean.*
 import com.flash.worker.lib.coremodel.data.parm.*
 import com.flash.worker.lib.coremodel.data.req.EmployerCommentStatisticsReq
@@ -151,6 +149,7 @@ class TaskDetailActivity : BaseActivity(),View.OnClickListener,AppBarLayout.OnOf
         mIvBack.setOnClickListener(this)
         mIvReport.setOnClickListener(this)
         mIvShare.setOnClickListener(this)
+        mTvCall.setOnClickListener(this)
         mTvChat.setOnClickListener(this)
         mTvLeadTask.setOnClickListener(this)
         mTvUserId.setOnClickListener(this)
@@ -190,8 +189,8 @@ class TaskDetailActivity : BaseActivity(),View.OnClickListener,AppBarLayout.OnOf
         Loger.e(TAG,"initData()...action = $action")
 
         if (action == TaskDetailAction.PREVIEW) {
+            mTvCall.visibility = View.GONE
             mTvChat.visibility = View.GONE
-            line_chat.visibility = View.GONE
             mTvLeadTask.visibility = View.GONE
         } else if (action == TaskDetailAction.NORMAL) {
             mTvLeadTask.text = "我要领任务"
@@ -329,8 +328,8 @@ class TaskDetailActivity : BaseActivity(),View.OnClickListener,AppBarLayout.OnOf
 
                 mIvReport.visibility = View.GONE
 
+                mTvCall.visibility = View.GONE
                 mTvChat.visibility = View.GONE
-                line_chat.visibility = View.GONE
                 mTvLeadTask.visibility = View.GONE
             }
             5 -> {//已关闭
@@ -339,8 +338,8 @@ class TaskDetailActivity : BaseActivity(),View.OnClickListener,AppBarLayout.OnOf
 
                 mIvReport.visibility = View.GONE
 
+                mTvCall.visibility = View.GONE
                 mTvChat.visibility = View.GONE
-                line_chat.visibility = View.GONE
                 mTvLeadTask.visibility = View.GONE
             }
         }
@@ -427,6 +426,9 @@ class TaskDetailActivity : BaseActivity(),View.OnClickListener,AppBarLayout.OnOf
 
     fun showTaskDetailData (data: TaskDetailReq) {
         mTaskDetailData = data.data
+
+        var isOpenContactPhone = data?.data?.isOpenContactPhone ?: false
+        var contactPhone = data?.data?.contactPhone
 
         mTvTitle.text = data.data?.title
         mTvTaskCount.text = "${data.data?.taskQty}件"
@@ -522,9 +524,14 @@ class TaskDetailActivity : BaseActivity(),View.OnClickListener,AppBarLayout.OnOf
         var checkSignUpStatus = data.data?.requirementInfo?.status ?: false
         if (checkSignUpStatus) {
             mTvLeadTask.setBackgroundColor(ResUtils.getColorRes(R.color.color_F7E047))
+            if (isOpenContactPhone && !TextUtils.isEmpty(contactPhone)) {
+                mTvCall.visibility = View.VISIBLE
+            } else {
+                mTvCall.visibility = View.GONE
+            }
         } else {
+            mTvCall.visibility = View.GONE
             mTvChat.visibility = View.GONE
-            line_chat.visibility = View.GONE
             mTvLeadTask.setBackgroundColor(ResUtils.getColorRes(R.color.color_DDDDDD))
             mTvLeadTask.text = data.data?.requirementInfo?.msg
         }
@@ -632,6 +639,14 @@ class TaskDetailActivity : BaseActivity(),View.OnClickListener,AppBarLayout.OnOf
             }
             R.id.mIvShare -> {
                 getShareDialog()?.show()
+            }
+            R.id.mTvCall -> {
+                if (!isPermissionGranted(Manifest.permission.CALL_PHONE)) {
+                    requestPermission(arrayOf(Manifest.permission.CALL_PHONE))
+                    return
+                }
+                var contactPhone = mTaskDetailData?.contactPhone
+                showCallDlg(contactPhone)
             }
             R.id.mTvChat -> {
                 val userId = mTaskDetailData?.userId
@@ -924,6 +939,12 @@ class TaskDetailActivity : BaseActivity(),View.OnClickListener,AppBarLayout.OnOf
             }
         }
         commonTipDialog.show()
+    }
+
+    fun showCallDlg (tel: String?) {
+        var mCallDialog = CallDialog(this)
+        mCallDialog.tel = tel
+        mCallDialog.show()
     }
 
     override fun OnResumeSelect(data: MyResumeInfo?, resumeCount: Int) {

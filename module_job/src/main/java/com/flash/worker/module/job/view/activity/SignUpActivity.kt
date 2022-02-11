@@ -203,7 +203,7 @@ class SignUpActivity : BaseActivity(),View.OnClickListener,
         mTvEmployerName.text = "${data.data?.employerName}-${data.data?.title}"
         mTvSettlementMethod.text = "$settlementAmount$settlementMethod"
         mTvSignUpAmt.text = "信用冻结：${signUpAmt}元"
-        mTvSettlementAmount.text = "(${settlementAmount}X10%)"
+        mTvSettlementAmount.text = "(${settlementAmount}X${data?.data?.frozenRate}%)"
         mTvAccountBalance.text = AmountUtil.addCommaDots(data.data?.availableBalance)
 
         var availableBalance = data.data?.availableBalance ?: 0.0

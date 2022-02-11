@@ -73,4 +73,13 @@ interface IEmployerJobDS {
     val taskSettledData: LiveData<HttpResult<TaskSettledReq>>
     suspend fun fetchTaskSettled(token: String?,body: TaskSettledParm?)
 
+    val checkAutoPrepaidData: LiveData<HttpResult<CheckAutoPrepaidReq>>
+    suspend fun checkAutoPrepaid(token: String?,body: CheckAutoPrepaidParm?)
+
+    val openAutoPrepaidData: LiveData<HttpResult<BaseReq>>
+    suspend fun openAutoPrepaid(token: String?,body: OpenAutoPrepaidParm?)
+
+    val closeAutoPrepaidData: LiveData<HttpResult<BaseReq>>
+    suspend fun closeAutoPrepaid(token: String?,body: CloseAutoPrepaidParm?)
+
 }

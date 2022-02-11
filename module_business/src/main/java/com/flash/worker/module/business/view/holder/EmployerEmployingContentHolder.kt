@@ -2,6 +2,7 @@ package com.flash.worker.module.business.view.holder
 
 import android.text.TextUtils
 import android.view.View
+import android.widget.CompoundButton
 import com.flash.worker.lib.common.util.AmountUtil
 import com.flash.worker.lib.common.util.DateUtil
 import com.flash.worker.lib.common.view.holder.ContentViewHolder
@@ -22,6 +23,8 @@ import kotlinx.android.synthetic.main.rv_employer_employing_cell.view.*
 class EmployerEmployingContentHolder(itemView: View) : ContentViewHolder(itemView) {
 
     fun bindData (data: EmployerEmployingInfo?) {
+        itemView.mIvAutoPrepaidTip.setOnClickListener(this)
+        itemView.mFlAutoPrepaid.setOnClickListener(this)
         itemView.mTvGroupMessage.setOnClickListener(this)
         itemView.mTvDetail.setOnClickListener(this)
 
@@ -81,9 +84,12 @@ class EmployerEmployingContentHolder(itemView: View) : ContentViewHolder(itemVie
         itemView.mTvTotalSettlement.text = "${AmountUtil.addCommaDots(data?.totalSettledAmount)}元"
         itemView.mTvCreditFreeze.text = "${AmountUtil.addCommaDots(data?.signupFrozenAmount)}元/人"
 
+        itemView.mToggleAutoPrepaid.isChecked = data?.isAutoPrepaid ?: false
+
     }
 
     override fun onLongClick(v: View): Boolean {
         return false
     }
+
 }

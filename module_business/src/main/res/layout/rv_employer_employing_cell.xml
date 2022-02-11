@@ -254,6 +254,47 @@
         app:layout_constraintTop_toTopOf="@+id/view_total_bg"
         app:layout_constraintBottom_toBottomOf="@+id/view_total_bg"/>
 
+    <ImageView
+        android:id="@+id/mIvAutoPrepaidTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_10"
+        app:layout_constraintTop_toTopOf="@+id/mTvDetail"
+        app:layout_constraintBottom_toBottomOf="@+id/mTvDetail"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@mipmap/ic_prepaid_tip"/>
+
+    <TextView
+        android:id="@+id/tv_auto_prepaid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/mIvAutoPrepaidTip"
+        app:layout_constraintTop_toTopOf="@+id/mIvAutoPrepaidTip"
+        app:layout_constraintBottom_toBottomOf="@+id/mIvAutoPrepaidTip"
+        android:layout_marginStart="@dimen/dp_3"
+        android:textColor="@color/color_999999"
+        android:textSize="@dimen/dp_24"
+        android:text="自动预付"/>
+
+    <FrameLayout
+        android:id="@+id/mFlAutoPrepaid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/tv_auto_prepaid"
+        app:layout_constraintTop_toTopOf="@+id/mIvAutoPrepaidTip"
+        app:layout_constraintBottom_toBottomOf="@+id/mIvAutoPrepaidTip">
+
+        <Switch
+            android:id="@+id/mToggleAutoPrepaid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_29"
+            android:clickable="false"
+            android:thumb="@drawable/switch_thumb_selector"
+            android:track="@drawable/switch_track_selector"/>
+
+    </FrameLayout>
+
     <TextView
         android:id="@+id/mTvGroupMessage"
         android:layout_width="@dimen/dp_140"

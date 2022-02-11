@@ -169,5 +169,29 @@ class EmployerJobVM(private val dataSource: IEmployerJobDS): ViewModel() {
         }
     }
 
+    val checkAutoPrepaidData = dataSource.checkAutoPrepaidData
+    fun checkAutoPrepaid(token: String?,body: CheckAutoPrepaidParm?) {
+        // Launch a coroutine that reads from a remote data source and updates cache
+        viewModelScope.launch {
+            dataSource.checkAutoPrepaid(token,body)
+        }
+    }
+
+    val openAutoPrepaidData = dataSource.openAutoPrepaidData
+    fun openAutoPrepaid(token: String?,body: OpenAutoPrepaidParm?) {
+        // Launch a coroutine that reads from a remote data source and updates cache
+        viewModelScope.launch {
+            dataSource.openAutoPrepaid(token,body)
+        }
+    }
+
+    val closeAutoPrepaidData = dataSource.closeAutoPrepaidData
+    fun closeAutoPrepaid(token: String?,body: CloseAutoPrepaidParm?) {
+        // Launch a coroutine that reads from a remote data source and updates cache
+        viewModelScope.launch {
+            dataSource.closeAutoPrepaid(token,body)
+        }
+    }
+
 
 }

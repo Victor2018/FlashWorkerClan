@@ -147,21 +147,41 @@
             android:layout_gravity="bottom">
 
             <TextView
-                android:id="@+id/mTvChat"
+                android:id="@+id/mTvCall"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/mTvLeadTask"
+                app:layout_constraintEnd_toStartOf="@+id/mTvChat"
                 app:layout_constraintHorizontal_weight="1"
-                android:paddingStart="@dimen/dp_70"
-                android:background="@color/color_FFEE7D"
+                android:paddingTop="@dimen/dp_17"
+                android:paddingBottom="@dimen/dp_17"
+                android:background="@color/white"
                 android:clickable="true"
                 android:foreground="?attr/selectableItemBackground"
-                android:gravity="center_vertical"
-                android:drawableLeft="@mipmap/ic_chat"
-                android:drawablePadding="@dimen/dp_14"
-                android:textSize="@dimen/dp_32"
-                android:textColor="@color/color_333333"
+                android:gravity="center"
+                android:drawableTop="@mipmap/ic_call"
+                android:drawablePadding="@dimen/dp_5"
+                android:textSize="@dimen/dp_20"
+                android:textColor="@color/color_666666"
+                android:text="打电话"/>
+
+            <TextView
+                android:id="@+id/mTvChat"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toEndOf="@+id/mTvCall"
+                app:layout_constraintEnd_toStartOf="@+id/mTvLeadTask"
+                app:layout_constraintHorizontal_weight="1"
+                android:paddingTop="@dimen/dp_17"
+                android:paddingBottom="@dimen/dp_17"
+                android:background="@color/white"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:drawableTop="@mipmap/ic_chat"
+                android:drawablePadding="@dimen/dp_5"
+                android:textSize="@dimen/dp_20"
+                android:textColor="@color/color_666666"
                 android:text="联系"/>
 
             <TextView
@@ -170,7 +190,7 @@
                 android:layout_height="match_parent"
                 app:layout_constraintStart_toEndOf="@+id/mTvChat"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_weight="2"
+                app:layout_constraintHorizontal_weight="3"
                 android:background="@color/color_F7E047"
                 android:clickable="true"
                 android:foreground="?attr/selectableItemBackground"
@@ -178,13 +198,6 @@
                 android:textSize="@dimen/dp_32"
                 android:textColor="@color/color_333333"
                 android:text="我要领任务"/>
-
-            <View
-                android:id="@+id/line_chat"
-                android:layout_width="@dimen/dp_3"
-                android:layout_height="match_parent"
-                app:layout_constraintStart_toEndOf="@+id/mTvChat"
-                android:background="@color/color_F9F9F9"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -23,6 +23,8 @@ import com.flash.worker.lib.common.view.dialog.AreaPickerDialog
 import com.flash.worker.lib.common.interfaces.OnResumeSelectListener
 import com.flash.worker.lib.common.etfilter.PointLengthFilter
 import com.flash.worker.lib.common.util.*
+import com.flash.worker.lib.common.util.ViewUtils.hide
+import com.flash.worker.lib.common.util.ViewUtils.show
 import com.flash.worker.module.business.view.adapter.ServiceAreaAdapter
 import com.flash.worker.lib.common.view.dialog.MyResumeDialog
 import com.flash.worker.lib.coremodel.data.bean.*
@@ -34,7 +36,28 @@ import com.flash.worker.lib.coremodel.viewmodel.*
 import com.flash.worker.lib.livedatabus.action.BusinessActions
 import com.flash.worker.lib.livedatabus.action.JobActions
 import com.flash.worker.lib.livedatabus.core.LiveDataBus
+import kotlinx.android.synthetic.main.activity_talent_new_release.*
 import kotlinx.android.synthetic.main.activity_talent_update_release.*
+import kotlinx.android.synthetic.main.activity_talent_update_release.mClServiceCity
+import kotlinx.android.synthetic.main.activity_talent_update_release.mClTalentType
+import kotlinx.android.synthetic.main.activity_talent_update_release.mClTel
+import kotlinx.android.synthetic.main.activity_talent_update_release.mEtTel
+import kotlinx.android.synthetic.main.activity_talent_update_release.mEtTitle
+import kotlinx.android.synthetic.main.activity_talent_update_release.mEtUnitPrice
+import kotlinx.android.synthetic.main.activity_talent_update_release.mIvBack
+import kotlinx.android.synthetic.main.activity_talent_update_release.mRbHourlySalary
+import kotlinx.android.synthetic.main.activity_talent_update_release.mRbPieceSalary
+import kotlinx.android.synthetic.main.activity_talent_update_release.mRvServiceArea
+import kotlinx.android.synthetic.main.activity_talent_update_release.mToggleAccept
+import kotlinx.android.synthetic.main.activity_talent_update_release.mToggleDoAtHome
+import kotlinx.android.synthetic.main.activity_talent_update_release.mTogglePublicTel
+import kotlinx.android.synthetic.main.activity_talent_update_release.mTvPublish
+import kotlinx.android.synthetic.main.activity_talent_update_release.mTvResumeName
+import kotlinx.android.synthetic.main.activity_talent_update_release.mTvSave
+import kotlinx.android.synthetic.main.activity_talent_update_release.mTvServiceCity
+import kotlinx.android.synthetic.main.activity_talent_update_release.mTvTalentType
+import kotlinx.android.synthetic.main.activity_talent_update_release.rtv_service_city
+import kotlinx.android.synthetic.main.activity_talent_update_release.tv_city_tip
 import java.net.URLEncoder
 
 class TalentUpdateReleaseActivity : BaseActivity(),View.OnClickListener,
@@ -116,6 +139,7 @@ class TalentUpdateReleaseActivity : BaseActivity(),View.OnClickListener,
         mTvSave.setOnClickListener(this)
         mTvPublish.setOnClickListener(this)
         mToggleDoAtHome.setOnCheckedChangeListener(this)
+        mTogglePublicTel.setOnCheckedChangeListener(this)
 
         mEtUnitPrice.filters = arrayOf(PointLengthFilter(5, 2))
     }
@@ -309,6 +333,13 @@ class TalentUpdateReleaseActivity : BaseActivity(),View.OnClickListener,
             ToastUtils.show("请输入报酬单价")
             return
         }
+
+        var tel = mEtTel.text.toString()
+        if (TextUtils.isEmpty(tel) && mTogglePublicTel.isChecked && isRelease) {
+            ToastUtils.show("请输入联系方式")
+            return
+        }
+
         if (isRelease) {
             if (TextUtils.isEmpty(resumeId) || TextUtils.isEmpty(resumeName)) {
                 ToastUtils.show("请选择简历")
@@ -351,6 +382,11 @@ class TalentUpdateReleaseActivity : BaseActivity(),View.OnClickListener,
             body.inviteMethod = 1
         }
 
+        if (mTogglePublicTel.isChecked) {
+            body.isOpenContactPhone = mTogglePublicTel.isChecked
+            body.contactPhone = tel
+        }
+
         body.jobCategoryId = jobCategoryId
         body.id = mTalentReleaseInfo?.id
 
@@ -359,7 +395,7 @@ class TalentUpdateReleaseActivity : BaseActivity(),View.OnClickListener,
         if (isRelease) {
             talentReleaseVM.updateTalentRelease(token,body)
         } else {
-            talentReleaseVM.updateSaveTalent(token,body)
+            talentReleaseVM.updateTalentDrafts(token,body)
         }
 
     }
@@ -389,6 +425,13 @@ class TalentUpdateReleaseActivity : BaseActivity(),View.OnClickListener,
             ToastUtils.show("请输入报酬单价")
             return
         }
+
+        var tel = mEtTel.text.toString()
+        if (TextUtils.isEmpty(tel) && mTogglePublicTel.isChecked && isRelease) {
+            ToastUtils.show("请输入联系方式")
+            return
+        }
+
         if (isRelease) {
             if (TextUtils.isEmpty(resumeId) || TextUtils.isEmpty(resumeName)) {
                 ToastUtils.show("请选择简历")
@@ -428,6 +471,11 @@ class TalentUpdateReleaseActivity : BaseActivity(),View.OnClickListener,
             body.inviteMethod = 2
         } else {
             body.inviteMethod = 1
+        }
+
+        if (mTogglePublicTel.isChecked) {
+            body.isOpenContactPhone = mTogglePublicTel.isChecked
+            body.contactPhone = tel
         }
 
         body.jobCategoryId = jobCategoryId
@@ -805,6 +853,13 @@ class TalentUpdateReleaseActivity : BaseActivity(),View.OnClickListener,
                     var privince = workProvince ?: ""
                     var city = workCity ?: ""
                     mTvServiceCity.text = privince + city
+                }
+            }
+            R.id.mTogglePublicTel -> {
+                if (isChecked) {
+                    mClTel.show()
+                } else {
+                    mClTel.hide()
                 }
             }
         }

@@ -77,6 +77,7 @@
                 android:foreground="?attr/selectableItemBackground">
 
                 <com.flash.worker.lib.common.view.widget.RequiredTextView
+                    android:id="@+id/rtv_talent_type"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -92,7 +93,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/rtv_education"
+                    app:layout_constraintStart_toStartOf="@+id/rtv_talent_type"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:drawableRight="@mipmap/ic_right"
                     android:drawablePadding="@dimen/dp_20"
@@ -358,14 +359,15 @@
                     android:textSize="@dimen/dp_32"
                     android:textColor="@color/color_333333"
                     android:text="不接受低于上述单价的邀请"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_not_accept"
                     android:layout_marginTop="@dimen/dp_21"
-                    android:textSize="@dimen/dp_24"
+                    android:text="开启后将不会收到低于上述单价的雇用邀请"
                     android:textColor="@color/color_999999"
-                    android:text="开启后将不会收到低于上述单价的雇用邀请"/>
+                    android:textSize="@dimen/dp_24" />
 
                 <Switch
                     android:id="@+id/mToggleAccept"
@@ -375,6 +377,83 @@
                     android:thumb="@drawable/switch_thumb_selector"
                     android:track="@drawable/switch_track_selector"/>
             </RelativeLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp_42"
+                android:paddingRight="@dimen/dp_42"
+                android:paddingTop="@dimen/dp_30"
+                android:paddingBottom="@dimen/dp_20"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tv_public_tel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/mTogglePublicTel"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:gravity="center|right"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_666666"
+                    android:text="公开联系方式"/>
+
+                <Switch
+                    android:id="@+id/mTogglePublicTel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:thumb="@drawable/switch_thumb_selector"
+                    android:track="@drawable/switch_track_selector"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/mClTel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp_25"
+                android:paddingRight="@dimen/dp_42"
+                android:paddingBottom="@dimen/dp_20"
+                android:background="@color/white"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <com.flash.worker.lib.common.view.widget.RequiredTextView
+                    android:id="@+id/tv_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_80"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:gravity="center"
+                    android:textColor="@color/color_666666"
+                    android:textSize="@dimen/dp_28"
+                    app:prefix_color="@color/color_E26853"
+                    app:android_text=" 联系方式"/>
+
+                <EditText
+                    android:id="@+id/mEtTel"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_80"
+                    app:layout_constraintStart_toEndOf="@+id/tv_tel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/bg_et_line"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:maxLength="13"
+                    android:gravity="center"
+                    android:imeOptions="actionDone"
+                    android:textSize="@dimen/dp_28"
+                    android:textColor="@color/color_333333"
+                    android:hint="请输入联系方式"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <com.flash.worker.lib.common.view.widget.RequiredTextView
                 android:id="@+id/mTvResumeName"

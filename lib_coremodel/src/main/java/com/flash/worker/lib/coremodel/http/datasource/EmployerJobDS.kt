@@ -174,6 +174,30 @@ class EmployerJobDS: AbsDS(), IEmployerJobDS {
         }
     }
 
+    override val checkAutoPrepaidData = MutableLiveData<HttpResult<CheckAutoPrepaidReq>>()
+    override suspend fun checkAutoPrepaid(token: String?,body: CheckAutoPrepaidParm?) {
+        // Force Main thread
+        withContext(Dispatchers.Main) {
+            checkAutoPrepaidData.value = checkAutoPrepaidReq(token,body)
+        }
+    }
+
+    override val openAutoPrepaidData = MutableLiveData<HttpResult<BaseReq>>()
+    override suspend fun openAutoPrepaid(token: String?,body: OpenAutoPrepaidParm?) {
+        // Force Main thread
+        withContext(Dispatchers.Main) {
+            openAutoPrepaidData.value = openAutoPrepaidReq(token,body)
+        }
+    }
+
+    override val closeAutoPrepaidData = MutableLiveData<HttpResult<BaseReq>>()
+    override suspend fun closeAutoPrepaid(token: String?,body: CloseAutoPrepaidParm?) {
+        // Force Main thread
+        withContext(Dispatchers.Main) {
+            closeAutoPrepaidData.value = closeAutoPrepaidReq(token,body)
+        }
+    }
+
     private suspend fun <T> employerWaitEmployReq(
         token: String?,
         body: EmployerWaitEmployParm?): T = withContext(Dispatchers.IO) {
@@ -304,6 +328,27 @@ class EmployerJobDS: AbsDS(), IEmployerJobDS {
         body: TaskSettledParm?): T = withContext(Dispatchers.IO) {
         handleRespone(ApiClient.getApiService(EmployerJobApiService::class.java)
             .fetchTaskSettlement(token,body)) as T
+    }
+
+    private suspend fun <T> checkAutoPrepaidReq(
+        token: String?,
+        body: CheckAutoPrepaidParm?): T = withContext(Dispatchers.IO) {
+        handleRespone(ApiClient.getApiService(EmployerJobApiService::class.java)
+            .checkAutoPrepaid(token,body)) as T
+    }
+
+    private suspend fun <T> openAutoPrepaidReq(
+        token: String?,
+        body: OpenAutoPrepaidParm?): T = withContext(Dispatchers.IO) {
+        handleRespone(ApiClient.getApiService(EmployerJobApiService::class.java)
+            .openAutoPrepaid(token,body)) as T
+    }
+
+    private suspend fun <T> closeAutoPrepaidReq(
+        token: String?,
+        body: CloseAutoPrepaidParm?): T = withContext(Dispatchers.IO) {
+        handleRespone(ApiClient.getApiService(EmployerJobApiService::class.java)
+            .closeAutoPrepaid(token,body)) as T
     }
 
 

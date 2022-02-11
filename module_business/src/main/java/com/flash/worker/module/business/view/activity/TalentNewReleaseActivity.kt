@@ -30,6 +30,8 @@ import com.flash.worker.lib.common.etfilter.PointLengthFilter
 import com.flash.worker.lib.common.event.BussinessTalentEvent
 import com.flash.worker.lib.common.module.UMengEventModule
 import com.flash.worker.lib.common.util.*
+import com.flash.worker.lib.common.util.ViewUtils.hide
+import com.flash.worker.lib.common.util.ViewUtils.show
 import com.flash.worker.module.business.view.adapter.ServiceAreaAdapter
 import com.flash.worker.lib.common.view.dialog.MyResumeDialog
 import com.flash.worker.lib.coremodel.data.bean.*
@@ -109,6 +111,7 @@ class TalentNewReleaseActivity : BaseActivity(),View.OnClickListener,
         mTvSave.setOnClickListener(this)
         mTvPublish.setOnClickListener(this)
         mToggleDoAtHome.setOnCheckedChangeListener(this)
+        mTogglePublicTel.setOnCheckedChangeListener(this)
 
         mEtUnitPrice.filters = arrayOf(PointLengthFilter(5, 2))
 //        mEtUnitPrice.filters = arrayOf(DecimalDigitsInputFilter(2))
@@ -232,6 +235,12 @@ class TalentNewReleaseActivity : BaseActivity(),View.OnClickListener,
             return
         }
 
+        var tel = mEtTel.text.toString()
+        if (TextUtils.isEmpty(tel) && mTogglePublicTel.isChecked && isRelease) {
+            ToastUtils.show("请输入联系方式")
+            return
+        }
+
         if (mMyResumeInfo == null && isRelease) {
             ToastUtils.show("请选择简历")
             return
@@ -270,6 +279,11 @@ class TalentNewReleaseActivity : BaseActivity(),View.OnClickListener,
             body.inviteMethod = 2
         } else {
             body.inviteMethod = 1
+        }
+
+        if (mTogglePublicTel.isChecked) {
+            body.isOpenContactPhone = mTogglePublicTel.isChecked
+            body.contactPhone = tel
         }
 
         body.jobCategoryId = mTalentCellInfo?.id
@@ -561,6 +575,13 @@ class TalentNewReleaseActivity : BaseActivity(),View.OnClickListener,
                     var privince = mProvinceInfo?.name ?: ""
                     var city = mCityInfo?.name ?: ""
                     mTvServiceCity.text = privince + city
+                }
+            }
+            R.id.mTogglePublicTel -> {
+                if (isChecked) {
+                    mClTel.show()
+                } else {
+                    mClTel.hide()
                 }
             }
         }

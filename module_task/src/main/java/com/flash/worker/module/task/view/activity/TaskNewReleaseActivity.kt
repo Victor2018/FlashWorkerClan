@@ -8,6 +8,7 @@ import android.text.TextUtils
 import android.text.TextWatcher
 import android.view.View
 import android.widget.AdapterView
+import android.widget.CompoundButton
 import android.widget.RadioGroup
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +23,8 @@ import com.flash.worker.lib.common.etfilter.MoneyInputFilter
 import com.flash.worker.lib.common.interfaces.*
 import com.flash.worker.lib.common.module.OssUploadModule
 import com.flash.worker.lib.common.util.*
+import com.flash.worker.lib.common.util.ViewUtils.hide
+import com.flash.worker.lib.common.util.ViewUtils.show
 import com.flash.worker.lib.common.view.adapter.BusinessWorkPicAdapter
 import com.flash.worker.lib.common.view.dialog.*
 import com.flash.worker.lib.coremodel.data.bean.EmployerInfo
@@ -51,7 +54,8 @@ import kotlinx.android.synthetic.main.task_release_content.*
 @Route(path = ARouterPath.TaskNewReleaseAct)
 class TaskNewReleaseActivity : BaseActivity(),View.OnClickListener,RadioGroup.OnCheckedChangeListener,
     OnTaskCompleteTimeSelectListener, OnEmployerSelectListener, AdapterView.OnItemClickListener,
-    OnUploadListener,TextWatcher, OnAgeSelectListener, OnGenderSelectListener {
+    OnUploadListener,TextWatcher, OnAgeSelectListener, OnGenderSelectListener,
+    CompoundButton.OnCheckedChangeListener {
 
     companion object {
         fun  intentStart (activity: AppCompatActivity) {
@@ -116,6 +120,7 @@ class TaskNewReleaseActivity : BaseActivity(),View.OnClickListener,RadioGroup.On
         mTvRelease.setOnClickListener(this)
 
         mRgCompletionTime.setOnCheckedChangeListener(this)
+        mTogglePublicTel.setOnCheckedChangeListener(this)
         mEtDescription.addTextChangedListener(this)
 
 
@@ -328,6 +333,12 @@ class TaskNewReleaseActivity : BaseActivity(),View.OnClickListener,RadioGroup.On
         body.ageRequirement = ageRequirement
         body.sexRequirement = sexRequirement
 
+        var tel = mEtTel.text.toString()
+        if (!TextUtils.isEmpty(tel) && mTogglePublicTel.isChecked) {
+            body.isOpenContactPhone = mTogglePublicTel.isChecked
+            body.contactPhone = tel
+        }
+
         val loginReq = App.get().getLoginReq()
         val token = loginReq?.data?.token
 
@@ -366,6 +377,12 @@ class TaskNewReleaseActivity : BaseActivity(),View.OnClickListener,RadioGroup.On
 
         if (TextUtils.isEmpty(finishTimeLimit)) {
             ToastUtils.show("请选择完成时限")
+            return
+        }
+
+        var tel = mEtTel.text.toString()
+        if (TextUtils.isEmpty(tel) && mTogglePublicTel.isChecked) {
+            ToastUtils.show("请输入联系方式")
             return
         }
 
@@ -441,6 +458,11 @@ class TaskNewReleaseActivity : BaseActivity(),View.OnClickListener,RadioGroup.On
         mReleaseTaskParm?.pics = getWorkPics()
         mReleaseTaskParm?.ageRequirement = ageRequirement
         mReleaseTaskParm?.sexRequirement = sexRequirement
+
+        if (mTogglePublicTel.isChecked) {
+            mReleaseTaskParm?.isOpenContactPhone = mTogglePublicTel.isChecked
+            mReleaseTaskParm?.contactPhone = tel
+        }
 
         mLoadingDialog?.show()
 
@@ -752,6 +774,18 @@ class TaskNewReleaseActivity : BaseActivity(),View.OnClickListener,RadioGroup.On
             }
             2 -> {//女
                 sexRequirement = 0
+            }
+        }
+    }
+
+    override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+        when (buttonView?.id) {
+            R.id.mTogglePublicTel -> {
+                if (isChecked) {
+                    mClTel.show()
+                } else {
+                    mClTel.hide()
+                }
             }
         }
     }

@@ -123,4 +123,19 @@ interface EmployerJobApiService {
     suspend fun fetchTaskSettlement(
         @Header("X-TOKEN") token: String?,
         @Body body: TaskSettledParm?): NetworkResponse<TaskSettledReq, HttpError>
+
+    @POST(EmployerJobApi.CHECK_AUTO_PREPAID)
+    suspend fun checkAutoPrepaid(
+        @Header("X-TOKEN") token: String?,
+        @Body body: CheckAutoPrepaidParm?): NetworkResponse<CheckAutoPrepaidReq, HttpError>
+
+    @POST(EmployerJobApi.OPEN_AUTO_PREPAID)
+    suspend fun openAutoPrepaid(
+        @Header("X-TOKEN") token: String?,
+        @Body body: OpenAutoPrepaidParm?): NetworkResponse<BaseReq, HttpError>
+
+    @POST(EmployerJobApi.CLOSE_AUTO_PREPAID)
+    suspend fun closeAutoPrepaid(
+        @Header("X-TOKEN") token: String?,
+        @Body body: CloseAutoPrepaidParm?): NetworkResponse<BaseReq, HttpError>
 }

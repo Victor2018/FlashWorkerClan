@@ -25,4 +25,6 @@ class UpdateTalentReleaseParm: BaseParm() {
     var workDistrict: String? = null//服务地区（区）逗号分隔
     var id: String? = null//发布ID
     var isAtHome: Boolean = false//远程可做
+    var isOpenContactPhone: Boolean = false//公开联系方式
+    var contactPhone: String? = null//联系电话
 }

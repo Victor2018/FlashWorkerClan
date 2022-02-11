@@ -1,5 +1,6 @@
 package com.flash.worker.module.job.view.activity
 
+import android.Manifest
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -159,6 +160,7 @@ class JobDetailActivity : BaseActivity(), View.OnClickListener, AdapterView.OnIt
         mIvReport.setOnClickListener(this)
         mTvUserId.setOnClickListener(this)
         mTvAllEvaluation.setOnClickListener(this)
+        mTvCall.setOnClickListener(this)
         mTvChat.setOnClickListener(this)
         mTvSignUp.setOnClickListener(this)
         mTvCompany.setOnClickListener(this)
@@ -196,8 +198,8 @@ class JobDetailActivity : BaseActivity(), View.OnClickListener, AdapterView.OnIt
         Loger.e(TAG,"initData()...resumeId = $resumeId")
         Loger.e(TAG,"initData()...action = $action")
         if (action == JobDetailAction.PREVIEW) {
+            mTvCall.visibility = View.GONE
             mTvChat.visibility = View.GONE
-            line_chat.visibility = View.GONE
             mTvSignUp.visibility = View.GONE
         } else if (action == JobDetailAction.NORMAL) {
             mTvSignUp.text = "报名"
@@ -421,8 +423,8 @@ class JobDetailActivity : BaseActivity(), View.OnClickListener, AdapterView.OnIt
                 mIvReport.visibility = View.GONE
                 mIvShare.visibility = View.GONE
 
+                mTvCall.visibility = View.GONE
                 mTvChat.visibility = View.GONE
-                line_chat.visibility = View.GONE
                 mTvSignUp.visibility = View.GONE
             }
             5 -> {//已关闭
@@ -433,8 +435,8 @@ class JobDetailActivity : BaseActivity(), View.OnClickListener, AdapterView.OnIt
                 mIvReport.visibility = View.GONE
                 mIvShare.visibility = View.GONE
 
+                mTvCall.visibility = View.GONE
                 mTvChat.visibility = View.GONE
-                line_chat.visibility = View.GONE
                 mTvSignUp.visibility = View.GONE
             }
         }
@@ -621,6 +623,9 @@ class JobDetailActivity : BaseActivity(), View.OnClickListener, AdapterView.OnIt
     fun showEmployerDetailData (data: HomeEmployerDetailReq) {
         mHomeEmployerDetailData = data.data
 
+        var isOpenContactPhone = data?.data?.isOpenContactPhone ?: false
+        var contactPhone = data?.data?.contactPhone
+
         var favoriteStatus = data?.data?.favoriteStatus ?: false
         if (favoriteStatus) {
             mIvFav.setImageResource(R.mipmap.ic_fav_focus)
@@ -769,9 +774,14 @@ class JobDetailActivity : BaseActivity(), View.OnClickListener, AdapterView.OnIt
 
         if (checkSignUpStatus) {
             mTvSignUp.setBackgroundColor(ResUtils.getColorRes(R.color.color_F7E047))
+            if (isOpenContactPhone && !TextUtils.isEmpty(contactPhone)) {
+                mTvCall.visibility = View.VISIBLE
+            } else {
+                mTvCall.visibility = View.GONE
+            }
         } else {
+            mTvCall.visibility = View.GONE
             mTvChat.visibility = View.GONE
-            line_chat.visibility = View.GONE
             mTvSignUp.setBackgroundColor(ResUtils.getColorRes(R.color.color_DDDDDD))
             mTvSignUp.text = data.data?.checkSignup?.msg
         }
@@ -883,6 +893,14 @@ class JobDetailActivity : BaseActivity(), View.OnClickListener, AdapterView.OnIt
             }
             R.id.mIvReport -> {
                 ViolationReportActivity.intentStart(this,false,releaseId)
+            }
+            R.id.mTvCall -> {
+                if (!isPermissionGranted(Manifest.permission.CALL_PHONE)) {
+                    requestPermission(arrayOf(Manifest.permission.CALL_PHONE))
+                    return
+                }
+                var contactPhone = mHomeEmployerDetailData?.contactPhone
+                showCallDlg(contactPhone)
             }
             R.id.mTvChat -> {
                 val userId = mHomeEmployerDetailData?.userId
@@ -1036,6 +1054,12 @@ class JobDetailActivity : BaseActivity(), View.OnClickListener, AdapterView.OnIt
 
         }
         commonTipDialog.show()
+    }
+
+    fun showCallDlg (tel: String?) {
+        var mCallDialog = CallDialog(this)
+        mCallDialog.tel = tel
+        mCallDialog.show()
     }
 
     fun shareAction () {

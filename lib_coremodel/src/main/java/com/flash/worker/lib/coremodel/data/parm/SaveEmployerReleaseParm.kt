@@ -51,4 +51,7 @@ class SaveEmployerReleaseParm: BaseParm() {
     var finishTimeLimit: Int = 0//完成时限
     var settlementTimeLimit: Int = 0//结算时限
     var submitLabel: String? = null//任务提交：多个使用逗号分隔
+
+    var isOpenContactPhone: Boolean = false//公开联系方式
+    var contactPhone: String? = null//联系电话
 }

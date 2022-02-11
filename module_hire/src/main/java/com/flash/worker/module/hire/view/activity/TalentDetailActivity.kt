@@ -1,5 +1,6 @@
 package com.flash.worker.module.hire.view.activity
 
+import android.Manifest
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -27,6 +28,7 @@ import com.flash.worker.lib.common.util.*
 import com.flash.worker.lib.common.view.activity.ViolationReportActivity
 import com.flash.worker.lib.common.view.activity.ViewImageActivity
 import com.flash.worker.lib.common.view.adapter.BaseRecycleAdapter
+import com.flash.worker.lib.common.view.dialog.CallDialog
 import com.flash.worker.lib.common.view.dialog.LoadingDialog
 import com.flash.worker.lib.common.view.dialog.NameSettingDialog
 import com.flash.worker.lib.common.view.dialog.ShareDialog
@@ -161,6 +163,7 @@ class TalentDetailActivity : BaseActivity(),View.OnClickListener,AdapterView.OnI
         mIvShare.setOnClickListener(this)
         mTvUserId.setOnClickListener(this)
         mTvAllEvaluation.setOnClickListener(this)
+        mTvCall.setOnClickListener(this)
         mTvChat.setOnClickListener(this)
         mTvInviteTalent.setOnClickListener(this)
 
@@ -486,6 +489,9 @@ class TalentDetailActivity : BaseActivity(),View.OnClickListener,AdapterView.OnI
     fun showTalentDetailData (data: HomeTalentDetailReq?) {
         mTalentDetailReq = data
 
+        var isOpenContactPhone = data?.data?.talentReleaseInfo?.isOpenContactPhone ?: false
+        var contactPhone = data?.data?.talentReleaseInfo?.contactPhone
+
         var favoriteStatus = data?.data?.favoriteStatus ?: false
         if (favoriteStatus) {
             mIvFav.setImageResource(R.mipmap.ic_fav_focus)
@@ -627,8 +633,8 @@ class TalentDetailActivity : BaseActivity(),View.OnClickListener,AdapterView.OnI
                     mIvReport.visibility = View.GONE
                     mIvShare.visibility = View.GONE
 
+                    mTvCall.visibility = View.GONE
                     mTvChat.visibility = View.GONE
-                    line_chat.visibility = View.GONE
                     mTvInviteTalent.visibility = View.GONE
 
                 } else if (data?.data?.talentReleaseInfo?.status == 2) {//发布中
@@ -636,8 +642,12 @@ class TalentDetailActivity : BaseActivity(),View.OnClickListener,AdapterView.OnI
                     mIvReport.visibility = View.VISIBLE
                     mIvShare.visibility = View.VISIBLE
 
+                    if (isOpenContactPhone && !TextUtils.isEmpty(contactPhone)) {
+                        mTvCall.visibility = View.VISIBLE
+                    } else {
+                        mTvCall.visibility = View.GONE
+                    }
                     mTvChat.visibility = View.VISIBLE
-                    line_chat.visibility = View.VISIBLE
                     mTvInviteTalent.visibility = View.VISIBLE
 
                 } else if (data?.data?.talentReleaseInfo?.status == 3) {//已下架
@@ -645,21 +655,21 @@ class TalentDetailActivity : BaseActivity(),View.OnClickListener,AdapterView.OnI
                     mIvReport.visibility = View.GONE
                     mIvShare.visibility = View.GONE
 
+                    mTvCall.visibility = View.GONE
                     mTvChat.visibility = View.GONE
-                    line_chat.visibility = View.GONE
                     mTvInviteTalent.visibility = View.GONE
                 } else if (data?.data?.talentReleaseInfo?.status == 4) {//已驳回
                     mIvFav.visibility = View.GONE
                     mIvReport.visibility = View.GONE
                     mIvShare.visibility = View.GONE
 
+                    mTvCall.visibility = View.GONE
                     mTvChat.visibility = View.GONE
-                    line_chat.visibility = View.GONE
                     mTvInviteTalent.visibility = View.GONE
                 }
             } else {
+                mTvCall.visibility = View.GONE
                 mTvChat.visibility = View.GONE
-                line_chat.visibility = View.GONE
                 mTvInviteTalent.setBackgroundColor(ResUtils.getColorRes(R.color.color_DDDDDD))
                 mTvInviteTalent.text = data?.data?.checkSendInviteInfo?.msg
             }
@@ -667,15 +677,15 @@ class TalentDetailActivity : BaseActivity(),View.OnClickListener,AdapterView.OnI
             mIvFav.visibility = View.GONE
             mIvReport.visibility = View.GONE
             mIvShare.visibility = View.GONE
+            mTvCall.visibility = View.GONE
             mTvChat.visibility = View.GONE
-            line_chat.visibility = View.GONE
             mTvInviteTalent.visibility = View.GONE
         } else if (action == TalentDetailAction.RELEASE_PREVIEW) {
             mIvFav.visibility = View.GONE
             mIvReport.visibility = View.GONE
             mIvShare.visibility = View.VISIBLE
+            mTvCall.visibility = View.GONE
             mTvChat.visibility = View.GONE
-            line_chat.visibility = View.GONE
             mTvInviteTalent.visibility = View.GONE
         }
 
@@ -692,6 +702,7 @@ class TalentDetailActivity : BaseActivity(),View.OnClickListener,AdapterView.OnI
         cl_content.visibility = View.GONE
         cl_resume.visibility = View.GONE
         cl_evaluation.visibility = View.GONE
+        mTvCall.visibility = View.GONE
         mTvChat.visibility = View.GONE
         mTvInviteTalent.visibility = View.GONE
     }
@@ -767,6 +778,12 @@ class TalentDetailActivity : BaseActivity(),View.OnClickListener,AdapterView.OnI
         mNameSettingDialog?.show()
     }
 
+    fun showCallDlg (tel: String?) {
+        var mCallDialog = CallDialog(this)
+        mCallDialog.tel = tel
+        mCallDialog.show()
+    }
+
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.mIvBack -> {
@@ -796,6 +813,14 @@ class TalentDetailActivity : BaseActivity(),View.OnClickListener,AdapterView.OnI
                 val userId = mTalentDetailReq?.data?.userInfo?.userId
                 TalentAllEvaluationActivity.intentStart(this,userId,0)
                 UMengEventModule.report(this, TalentEvent.view_talent_all_evaluation)
+            }
+            R.id.mTvCall -> {
+                if (!isPermissionGranted(Manifest.permission.CALL_PHONE)) {
+                    requestPermission(arrayOf(Manifest.permission.CALL_PHONE))
+                    return
+                }
+                var contactPhone = mTalentDetailReq?.data?.talentReleaseInfo?.contactPhone
+                showCallDlg(contactPhone)
             }
             R.id.mTvChat -> {
                 val userId = mTalentDetailReq?.data?.userInfo?.userId

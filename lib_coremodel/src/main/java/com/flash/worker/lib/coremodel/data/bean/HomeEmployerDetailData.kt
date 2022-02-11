@@ -54,5 +54,6 @@ class HomeEmployerDetailData: Serializable {
     var identityRequirement: Int = 0//身份要求：1-职场人士；2-学生；3-不限
     var checkSignup: CheckSignUpData? = null
     var favoriteStatus: Boolean = false//收藏状态：true-已收藏
-
+    var isOpenContactPhone: Boolean = false//公开联系方式
+    var contactPhone: String? = null//联系电话
 }
