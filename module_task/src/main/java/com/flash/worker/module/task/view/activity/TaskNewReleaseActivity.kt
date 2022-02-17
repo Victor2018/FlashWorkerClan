@@ -333,10 +333,12 @@ class TaskNewReleaseActivity : BaseActivity(),View.OnClickListener,RadioGroup.On
         body.ageRequirement = ageRequirement
         body.sexRequirement = sexRequirement
 
+        body.isOpenContactPhone = mTogglePublicTel.isChecked
         var tel = mEtTel.text.toString()
         if (!TextUtils.isEmpty(tel) && mTogglePublicTel.isChecked) {
-            body.isOpenContactPhone = mTogglePublicTel.isChecked
             body.contactPhone = tel
+        } else {
+            body.contactPhone = null
         }
 
         val loginReq = App.get().getLoginReq()
@@ -459,9 +461,11 @@ class TaskNewReleaseActivity : BaseActivity(),View.OnClickListener,RadioGroup.On
         mReleaseTaskParm?.ageRequirement = ageRequirement
         mReleaseTaskParm?.sexRequirement = sexRequirement
 
+        mReleaseTaskParm?.isOpenContactPhone = mTogglePublicTel.isChecked
         if (mTogglePublicTel.isChecked) {
-            mReleaseTaskParm?.isOpenContactPhone = mTogglePublicTel.isChecked
             mReleaseTaskParm?.contactPhone = tel
+        } else {
+            mReleaseTaskParm?.contactPhone = null
         }
 
         mLoadingDialog?.show()

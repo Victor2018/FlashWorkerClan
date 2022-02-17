@@ -398,9 +398,11 @@ class TaskUpdateReleaseActivity : BaseActivity(),View.OnClickListener,RadioGroup
         mReleaseTaskParm?.ageRequirement = ageRequirement
         mReleaseTaskParm?.sexRequirement = sexRequirement
 
+        mReleaseTaskParm?.isOpenContactPhone = mTogglePublicTel.isChecked
         if (mTogglePublicTel.isChecked) {
-            mReleaseTaskParm?.isOpenContactPhone = mTogglePublicTel.isChecked
             mReleaseTaskParm?.contactPhone = tel
+        } else {
+            mReleaseTaskParm?.contactPhone = null
         }
 
         mLoadingDialog?.show()
@@ -514,9 +516,9 @@ class TaskUpdateReleaseActivity : BaseActivity(),View.OnClickListener,RadioGroup
         body.ageRequirement = ageRequirement
         body.sexRequirement = sexRequirement
 
+        body.isOpenContactPhone = mTogglePublicTel.isChecked
         var tel = mEtTel.text.toString()
         if (!TextUtils.isEmpty(tel) && mTogglePublicTel.isChecked) {
-            body.isOpenContactPhone = mTogglePublicTel.isChecked
             body.contactPhone = tel
         }
 
@@ -548,9 +550,15 @@ class TaskUpdateReleaseActivity : BaseActivity(),View.OnClickListener,RadioGroup
         }
         tv_finish_time_limit_unit.hint = ""
         if (data.data?.finishTimeLimitUnit == 1) {
-            tv_finish_time_limit_unit.text = "小时"
+            tv_finish_time_limit_unit.hint = "选择小时数"
+            if (finishTimeLimit > 0) {
+                tv_finish_time_limit_unit.text = "小时"
+            }
         } else {
-            tv_finish_time_limit_unit.text = "天"
+            tv_finish_time_limit_unit.hint = "选择天数"
+            if (finishTimeLimit > 0) {
+                tv_finish_time_limit_unit.text = "天"
+            }
         }
 
         mRb24Hour.isChecked = data.data?.settlementTimeLimit == 24
@@ -583,6 +591,12 @@ class TaskUpdateReleaseActivity : BaseActivity(),View.OnClickListener,RadioGroup
             mTvSexRequirement.text = "男"
         } else if (data.data?.sexRequirement == 2) {
             mTvSexRequirement.text = "不限"
+        }
+
+        mTogglePublicTel.isChecked = data.data?.isOpenContactPhone ?: false
+        var contactPhone = data.data?.contactPhone
+        if (!TextUtils.isEmpty(contactPhone)) {
+            mEtTel.setText(contactPhone)
         }
     }
 

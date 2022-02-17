@@ -23,6 +23,13 @@ class EmployerTaskEmployingContentHolder(itemView: View) : ContentViewHolder(ite
         itemView.mTvClose.setOnClickListener(this)
         itemView.mTvDetail.setOnClickListener(this)
 
+        var isRead = data?.isRead ?: false
+        if (isRead) {
+            itemView.mViewReadTip?.visibility = View.GONE
+        } else {
+            itemView.mViewReadTip?.visibility = View.VISIBLE
+        }
+
         var identity = ""
         if (data?.identity == 1) {
             identity = "企业"

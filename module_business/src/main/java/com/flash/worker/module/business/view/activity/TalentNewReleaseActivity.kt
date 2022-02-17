@@ -10,7 +10,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.alibaba.security.biometrics.build.S
 import com.flash.worker.lib.common.app.App
 import com.flash.worker.lib.common.base.ARouterPath
 import com.flash.worker.lib.common.base.BaseActivity
@@ -281,11 +280,10 @@ class TalentNewReleaseActivity : BaseActivity(),View.OnClickListener,
             body.inviteMethod = 1
         }
 
+        body.isOpenContactPhone = mTogglePublicTel.isChecked
         if (mTogglePublicTel.isChecked) {
-            body.isOpenContactPhone = mTogglePublicTel.isChecked
             body.contactPhone = tel
         }
-
         body.jobCategoryId = mTalentCellInfo?.id
 
         mLoadingDialog?.show()

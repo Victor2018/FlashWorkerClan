@@ -337,4 +337,16 @@
         android:textColor="@color/color_333333"
         android:text="投诉争议"/>
 
+    <View
+        android:id="@+id/mViewComplaintsTip"
+        android:layout_width="@dimen/dp_16"
+        android:layout_height="@dimen/dp_16"
+        app:layout_constraintTop_toTopOf="@+id/mTvComplaints"
+        app:layout_constraintEnd_toEndOf="@+id/mTvComplaints"
+        android:layout_marginTop="@dimen/dp_27"
+        android:layout_marginEnd="@dimen/dp_52"
+        android:background="@drawable/round_e26853_radius_8"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

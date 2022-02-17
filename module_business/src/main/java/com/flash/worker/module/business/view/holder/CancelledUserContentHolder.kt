@@ -1,5 +1,6 @@
 package com.flash.worker.module.business.view.holder
 
+import android.text.TextUtils
 import android.view.View
 import com.flash.worker.lib.common.util.ImageUtils
 import com.flash.worker.lib.common.view.holder.ContentViewHolder
@@ -67,6 +68,12 @@ class CancelledUserContentHolder(itemView: View): ContentViewHolder(itemView)  {
         }
 
         itemView.mTvCancelSignupTime.text = "发起时间：${data?.cancelSignupTime}"
+        itemView.mTvGuild.text = data?.guildName
+        if (TextUtils.isEmpty(data?.guildName)) {
+            itemView.mTvGuild.visibility = View.GONE
+        } else {
+            itemView.mTvGuild.visibility = View.VISIBLE
+        }
     }
 
     override fun onLongClick(v: View): Boolean {

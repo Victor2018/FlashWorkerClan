@@ -47,19 +47,7 @@ import com.flash.worker.lib.livedatabus.core.LiveDataBus
 import com.flash.worker.module.business.interfaces.*
 import com.flash.worker.module.business.view.dialog.*
 import kotlinx.android.synthetic.main.activity_hire_new_release.*
-import kotlinx.android.synthetic.main.activity_hire_new_release.mIvBack
-import kotlinx.android.synthetic.main.activity_hire_new_release.mTvSave
-import kotlinx.android.synthetic.main.activity_talent_new_release.*
 import kotlinx.android.synthetic.main.hire_release_content.*
-import kotlinx.android.synthetic.main.hire_release_content.mClTalentType
-import kotlinx.android.synthetic.main.hire_release_content.mClTel
-import kotlinx.android.synthetic.main.hire_release_content.mEtTel
-import kotlinx.android.synthetic.main.hire_release_content.mEtTitle
-import kotlinx.android.synthetic.main.hire_release_content.mEtUnitPrice
-import kotlinx.android.synthetic.main.hire_release_content.mRbHourlySalary
-import kotlinx.android.synthetic.main.hire_release_content.mToggleDoAtHome
-import kotlinx.android.synthetic.main.hire_release_content.mTogglePublicTel
-import kotlinx.android.synthetic.main.hire_release_content.mTvTalentType
 import kotlin.collections.ArrayList
 
 @Route(path = ARouterPath.HireNewReleaseAct)
@@ -539,8 +527,8 @@ class HireNewReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePickL
             }
         }
 
+        body.isOpenContactPhone = mTogglePublicTel.isChecked
         if (mTogglePublicTel.isChecked) {
-            body.isOpenContactPhone = mTogglePublicTel.isChecked
             body.contactPhone = tel
         }
 

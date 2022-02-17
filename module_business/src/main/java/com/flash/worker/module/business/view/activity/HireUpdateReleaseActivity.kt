@@ -466,7 +466,6 @@ class HireUpdateReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePi
         var dayTotalPrice = mTvDayTotalPrice.text.toString().replace(",","")
         var totalPieceSalary = mTvPieceTotalSalary.text.toString().replace(",","")
 
-
         val userInfo = App.get().getUserInfo()
         if (isRelease && userInfo?.realNameStatus == 0) {
             showAuthTipDlg()
@@ -514,7 +513,6 @@ class HireUpdateReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePi
         if (!TextUtils.isEmpty(endTime)) {
             mSaveEmployerReleaseParm?.endTime = endTime.replace("次日","")
         }
-
 
         var totalDays = DateUtil.getDiffDay(jobStartDate,jobEndDate)
         if (totalDays > 0) {
@@ -568,9 +566,11 @@ class HireUpdateReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePi
             }
         }
 
+        mSaveEmployerReleaseParm?.isOpenContactPhone = mTogglePublicTel.isChecked
         if (mTogglePublicTel.isChecked) {
-            mSaveEmployerReleaseParm?.isOpenContactPhone = mTogglePublicTel.isChecked
             mSaveEmployerReleaseParm?.contactPhone = tel
+        } else {
+            mSaveEmployerReleaseParm?.contactPhone = null
         }
 
         mSaveEmployerReleaseParm?.pics = getWorkPics()
@@ -712,6 +712,12 @@ class HireUpdateReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePi
 
         if (!TextUtils.isEmpty(data.data?.workDescription)) {
             mEtDescription.setText(data.data?.workDescription)
+        }
+
+        mTogglePublicTel.isChecked = data.data?.isOpenContactPhone ?: false
+        var contactPhone = data.data?.contactPhone
+        if (!TextUtils.isEmpty(contactPhone)) {
+            mEtTel.setText(contactPhone)
         }
 
         isInit = false

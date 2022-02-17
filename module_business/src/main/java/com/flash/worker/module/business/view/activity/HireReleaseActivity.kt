@@ -68,10 +68,7 @@ class HireReleaseActivity : BaseActivity(),View.OnClickListener {
         fragmentList?.add(TaskReviewFragment.newInstance())//审核中
         fragmentList?.add(HireRejectedReleaseFragment.newInstance())//已驳回
 
-        mTabPagerAdapter =
-            TabPagerAdapter(
-                supportFragmentManager
-            )
+        mTabPagerAdapter = TabPagerAdapter(supportFragmentManager)
         mTabPagerAdapter?.titles = pagerTitles
         mTabPagerAdapter?.frags = fragmentList
         mVpHire.setAdapter(mTabPagerAdapter)

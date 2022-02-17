@@ -956,9 +956,9 @@
             android:background="@drawable/bg_et_line"
             android:gravity="center"
             android:imeOptions="actionDone"
-            android:inputType="number"
+            android:inputType="text"
             android:maxLines="1"
-            android:maxLength="13"
+            android:maxLength="15"
             android:textSize="@dimen/dp_28"
             android:textColor="@color/color_333333"
             android:hint="请输入联系方式"/>

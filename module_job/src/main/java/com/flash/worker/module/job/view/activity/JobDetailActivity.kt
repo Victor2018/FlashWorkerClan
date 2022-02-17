@@ -770,11 +770,14 @@ class JobDetailActivity : BaseActivity(), View.OnClickListener, AdapterView.OnIt
         var checkSignUpStatus = data.data?.checkSignup?.status ?: false
 
         setAppBarLayoutHeight(countDownTime)
-        setEmployerReleaseStatus(data.data?.status ?: 0)
+
+        var status = data.data?.status ?: 0
+        setEmployerReleaseStatus(status)
 
         if (checkSignUpStatus) {
             mTvSignUp.setBackgroundColor(ResUtils.getColorRes(R.color.color_F7E047))
-            if (isOpenContactPhone && !TextUtils.isEmpty(contactPhone)) {
+            //如果是发布中并且打开了公开联系方式并且电话不为空时
+            if (status == 2 && isOpenContactPhone && !TextUtils.isEmpty(contactPhone)) {
                 mTvCall.visibility = View.VISIBLE
             } else {
                 mTvCall.visibility = View.GONE

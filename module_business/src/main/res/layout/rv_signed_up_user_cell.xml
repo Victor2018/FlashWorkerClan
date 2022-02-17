@@ -12,7 +12,6 @@
     android:foreground="?selectableItemBackground"
     tools:ignore="ResourceName">
 
-
     <CheckBox
         android:id="@+id/mChkCheck"
         android:layout_width="wrap_content"
@@ -162,6 +161,24 @@
         android:textSize="@dimen/dp_24"
         android:textColor="@color/color_666666"
         tools:text="报名时间：12.27  12:30"/>
+
+    <TextView
+        android:id="@+id/mTvGuild"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/mTvSignUpTime"
+        app:layout_constraintBottom_toBottomOf="@+id/mTvSignUpTime"
+        android:layout_marginLeft="@dimen/dp_13"
+        android:paddingTop="@dimen/dp_5"
+        android:paddingBottom="@dimen/dp_5"
+        android:paddingLeft="@dimen/dp_12"
+        android:paddingRight="@dimen/dp_12"
+        android:background="@drawable/shape_26ffd424_radius_7"
+        android:gravity="center"
+        android:textSize="@dimen/dp_24"
+        android:textColor="@color/color_A1840C"
+        tools:text="海豚公会"/>
 
     <ImageView
         android:id="@+id/mIvMore"

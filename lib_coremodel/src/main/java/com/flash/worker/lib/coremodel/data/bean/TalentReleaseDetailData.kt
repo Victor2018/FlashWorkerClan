@@ -27,4 +27,6 @@ class TalentReleaseDetailData: Serializable {
     var resumeName: String? = null//简历名称
     var resumeId: String? = null//简历ID
     var isAtHome: Boolean = false//远程可做
+    var isOpenContactPhone: Boolean = false//公开联系方式
+    var contactPhone: String? = null//联系电话
 }

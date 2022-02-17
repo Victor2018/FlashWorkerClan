@@ -142,6 +142,24 @@
         android:textColor="@color/color_666666"
         tools:text="发起时间：2020.12.27  10:10:55"/>
 
+    <TextView
+        android:id="@+id/mTvGuild"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/mTvCancelSignupTime"
+        app:layout_constraintBottom_toBottomOf="@+id/mTvCancelSignupTime"
+        android:layout_marginLeft="@dimen/dp_13"
+        android:paddingTop="@dimen/dp_5"
+        android:paddingBottom="@dimen/dp_5"
+        android:paddingLeft="@dimen/dp_12"
+        android:paddingRight="@dimen/dp_12"
+        android:background="@drawable/shape_26ffd424_radius_7"
+        android:gravity="center"
+        android:textSize="@dimen/dp_24"
+        android:textColor="@color/color_A1840C"
+        tools:text="海豚公会"/>
+
     <View
         style="@style/base_line_horizontal"
         app:layout_constraintTop_toBottomOf="@+id/mTvCancelSignupTime"

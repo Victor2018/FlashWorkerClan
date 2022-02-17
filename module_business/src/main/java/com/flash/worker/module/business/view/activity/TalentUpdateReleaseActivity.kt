@@ -36,28 +36,7 @@ import com.flash.worker.lib.coremodel.viewmodel.*
 import com.flash.worker.lib.livedatabus.action.BusinessActions
 import com.flash.worker.lib.livedatabus.action.JobActions
 import com.flash.worker.lib.livedatabus.core.LiveDataBus
-import kotlinx.android.synthetic.main.activity_talent_new_release.*
 import kotlinx.android.synthetic.main.activity_talent_update_release.*
-import kotlinx.android.synthetic.main.activity_talent_update_release.mClServiceCity
-import kotlinx.android.synthetic.main.activity_talent_update_release.mClTalentType
-import kotlinx.android.synthetic.main.activity_talent_update_release.mClTel
-import kotlinx.android.synthetic.main.activity_talent_update_release.mEtTel
-import kotlinx.android.synthetic.main.activity_talent_update_release.mEtTitle
-import kotlinx.android.synthetic.main.activity_talent_update_release.mEtUnitPrice
-import kotlinx.android.synthetic.main.activity_talent_update_release.mIvBack
-import kotlinx.android.synthetic.main.activity_talent_update_release.mRbHourlySalary
-import kotlinx.android.synthetic.main.activity_talent_update_release.mRbPieceSalary
-import kotlinx.android.synthetic.main.activity_talent_update_release.mRvServiceArea
-import kotlinx.android.synthetic.main.activity_talent_update_release.mToggleAccept
-import kotlinx.android.synthetic.main.activity_talent_update_release.mToggleDoAtHome
-import kotlinx.android.synthetic.main.activity_talent_update_release.mTogglePublicTel
-import kotlinx.android.synthetic.main.activity_talent_update_release.mTvPublish
-import kotlinx.android.synthetic.main.activity_talent_update_release.mTvResumeName
-import kotlinx.android.synthetic.main.activity_talent_update_release.mTvSave
-import kotlinx.android.synthetic.main.activity_talent_update_release.mTvServiceCity
-import kotlinx.android.synthetic.main.activity_talent_update_release.mTvTalentType
-import kotlinx.android.synthetic.main.activity_talent_update_release.rtv_service_city
-import kotlinx.android.synthetic.main.activity_talent_update_release.tv_city_tip
 import java.net.URLEncoder
 
 class TalentUpdateReleaseActivity : BaseActivity(),View.OnClickListener,
@@ -382,8 +361,8 @@ class TalentUpdateReleaseActivity : BaseActivity(),View.OnClickListener,
             body.inviteMethod = 1
         }
 
+        body.isOpenContactPhone = mTogglePublicTel.isChecked
         if (mTogglePublicTel.isChecked) {
-            body.isOpenContactPhone = mTogglePublicTel.isChecked
             body.contactPhone = tel
         }
 
@@ -473,8 +452,8 @@ class TalentUpdateReleaseActivity : BaseActivity(),View.OnClickListener,
             body.inviteMethod = 1
         }
 
+        body.isOpenContactPhone = mTogglePublicTel.isChecked
         if (mTogglePublicTel.isChecked) {
-            body.isOpenContactPhone = mTogglePublicTel.isChecked
             body.contactPhone = tel
         }
 
@@ -563,6 +542,12 @@ class TalentUpdateReleaseActivity : BaseActivity(),View.OnClickListener,
 
         if (!TextUtils.isEmpty(data?.data?.resumeName)) {
             mTvResumeName.setTextValue(" " + data?.data?.resumeName)
+        }
+
+        mTogglePublicTel.isChecked = data?.data?.isOpenContactPhone ?: false
+        var contactPhone = data.data?.contactPhone
+        if (!TextUtils.isEmpty(contactPhone)) {
+            mEtTel.setText(contactPhone)
         }
     }
 

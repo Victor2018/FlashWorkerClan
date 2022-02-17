@@ -6,8 +6,6 @@
     android:layout_height="wrap_content"
     android:background="@color/white"
     android:layout_marginBottom="@dimen/dp_13"
-    android:clickable="true"
-    android:foreground="?attr/selectableItemBackground"
     android:paddingLeft="@dimen/dp_42"
     android:paddingRight="@dimen/dp_42"
     android:paddingTop="@dimen/dp_30"

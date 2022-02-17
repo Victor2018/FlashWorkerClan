@@ -141,10 +141,22 @@ class EmployerFragment :BaseFragment(), View.OnClickListener {
 
     fun showUnReadStatusData(data: EmployerUnReadStatusReq) {
         var waitEmploymentListIsRead = data.data?.waitEmploymentListIsRead ?: false
+        var employmentListIsRead = data.data?.employmentListIsRead ?: false
+        var disputeListIsRead = data.data?.disputeListIsRead ?: false
         if (waitEmploymentListIsRead) {
             mViewEmployingTip.visibility = View.GONE
         } else {
             mViewEmployingTip.visibility = View.VISIBLE
+        }
+        if (employmentListIsRead) {
+            mViewStartingTip.visibility = View.GONE
+        } else {
+            mViewStartingTip.visibility = View.VISIBLE
+        }
+        if (disputeListIsRead) {
+            mViewComplaintsTip.visibility = View.GONE
+        } else {
+            mViewComplaintsTip.visibility = View.VISIBLE
         }
 
         var waitEmploymentListCount = data.data?.waitEmploymentListCount ?: 0

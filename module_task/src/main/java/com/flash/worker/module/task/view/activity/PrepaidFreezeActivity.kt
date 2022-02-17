@@ -85,7 +85,7 @@ class PrepaidFreezeActivity : BaseActivity(),View.OnClickListener,
         mReleaseTaskParms = intent?.getSerializableExtra(Constant.INTENT_DATA_KEY)
                 as ReleaseTaskParms?
 
-        sendTaskPrepaidDetailRequest()
+        showTaskPrepaidDetailData()
     }
 
     fun subscribeUi() {
@@ -160,18 +160,6 @@ class PrepaidFreezeActivity : BaseActivity(),View.OnClickListener,
             }
         })
 
-        taskVM.taskPrepaidDetailData.observe(this, Observer {
-            mLoadingDialog?.dismiss()
-            when(it) {
-                is HttpResult.Success -> {
-                    mReleaseTaskParms?.taskPrepaidDetailData = it.value.data
-                    showTaskPrepaidDetailData()
-                }
-                is HttpResult.Error -> {
-                    ToastUtils.show(it.message)
-                }
-            }
-        })
     }
 
     fun sendAccountInfoRequest () {
@@ -196,27 +184,6 @@ class PrepaidFreezeActivity : BaseActivity(),View.OnClickListener,
         } else {
             taskVM.releaseTask(token,body)
         }
-    }
-
-    fun sendTaskPrepaidDetailRequest() {
-        if (!App.get().hasLogin()) return
-
-        val userInfo = App.get().getUserInfo()
-        if (userInfo?.realNameStatus == 0) {
-            showAuthTipDlg()
-            return
-        }
-
-        mLoadingDialog?.show()
-
-        var body = TaskPrepaidDetailParm()
-        body.title = mReleaseTaskParms?.body?.title
-        body.price = AmountUtil.getRoundUpDouble(mReleaseTaskParms?.body?.price?.toDouble(),2)
-        body.taskQty = mReleaseTaskParms?.body?.taskQty ?: 0
-
-        val loginReq = App.get().getLoginReq()
-        val token = loginReq?.data?.token
-        taskVM.fetchTaskPrepaidDetail(token,body)
     }
 
     fun showTaskPrepaidDetailData () {

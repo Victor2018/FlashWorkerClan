@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GitProjects/FlashWorkerClan/app/src/main/res/drawable/bottom_navigation_title_selector.xml" value="0.23333333333333334" />
         <entry key="..\:/GitProjects/FlashWorkerClan/app/src/main/res/layout/activity_main.xml" value="0.21" />
+        <entry key="..\:/GitProjects/FlashWorkerClan/app/src/main/res/menu/bottom_nav_menu.xml" value="0.21979166666666666" />
         <entry key="..\:/GitProjects/FlashWorkerClan/lib_common/src/main/res/drawable/bg_dlg_city_picker.xml" value="0.23333333333333334" />
         <entry key="..\:/GitProjects/FlashWorkerClan/lib_common/src/main/res/drawable/bg_dlg_home_new_release.xml" value="0.23333333333333334" />
         <entry key="..\:/GitProjects/FlashWorkerClan/lib_common/src/main/res/drawable/border_333333_radius_30.xml" value="0.23029472241261137" />
@@ -137,6 +139,7 @@
         <entry key="..\:/GitProjects/FlashWorkerClan/module_business/src/main/res/layout/dlg_task_complete_time_picker.xml" value="0.21550546448087432" />
         <entry key="..\:/GitProjects/FlashWorkerClan/module_business/src/main/res/layout/fl_qualification_cell.xml" value="0.21979166666666666" />
         <entry key="..\:/GitProjects/FlashWorkerClan/module_business/src/main/res/layout/fl_talent_release_cell.xml" value="0.19979508196721313" />
+        <entry key="..\:/GitProjects/FlashWorkerClan/module_business/src/main/res/layout/fragment_cancelled.xml" value="0.21979166666666666" />
         <entry key="..\:/GitProjects/FlashWorkerClan/module_business/src/main/res/layout/fragment_employed.xml" value="0.1871584699453552" />
         <entry key="..\:/GitProjects/FlashWorkerClan/module_business/src/main/res/layout/fragment_employer.xml" value="0.19262295081967212" />
         <entry key="..\:/GitProjects/FlashWorkerClan/module_business/src/main/res/layout/fragment_employer_cancelled.xml" value="0.17793715846994534" />

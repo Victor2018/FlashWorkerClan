@@ -13,6 +13,8 @@ package com.flash.worker.lib.coremodel.data.bean
  */
 class EmployerUnReadStatusData {
     var waitEmploymentListIsRead: Boolean = false//雇用中列表是否已读
+    var employmentListIsRead: Boolean = false//进行中列表是否已读
+    var disputeListIsRead: Boolean = false//投诉争议列表是否已读
     var waitEmploymentListCount: Int = 0//雇用中列表记录总数
     var employmentListCount: Int = 0//进行中列表记录总数
     var waitCommentListCount: Int = 0//待评价列表记录总数

@@ -143,10 +143,16 @@ class TalentFragment :BaseFragment(),View.OnClickListener {
 
     fun showUnReadStatusData (data: TalentUnReadStatusReq) {
         var employmentListIsRead = data.data?.employmentListIsRead ?: false
+        var disputeListIsRead = data.data?.disputeListIsRead ?: false
         if (employmentListIsRead) {
             mViewEmployingTip.visibility = View.GONE
         } else {
             mViewEmployingTip.visibility = View.VISIBLE
+        }
+        if (disputeListIsRead) {
+            mViewComplaintsTip.visibility = View.GONE
+        } else {
+            mViewComplaintsTip.visibility = View.VISIBLE
         }
 
         var waitEmploymentListCount = data.data?.waitEmploymentListCount ?: 0

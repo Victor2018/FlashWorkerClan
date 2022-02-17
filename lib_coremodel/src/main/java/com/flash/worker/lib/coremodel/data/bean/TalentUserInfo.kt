@@ -32,4 +32,6 @@ class TalentUserInfo: Serializable {
     var userIdentity: Int = 0// 用户身份：1-职场人士；2-学生
     var cancelSignupType: Int = 0//取消报名类型：1-人才取消；2-系统取消；3-雇主拒绝
     var signupFrozenAmount: Double = 0.0//报名冻结金额
+    var guildId: String? = null//公会ID
+    var guildName: String? = null//公会名称
 }

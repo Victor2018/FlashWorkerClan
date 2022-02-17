@@ -50,5 +50,6 @@ class EmployerEmployingInfo: Serializable {
     var finishTimeLimit: Int = 0//完成时限
     var settlementTimeLimit: Int = 0//结算时限
     var releaseTime: String? = null//发布时间
+    var isRead: Boolean = false//是否已读
     var isAutoPrepaid: Boolean = false//自动预付
 }
