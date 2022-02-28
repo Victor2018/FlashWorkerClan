@@ -676,7 +676,7 @@ class HireUpdateReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePi
         }
 
         mTvPieceTotalSalary.setText(AmountUtil.getRoundUpString(data.data?.totalAmount,2))
-        
+
         if (data.data?.settlementMethod == 1) {
             mTvSettlementMethod.text = "日结"
         } else if (data.data?.settlementMethod == 2) {
@@ -802,7 +802,7 @@ class HireUpdateReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePi
             mTvDailySalary.text = AmountUtil.getRoundUpString(dayPrice,2)
             if (!TextUtils.isEmpty(dayCount)) {
                 //计算合计
-                var dayTotalPrice = unitPrice.toDouble() * paidHour.toDouble()* dayCount.toInt()
+                var dayTotalPrice = AmountUtil.getRoundUpDouble(dayPrice,2) * dayCount.toInt()
                 mTvDayTotalPrice.text = AmountUtil.getRoundUpString(dayTotalPrice,2)
             }
         }
@@ -833,7 +833,8 @@ class HireUpdateReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePi
                 }
 
                 if (!TextUtils.isEmpty(unitPrice) && !TextUtils.isEmpty(paidHour)) {
-                    var settlementAmt = unitPrice.toDouble() * paidHour.toDouble() * 7
+                    var dayPrice = AmountUtil.getRoundUpDouble(unitPrice.toDouble() * paidHour.toDouble(),2)
+                    var settlementAmt = dayPrice * 7
                     mTvSettlementAmount.text = AmountUtil.getRoundUpString(settlementAmt,2)
                 }
             } else if (mSettlementMethod == 3) {//整单结
@@ -981,8 +982,8 @@ class HireUpdateReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePi
                 Loger.e(TAG,"showDateDialog-endHour = $endHour")
 
                 getWorkTimePickerDialog("日开工时间",mCurrentTime,
-                        mToggleEmergencyRelease.isChecked,hour,minute,startHour,endHour,
-                        true,true,true).show()
+                    mToggleEmergencyRelease.isChecked,hour,minute,startHour,endHour,
+                    true,true,true).show()
             }
             3 -> {//日完工时间
                 var startTime = mTvStartTime.text.toString()
@@ -1022,8 +1023,8 @@ class HireUpdateReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePi
                 Loger.e(TAG,"showDateDialog-endHour = $endHour")
 
                 getWorkTimePickerDialog("日完工时间",mCurrentTime,
-                        mToggleEmergencyRelease.isChecked,hour,minute,startHour,endHour,
-                        false,showFirst0,showLast30).show()
+                    mToggleEmergencyRelease.isChecked,hour,minute,startHour,endHour,
+                    false,showFirst0,showLast30).show()
             }
         }
     }
@@ -1425,7 +1426,8 @@ class HireUpdateReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePi
                 var paidHour = mTvPaidHour.text.toString().replace("小时","")
 
                 if (!TextUtils.isEmpty(unitPrice) && !TextUtils.isEmpty(paidHour)) {
-                    var settlementAmt = unitPrice.toDouble() * paidHour.toDouble() * 7
+                    var dayPrice = AmountUtil.getRoundUpDouble(unitPrice.toDouble() * paidHour.toDouble(),2)
+                    var settlementAmt = dayPrice * 7
                     mTvSettlementAmount.text = AmountUtil.getRoundUpString(settlementAmt,2)
                 }
             }
@@ -1461,7 +1463,8 @@ class HireUpdateReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePi
                 var paidHour = mTvPaidHour.text.toString().replace("小时","")
 
                 if (!TextUtils.isEmpty(unitPrice) && !TextUtils.isEmpty(paidHour)) {
-                    var settlementAmt = unitPrice.toDouble() * paidHour.toDouble() * 7
+                    var dayPrice = AmountUtil.getRoundUpDouble(unitPrice.toDouble() * paidHour.toDouble(),2)
+                    var settlementAmt = dayPrice * 7
                     mTvSettlementAmount.text = AmountUtil.getRoundUpString(settlementAmt,2)
                 }
             }

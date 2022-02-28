@@ -194,6 +194,7 @@ class PrepaidFreezeActivity : BaseActivity(),View.OnClickListener,
         mTvServiceAmount.text = "${AmountUtil.addCommaDots(mReleaseTaskParms?.taskPrepaidDetailData?.serviceFeeAmount)}元"
         mTvTotalAmount.text = AmountUtil.addCommaDots(mReleaseTaskParms?.taskPrepaidDetailData?.totalPrepaidAmount)
         mTvAccountBalance.text = AmountUtil.addCommaDots(mReleaseTaskParms?.taskPrepaidDetailData?.availableBalance)
+        tv_service_amount.text = "平台服务费(${mReleaseTaskParms?.taskPrepaidDetailData?.serviceFeeRate}%):"
 
         var availableBalance = mReleaseTaskParms?.taskPrepaidDetailData?.availableBalance ?: 0.0
         var totalPrepaidAmount = mReleaseTaskParms?.taskPrepaidDetailData?.totalPrepaidAmount ?: 0.0

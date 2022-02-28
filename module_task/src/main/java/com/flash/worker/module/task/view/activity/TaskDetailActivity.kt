@@ -327,6 +327,7 @@ class TaskDetailActivity : BaseActivity(),View.OnClickListener,AppBarLayout.OnOf
                 mIvStatus.setImageResource(R.mipmap.ic_off_shelf)
 
                 mIvReport.visibility = View.GONE
+                mIvShare.visibility = View.GONE
 
                 mTvCall.visibility = View.GONE
                 mTvChat.visibility = View.GONE
@@ -337,6 +338,7 @@ class TaskDetailActivity : BaseActivity(),View.OnClickListener,AppBarLayout.OnOf
                 mIvStatus.setImageResource(R.mipmap.ic_closed)
 
                 mIvReport.visibility = View.GONE
+                mIvShare.visibility = View.GONE
 
                 mTvCall.visibility = View.GONE
                 mTvChat.visibility = View.GONE

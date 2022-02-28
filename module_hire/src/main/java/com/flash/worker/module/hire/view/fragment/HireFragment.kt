@@ -65,26 +65,26 @@ import java.net.URLEncoder
 import kotlin.collections.ArrayList
 
 
- /*
-  * -----------------------------------------------------------------
-  * Copyright (C) 2020-2080, by Victor, All rights reserved.
-  * -----------------------------------------------------------------
-  * File: HireFragment
-  * Author: Victor
-  * Date: 2020/11/27 16:01
-  * Description:
-  * -----------------------------------------------------------------
-  */
+/*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2020-2080, by Victor, All rights reserved.
+ * -----------------------------------------------------------------
+ * File: HireFragment
+ * Author: Victor
+ * Date: 2020/11/27 16:01
+ * Description:
+ * -----------------------------------------------------------------
+ */
 @Route(path = ARouterPath.HireFgt)
 class HireFragment: BaseFragment(),  SwipeRefreshLayout.OnRefreshListener,View.OnClickListener,
-        AdapterView.OnItemClickListener, LMRecyclerView.OnLoadMoreListener, OnCityPickerListener,
-        OnDropDownMenuClickListener, MarqueeView.OnItemClickListener, CompoundButton.OnCheckedChangeListener,
-        AppBarLayout.OnOffsetChangedListener, OnLocationListener, OnJoinGuildListener {
+    AdapterView.OnItemClickListener, LMRecyclerView.OnLoadMoreListener, OnCityPickerListener,
+    OnDropDownMenuClickListener, MarqueeView.OnItemClickListener, CompoundButton.OnCheckedChangeListener,
+    AppBarLayout.OnOffsetChangedListener, OnLocationListener, OnJoinGuildListener {
 
     private lateinit var homeVM: HomeVM
     private lateinit var commonVM: CommonVM
     private lateinit var guildRedEnvelopeVM: GuildRedEnvelopeVM
-     private lateinit var guildVM: GuildVM
+    private lateinit var guildVM: GuildVM
 
     @Autowired(name = ARouterPath.loginService)
     @JvmField
@@ -153,17 +153,17 @@ class HireFragment: BaseFragment(),  SwipeRefreshLayout.OnRefreshListener,View.O
                 AmapLocationUtil.instance.getLocation(activity!!,this)
             }
         }
-     }
+    }
 
     fun initialize () {
         homeVM = ViewModelProvider(this, HomeVMFactory(this))
-                .get(HomeVM::class.java)
+            .get(HomeVM::class.java)
 
         commonVM = ViewModelProvider(this, provideCommonVMFactory(this))
-                .get(CommonVM::class.java)
+            .get(CommonVM::class.java)
 
         guildRedEnvelopeVM = ViewModelProvider(this, provideGuildRedEnvelopeVMFactory(this))
-                .get(GuildRedEnvelopeVM::class.java)
+            .get(GuildRedEnvelopeVM::class.java)
 
         guildVM = ViewModelProvider(this, GuildVMFactory(this))
             .get(GuildVM::class.java)
@@ -474,10 +474,10 @@ class HireFragment: BaseFragment(),  SwipeRefreshLayout.OnRefreshListener,View.O
             ToastUtils.show("请先登录")
             return
         }
-         mLoadingDialog?.show()
-         val loginReq = App.get().getLoginReq()
-         val token = loginReq?.data?.token
-         guildVM.fetchMyGuildInfo(token)
+        mLoadingDialog?.show()
+        val loginReq = App.get().getLoginReq()
+        val token = loginReq?.data?.token
+        guildVM.fetchMyGuildInfo(token)
     }
 
     fun showSearchTalentReleaseData (datas: SearchTalentReleaseReq) {
@@ -541,34 +541,34 @@ class HireFragment: BaseFragment(),  SwipeRefreshLayout.OnRefreshListener,View.O
 
         bannerView?.setPages(object : CBViewHolderCreator {
             override fun createHolder(itemView: View?) : BannerImageHolderView {
-                 return BannerImageHolderView(itemView)
+                return BannerImageHolderView(itemView)
             }
 
             override fun getLayoutId(): Int {
                 return R.layout.home_banner_cell
             }
         } ,data.data) //设置指示器的方向
-             //设置两个点图片作为翻页指示器，不设置则没有指示器，可以根据自己需求自行配合自己的指示器,不需要圆点指示器可用不设
-             ?.setPageIndicator(indicator.toIntArray())
-             ?.setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.CENTER_HORIZONTAL)
-             ?.setOnItemClickListener {
-                 var jumpLinkType = data.data?.get(it)?.jumpLinkType
-                 var jumpLinkUrl = data.data?.get(it)?.jumpLinkUrl
-                 if (TextUtils.equals("APP",jumpLinkType)) {
-                     if (TextUtils.equals("coupon",jumpLinkUrl)) {
-                         LiveDataBus.send(HomeActions.SHOW_AMY_SPORT_VOUCHER_RECEIVE_DLG)
-                     }
-                     if (TextUtils.equals("task",jumpLinkUrl)) {
-                         NavigationUtils.goTaskSearchActivity(activity as AppCompatActivity)
-                     }
-                 } else if (TextUtils.equals("WEB",jumpLinkType)){
-                     if (!TextUtils.isEmpty(data.data?.get(it)?.jumpLinkUrl)) {
-                         WebActivity.intentStart(activity!!,"",data.data?.get(it)?.jumpLinkUrl)
-                     }
-                 }
-             }.apply {
-                     bannerView?.setCanLoop(bannerCount > 1)
-        }
+            //设置两个点图片作为翻页指示器，不设置则没有指示器，可以根据自己需求自行配合自己的指示器,不需要圆点指示器可用不设
+            ?.setPageIndicator(indicator.toIntArray())
+            ?.setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.CENTER_HORIZONTAL)
+            ?.setOnItemClickListener {
+                var jumpLinkType = data.data?.get(it)?.jumpLinkType
+                var jumpLinkUrl = data.data?.get(it)?.jumpLinkUrl
+                if (TextUtils.equals("APP",jumpLinkType)) {
+                    if (TextUtils.equals("coupon",jumpLinkUrl)) {
+                        LiveDataBus.send(HomeActions.SHOW_AMY_SPORT_VOUCHER_RECEIVE_DLG)
+                    }
+                    if (TextUtils.equals("task",jumpLinkUrl)) {
+                        NavigationUtils.goTaskSearchActivity(activity as AppCompatActivity)
+                    }
+                } else if (TextUtils.equals("WEB",jumpLinkType)){
+                    if (!TextUtils.isEmpty(data.data?.get(it)?.jumpLinkUrl)) {
+                        WebActivity.intentStart(activity!!,"",data.data?.get(it)?.jumpLinkUrl)
+                    }
+                }
+            }.apply {
+                bannerView?.setCanLoop(bannerCount > 1)
+            }
 
     }
 
@@ -618,27 +618,37 @@ class HireFragment: BaseFragment(),  SwipeRefreshLayout.OnRefreshListener,View.O
 
         var startAge: String = filterView?.mEtStartAge?.text.toString()
         if (!TextUtils.isEmpty(startAge)) {
-         mSearchTalentReleaseParm?.minAge = startAge.toInt()
+            mSearchTalentReleaseParm?.minAge = startAge.toInt()
+        } else {
+            mSearchTalentReleaseParm?.minAge = null
         }
 
         var endAge: String = filterView?.mEtEndAge?.text.toString()
         if (!TextUtils.isEmpty(endAge)) {
-         mSearchTalentReleaseParm?.maxAge = endAge.toInt()
+            mSearchTalentReleaseParm?.maxAge = endAge.toInt()
+        } else {
+            mSearchTalentReleaseParm?.maxAge = null
         }
 
         var startUnitPrice: String = filterView?.mEtStartUnitPrice?.text.toString()
         if (!TextUtils.isEmpty(startUnitPrice)) {
-         mSearchTalentReleaseParm?.minPrice = startUnitPrice.toInt()
+            mSearchTalentReleaseParm?.minPrice = startUnitPrice.toInt()
+        } else {
+            mSearchTalentReleaseParm?.minPrice = null
         }
 
         var endUnitPrice: String = filterView?.mEtEndUnitPrice?.text.toString()
         if (!TextUtils.isEmpty(endUnitPrice)) {
-         mSearchTalentReleaseParm?.maxPrice = endUnitPrice.toInt()
+            mSearchTalentReleaseParm?.maxPrice = endUnitPrice.toInt()
+        } else {
+            mSearchTalentReleaseParm?.maxPrice = null
         }
 
         var checkPosition = mWorkAreaAdapter?.checkPosition ?: -1
         if (checkPosition >= 0) {
             mSearchTalentReleaseParm?.workDistrict = mWorkAreaAdapter?.getItem(checkPosition)?.name
+        } else {
+            mSearchTalentReleaseParm?.workDistrict = null
         }
 
         sendSearchTalentReleaseRequest(mSearchTalentReleaseParm)
@@ -680,7 +690,7 @@ class HireFragment: BaseFragment(),  SwipeRefreshLayout.OnRefreshListener,View.O
         when (view?.id) {
             R.id.mClTalentReleaseCell -> {
                 TalentDetailActivity.intentStart(activity as AppCompatActivity,
-                        mSearchTalentReleaseAdapter?.getItem(position)?.releaseId, TalentDetailAction.NORMAL)
+                    mSearchTalentReleaseAdapter?.getItem(position)?.releaseId, TalentDetailAction.NORMAL)
             }
             R.id.mIvTalentType -> {
                 mTalentTypeAdapter?.checkPosition = position
@@ -701,6 +711,8 @@ class HireFragment: BaseFragment(),  SwipeRefreshLayout.OnRefreshListener,View.O
 
                     mTalentAdapter?.checkCellId = ""
                     mTalentAdapter?.notifyDataSetChanged()
+
+                    mSearchTalentReleaseParm?.jobCategoryId = null
                 } else {
                     mTalentAdapter?.checkCellId = talentCellData?.id
                     mTalentAdapter?.notifyDataSetChanged()
@@ -957,23 +969,23 @@ class HireFragment: BaseFragment(),  SwipeRefreshLayout.OnRefreshListener,View.O
     }
 
     override fun OnJoinGuild() {
-     NavigationUtils.goJoinGuildActivity(activity as AppCompatActivity)
+        NavigationUtils.goJoinGuildActivity(activity as AppCompatActivity)
     }
 
     fun showChangeCityView (locationCity: String?) {
-     if (TextUtils.isEmpty(locationCity)) return
-     if (!isVisibleToUser) return
-     if (App.get().isSelectCity) return//手动切换城市不弹出城市切换
-     if (App.get().hasShowChangeCity) return
-     App.get().hasShowChangeCity = true
+        if (TextUtils.isEmpty(locationCity)) return
+        if (!isVisibleToUser) return
+        if (App.get().isSelectCity) return//手动切换城市不弹出城市切换
+        if (App.get().hasShowChangeCity) return
+        App.get().hasShowChangeCity = true
 
-     LiveDataBus.send(HomeActions.LOCATION_SUCCESSED,locationCity)
+        LiveDataBus.send(HomeActions.LOCATION_SUCCESSED,locationCity)
     }
 
     override fun onDestroyView() {
-     super.onDestroyView()
-     AmapLocationUtil.instance.removeLocationListener(this)
+        super.onDestroyView()
+        AmapLocationUtil.instance.removeLocationListener(this)
     }
 
 
- }
+}

@@ -50,7 +50,7 @@ class WorkingHoursPickerDialog(context: Context) : AbsBottomDialog(context),View
     fun initWorkingHoursPicker() {
         var workingHoursValue = ArrayList<String>()
 
-        for (i in 2 until 25) {
+        for (i in 2 until 37) {
             var item = ""
             if (i % 2 == 0) {
                 item = (i / 2).toString() + "小时"

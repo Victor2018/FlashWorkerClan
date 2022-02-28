@@ -35,23 +35,25 @@ class SearchJobReleaseContentHolder(itemView: View) : ContentViewHolder(itemView
         var jobStartTime = DateUtil.transDate(data?.jobStartTime ?: "","yyyy.MM.dd","MM.dd")
         var jobEndTime = DateUtil.transDate(data?.jobEndTime ?: "","yyyy.MM.dd","MM.dd")
 
-        if (data?.payrollMethod == 1) {
-            itemView.mTvWorkDate.text = "工作日期：${jobStartTime}-${jobEndTime}(${data?.paidHour}小时/日)"
-        } else {
-            itemView.mTvWorkDate.text = "工作日期：${jobStartTime}-${jobEndTime}(${data?.settlementPieceCount}单)"
-        }
-
         itemView.mTvRemuneration.text = "${AmountUtil.addCommaDots(data?.totalAmount)}元"
         itemView.mTvHireCount.text = "雇用${data?.peopleCount}人"
         itemView.mTvSignUpCount.text = "报名${data?.signupNum}人"
         itemView.mTvHiredCount.text = "已雇${data?.realPeopleCount}人"
 
+        var settlementPieceCount = data?.settlementPieceCount
         if (data?.settlementMethod == 1) {//日结
             itemView.mTvUnitPrice.text = "${AmountUtil.addCommaDots(data?.price)}元/时"
         } else if (data?.settlementMethod == 2) {//周结
             itemView.mTvUnitPrice.text = "${AmountUtil.addCommaDots(data?.price)}元/时"
         } else if (data?.settlementMethod == 3){
             itemView.mTvUnitPrice.text = "${AmountUtil.addCommaDots(data?.price)}元/单"
+            settlementPieceCount = 1
+        }
+
+        if (data?.payrollMethod == 1) {
+            itemView.mTvWorkDate.text = "工作日期：${jobStartTime}-${jobEndTime}(${data?.paidHour}小时/日)"
+        } else {
+            itemView.mTvWorkDate.text = "工作日期：${jobStartTime}-${jobEndTime}(${settlementPieceCount}单)"
         }
 
         ImageUtils.instance.loadImage(itemView.context,itemView.mCivAvatar,data?.headpic,R.mipmap.ic_avatar)

@@ -75,9 +75,9 @@ import java.net.URLEncoder
  */
 @Route(path = ARouterPath.JobFgt)
 class JobFragment: BaseFragment(),  SwipeRefreshLayout.OnRefreshListener,View.OnClickListener,
-        AdapterView.OnItemClickListener, LMRecyclerView.OnLoadMoreListener, OnCityPickerListener,
-        OnDropDownMenuClickListener, MarqueeView.OnItemClickListener, CompoundButton.OnCheckedChangeListener,
-        AppBarLayout.OnOffsetChangedListener, OnLocationListener {
+    AdapterView.OnItemClickListener, LMRecyclerView.OnLoadMoreListener, OnCityPickerListener,
+    OnDropDownMenuClickListener, MarqueeView.OnItemClickListener, CompoundButton.OnCheckedChangeListener,
+    AppBarLayout.OnOffsetChangedListener, OnLocationListener {
 
     private lateinit var homeVM: HomeVM
     private lateinit var commonVM: CommonVM
@@ -144,12 +144,12 @@ class JobFragment: BaseFragment(),  SwipeRefreshLayout.OnRefreshListener,View.On
 
     fun initialize () {
         homeVM = ViewModelProvider(
-                this, HomeVMFactory(this))
-                .get(HomeVM::class.java)
+            this, HomeVMFactory(this))
+            .get(HomeVM::class.java)
 
         commonVM = ViewModelProvider(
-                this, InjectorUtils.provideCommonVMFactory(this))
-                .get(CommonVM::class.java)
+            this, InjectorUtils.provideCommonVMFactory(this))
+            .get(CommonVM::class.java)
 
         mLoadingDialog = LoadingDialog(activity!!)
 
@@ -260,7 +260,7 @@ class JobFragment: BaseFragment(),  SwipeRefreshLayout.OnRefreshListener,View.On
     }
 
     fun subscribeUi() {
-         homeVM.searchEmployerReleaseData.observe(viewLifecycleOwner, Observer {
+        homeVM.searchEmployerReleaseData.observe(viewLifecycleOwner, Observer {
             mSrlRefresh.isRefreshing = false
             when(it) {
                 is HttpResult.Success -> {
@@ -307,7 +307,7 @@ class JobFragment: BaseFragment(),  SwipeRefreshLayout.OnRefreshListener,View.On
             }
         })
 
-         commonVM.areaTreeData.observe(viewLifecycleOwner, Observer {
+        commonVM.areaTreeData.observe(viewLifecycleOwner, Observer {
             mLoadingDialog?.dismiss()
             when(it) {
                 is HttpResult.Success -> {
@@ -470,8 +470,8 @@ class JobFragment: BaseFragment(),  SwipeRefreshLayout.OnRefreshListener,View.On
                     }
                 }
             }.apply {
-                    bannerView?.setCanLoop(bannerCount > 1)
-                }
+                bannerView?.setCanLoop(bannerCount > 1)
+            }
     }
 
 
@@ -554,11 +554,15 @@ class JobFragment: BaseFragment(),  SwipeRefreshLayout.OnRefreshListener,View.On
         var startUnitPrice: String = filterView?.mEtStartUnitPrice?.text.toString()
         if (!TextUtils.isEmpty(startUnitPrice)) {
             mSearchEmployerReleaseParm?.minPrice = startUnitPrice.toInt()
+        } else {
+            mSearchEmployerReleaseParm?.minPrice = null
         }
 
         var endUnitPrice: String = filterView?.mEtEndUnitPrice?.text.toString()
         if (!TextUtils.isEmpty(endUnitPrice)) {
             mSearchEmployerReleaseParm?.maxPrice = endUnitPrice.toInt()
+        } else {
+            mSearchEmployerReleaseParm?.maxPrice = null
         }
 
         if (mChkDayKSettlement.isChecked) {
@@ -574,6 +578,8 @@ class JobFragment: BaseFragment(),  SwipeRefreshLayout.OnRefreshListener,View.On
         var checkPosition = mWorkAreaAdapter?.checkPosition ?: -1
         if (checkPosition >= 0) {
             mSearchEmployerReleaseParm?.workDistrict = mWorkAreaAdapter?.getItem(checkPosition)?.name
+        } else {
+            mSearchEmployerReleaseParm?.workDistrict = null
         }
 
         sendSearchEmployerReleaseRequest(mSearchEmployerReleaseParm)
@@ -607,7 +613,7 @@ class JobFragment: BaseFragment(),  SwipeRefreshLayout.OnRefreshListener,View.On
         when (view?.id) {
             R.id.mClJobReleaseCell -> {
                 JobDetailActivity.intentStart(activity as AppCompatActivity,
-                        mSearchJobReleaseAdapter?.getItem(position)?.releaseId,
+                    mSearchJobReleaseAdapter?.getItem(position)?.releaseId,
                     null,null, JobDetailAction.NORMAL)
             }
             R.id.mIvTalentType -> {
@@ -629,6 +635,8 @@ class JobFragment: BaseFragment(),  SwipeRefreshLayout.OnRefreshListener,View.On
 
                     mTalentAdapter?.checkCellId = ""
                     mTalentAdapter?.notifyDataSetChanged()
+
+                    mSearchEmployerReleaseParm?.jobCategoryId = null
 
                 } else {
                     mTalentAdapter?.checkCellId = talentCellData?.id

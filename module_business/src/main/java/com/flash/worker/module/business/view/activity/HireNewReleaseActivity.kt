@@ -641,7 +641,8 @@ class HireNewReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePickL
             mTvDailySalary.text = AmountUtil.getRoundUpString(dayPrice,2)
             if (!TextUtils.isEmpty(dayCount)) {
                 //计算合计
-                var dayTotalPrice = unitPrice.toDouble() * paidHour.toDouble()* dayCount.toInt()
+                var dayTotalPrice = AmountUtil.getRoundUpDouble(dayPrice,2) * dayCount.toInt()
+
                 mTvDayTotalPrice.text = AmountUtil.getRoundUpString(dayTotalPrice,2)
             }
         }
@@ -672,7 +673,8 @@ class HireNewReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePickL
                 }
 
                 if (!TextUtils.isEmpty(unitPrice) && !TextUtils.isEmpty(paidHour)) {
-                    var settlementAmt = unitPrice.toDouble() * paidHour.toDouble() * 7
+                    var dayPrice = AmountUtil.getRoundUpDouble(unitPrice.toDouble() * paidHour.toDouble(),2)
+                    var settlementAmt = dayPrice * 7
                     mTvSettlementAmount.text = AmountUtil.getRoundUpString(settlementAmt,2)
                 }
             } else if (mSettlementMethod == 3) {//整单结
@@ -720,8 +722,8 @@ class HireNewReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePickL
                     Loger.e(TAG,"showDateDialog-currentHour = $currentHour")
                     Loger.e(TAG,"showDateDialog-currentMinute = $currentMinute")
                     if (currentHour > 20) {
-                       startDate = DateUtil.getOldFetureDate(mCurrentTime,1,"yyyy.MM.dd")
-                       endDate = DateUtil.getOldFetureDate(mCurrentTime,1,"yyyy.MM.dd")
+                        startDate = DateUtil.getOldFetureDate(mCurrentTime,1,"yyyy.MM.dd")
+                        endDate = DateUtil.getOldFetureDate(mCurrentTime,1,"yyyy.MM.dd")
                     } else {
                         if (currentHour == 20 && currentMinute > 30) {
                             startDate = DateUtil.getOldFetureDate(mCurrentTime,1,"yyyy.MM.dd")
@@ -802,7 +804,7 @@ class HireNewReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePickL
 
                 getWorkTimePickerDialog("日开工时间",mCurrentTime,
                     mToggleEmergencyRelease.isChecked,hour,minute,startHour,endHour,
-                        true,true,true).show()
+                    true,true,true).show()
             }
             3 -> {//日完工时间
                 var startTime = mTvStartTime.text.toString()
@@ -843,7 +845,7 @@ class HireNewReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePickL
 
                 getWorkTimePickerDialog("日完工时间",mCurrentTime,
                     mToggleEmergencyRelease.isChecked,hour,minute,startHour,endHour,
-                        false,showFirst0,showLast30).show()
+                    false,showFirst0,showLast30).show()
             }
         }
     }
@@ -1244,7 +1246,8 @@ class HireNewReleaseActivity : BaseActivity(), View.OnClickListener, OnDatePickL
                 var paidHour = mTvPaidHour.text.toString().replace("小时","")
 
                 if (!TextUtils.isEmpty(unitPrice) && !TextUtils.isEmpty(paidHour)) {
-                    var settlementAmt = unitPrice.toDouble() * paidHour.toDouble() * 7
+                    var dayPrice = AmountUtil.getRoundUpDouble(unitPrice.toDouble() * paidHour.toDouble(),2)
+                    var settlementAmt = dayPrice * 7
                     mTvSettlementAmount.text = AmountUtil.getRoundUpString(settlementAmt,2)
                 }
             }

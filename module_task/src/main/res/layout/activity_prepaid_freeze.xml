@@ -178,7 +178,7 @@
             android:textStyle="bold"
             android:textSize="@dimen/dp_28"
             android:textColor="@color/color_333333"
-            android:text="平台服务费(3%):"/>
+            tools:text="平台服务费(3%):"/>
 
         <TextView
             android:id="@+id/mTvServiceAmount"
